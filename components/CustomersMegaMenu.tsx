@@ -76,7 +76,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
+          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200/50 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* MOBILE BACK BUTTON */}
@@ -226,7 +226,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <div key={industry.name} className="flex flex-col items-center gap-2 group cursor-pointer">
                                 <div className={cn(
                                     "w-10 h-10 rounded-xl flex items-center justify-center transition-all",
-                                    industry.active ? "bg-white text-indigo-600 shadow-sm border border-indigo-100" : "bg-white border border-transparent group-hover:border-slate-200"
+                                    industry.active ? "bg-white text-indigo-600 shadow-sm border border-indigo-100" : "bg-white border border-transparent group-hover:border-slate-200/50"
                                 )}>
                                     <industry.icon className={cn("w-5 h-5", industry.active ? "text-indigo-600" : "text-slate-900 dark:text-white")} />
                                 </div>

@@ -85,7 +85,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
+          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200/50 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* MOBILE BACK BUTTON */}
@@ -180,7 +180,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             DexKor helps SaaS teams centralize customer data, predict risks early, and take action that drives measurable growth.
                         </p>
 
-                        <div className="grid grid-cols-3 gap-4 py-2 border-y border-slate-200/50">
+                        <div className="grid grid-cols-3 gap-4 py-2 border-y border-slate-200/50/50">
                             {[
                                 { label: "Churn reduction", val: "28%", icon: TrendingUp, color: "text-indigo-600" },
                                 { label: "Expansion revenue", val: "35%", icon: BarChart3, color: "text-blue-500" },
@@ -229,7 +229,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           <div className="bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/5">
              <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex items-center gap-4">
-                   <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-lg flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-800">
+                   <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-lg flex items-center justify-center shadow-sm border border-slate-200/50 dark:border-slate-800">
                       <Sparkles className="w-6 h-6 text-indigo-600" />
                    </div>
                    <div>

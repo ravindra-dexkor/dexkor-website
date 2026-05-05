@@ -56,7 +56,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
+          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200/50 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* MOBILE BACK BUTTON */}
@@ -226,7 +226,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                  </div>
                  <div className="flex flex-wrap gap-2 mb-4">
                     {learningPaths.map(path => (
-                        <button key={path} className="px-3 py-1.5 bg-white border border-slate-200 rounded-lg text-[10px] font-bold text-slate-600 dark:text-slate-300 hover:border-indigo-200 hover:text-indigo-600 transition-all flex items-center gap-1">
+                        <button key={path} className="px-3 py-1.5 bg-white border border-slate-200/50 rounded-lg text-[10px] font-bold text-slate-600 dark:text-slate-300 hover:border-indigo-200 hover:text-indigo-600 transition-all flex items-center gap-1">
                             {path} <ArrowRight className="w-3 h-3" />
                         </button>
                     ))}
@@ -270,7 +270,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <input 
                             type="text" 
                             placeholder="Can't find what you're looking for? Search our resources..."
-                            className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl py-3 pl-12 pr-4 text-xs focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 transition-all text-slate-900 dark:text-white"
+                            className="w-full bg-white dark:bg-slate-900 border border-slate-200/50 dark:border-slate-800 rounded-xl py-3 pl-12 pr-4 text-xs focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-100 transition-all text-slate-900 dark:text-white"
                         />
                     </div>
                 </div>

@@ -85,7 +85,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
-          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
+          className="absolute left-2 right-2 lg:left-6 lg:right-6 top-full mt-2 rounded-2xl bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl text-slate-900 dark:text-white transition-colors shadow-2xl z-[110] border border-slate-200/50 dark:border-white/10 overflow-y-auto max-h-[calc(100vh-100px)] scrollbar-hide w-auto"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {/* MOBILE BACK BUTTON */}
@@ -214,7 +214,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                                 key={i}
                                                 className={cn(
                                                     "w-1.5 h-1.5 rounded-full transition-all duration-300",
-                                                    currentFounder === i ? "bg-indigo-600 w-4" : "bg-white/80"
+                                                    currentFounder === i ? "bg-indigo-600 w-4" : "bg-slate-50/80"
                                                 )}
                                             />
                                         ))}
@@ -235,7 +235,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           </div>
 
           {/* BOTTOM BAR */}
-          <div className="bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-white/5 p-6">
+          <div className="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl border-t border-slate-100 dark:border-white/5 p-6">
              <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-3 flex items-center gap-4">
                    <div className="w-12 h-12 bg-indigo-50 dark:bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-600 border border-indigo-100">
