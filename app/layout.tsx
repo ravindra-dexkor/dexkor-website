@@ -23,7 +23,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
     >
-      <body className="bg-black text-white">
+      <body className="bg-background text-foreground transition-colors duration-300">
         <ThemeProvider>
           <Navbar />
           <div className="pt-16">

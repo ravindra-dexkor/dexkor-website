@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-[100dvh] lg:h-screen pt-[100px] lg:pt-[10px] pb-12 lg:pb-0 overflow-hidden bg-[#040814] text-white flex flex-col justify-center">
+    <section className="relative w-full min-h-[100dvh] lg:h-screen pt-[100px] lg:pt-[10px] pb-12 lg:pb-0 overflow-hidden bg-indigo-50 dark:bg-[#040814] text-slate-900 dark:text-white flex flex-col justify-center transition-colors duration-300">
       {/* Background Grid & Glows */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.05]" />
@@ -46,7 +46,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight"
+              className="text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white"
             >
               One operating system<br />
               for the entire<br />
@@ -57,7 +57,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-sm text-slate-400 max-w-md leading-relaxed"
+              className="text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed"
             >
               DexKor unifies sales, onboarding, support, and customer success into one AI-native platform powered by Dexy AI.
             </motion.p>
@@ -71,9 +71,9 @@ const Hero = () => {
               <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
                 See DexKor Live <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="w-full sm:w-auto bg-white/5 hover:bg-white/10 border border-white/10 text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all group">
-                <div className="w-4 h-4 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                  <Play className="w-2 h-2 fill-white ml-0.5" />
+              <button className="w-full sm:w-auto bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all group shadow-sm dark:shadow-none">
+                <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center group-hover:bg-slate-200 dark:group-hover:bg-white/20 transition-colors">
+                  <Play className="w-2 h-2 fill-slate-900 dark:fill-white ml-0.5" />
                 </div>
                 Watch 2-min Overview
               </button>
@@ -107,11 +107,11 @@ const Hero = () => {
                 className="w-40 h-40 rounded-full bg-blue-600/10 border border-blue-500/20 flex flex-col items-center justify-center backdrop-blur-xl relative"
               >
                 <div className="absolute inset-0 rounded-full border-2 border-blue-500/20 animate-[ping_3s_linear_infinite]" />
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] mb-2 overflow-hidden bg-[#040814] border border-blue-500/30">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-[0_0_30px_rgba(37,99,235,0.4)] mb-2 overflow-hidden bg-white dark:bg-[#040814] border border-slate-200 dark:border-blue-500/30">
                   <img src="/images/dexy_ai.png" alt="Dexy AI" className="w-full h-full object-cover" />
                 </div>
-                <span className="font-black text-xs tracking-widest uppercase text-blue-50">Dexy AI</span>
-                <span className="text-[7px] text-slate-400 mt-0.5 uppercase tracking-tighter">Embedded Intelligence</span>
+                <span className="font-black text-xs tracking-widest uppercase text-slate-900 dark:text-blue-50">Dexy AI</span>
+                <span className="text-[7px] text-slate-500 dark:text-slate-400 mt-0.5 uppercase tracking-tighter">Embedded Intelligence</span>
               </motion.div>
             </div>
 
@@ -123,17 +123,37 @@ const Hero = () => {
               <Node title="AccountCare" desc="Drive retention and expansion" stat="+25% Expansion" icon={Heart} className="bottom-[5%] right-[-10%]" delay={0.6} color="orange" />
 
               {/* Connection Lines */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-20" viewBox="0 0 400 400">
-                <motion.path
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
+                {/* Background subtle lines */}
+                <path
                   d="M60,100 L200,200 M340,100 L200,200 M60,280 L200,200 M340,280 L200,200"
                   stroke="currentColor"
                   strokeWidth="1"
                   fill="none"
-                  className="text-blue-500"
+                  className="text-blue-500/10"
                 />
+                
+                {/* Animated light dots */}
+                {[
+                  { x1: 60, y1: 100, x2: 200, y2: 200, delay: 0 },
+                  { x1: 340, y1: 100, x2: 200, y2: 200, delay: 1.5 },
+                  { x1: 60, y1: 280, x2: 200, y2: 200, delay: 0.75 },
+                  { x1: 340, y1: 280, x2: 200, y2: 200, delay: 2.25 },
+                ].map((line, i) => (
+                  <motion.circle
+                    key={i}
+                    r="2.5"
+                    className="fill-blue-400"
+                    style={{ filter: "drop-shadow(0 0 4px #60a5fa)" }}
+                    initial={{ cx: line.x1, cy: line.y1, opacity: 0 }}
+                    animate={{ 
+                       cx: [line.x1, line.x2], 
+                       cy: [line.y1, line.y2], 
+                       opacity: [0, 1, 1, 0] 
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: line.delay }}
+                  />
+                ))}
               </svg>
             </div>
           </div>
@@ -150,7 +170,7 @@ const Hero = () => {
           </div>
 
           {/* TRUST SECTION */}
-          <div className="w-full pt-8 lg:pt-6 border-t border-white/5">
+          <div className="w-full pt-8 lg:pt-6 border-t border-slate-200 dark:border-white/5">
             <p className="text-center text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-6 lg:mb-4">
               Trusted by modern B2B teams replacing fragmented stacks
             </p>
@@ -195,14 +215,14 @@ const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" 
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.5 }}
-      className={cn("absolute w-48 p-4 rounded-2xl bg-slate-900/80 border border-white/5 backdrop-blur-md shadow-2xl", className)}
+      className={cn("absolute w-48 p-4 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-white/5 backdrop-blur-md shadow-2xl dark:shadow-2xl", className)}
     >
       <div className="flex items-start gap-3">
         <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border", colors[color])}>
           <Icon className="w-4 h-4" />
         </div>
         <div>
-          <h4 className="font-bold text-xs">{title}</h4>
+          <h4 className="font-bold text-xs text-slate-900 dark:text-white">{title}</h4>
           <p className="text-[9px] text-slate-500 mt-0.5 leading-tight">{desc}</p>
           <div className={cn("mt-2 inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full", colors[color])}>
             {stat}
@@ -229,7 +249,7 @@ const Notification = ({ icon: Icon, text, color }: NotificationProps) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className={cn("flex items-center gap-2 px-3 py-2 rounded-xl border backdrop-blur-sm transition-all cursor-pointer", colors[color])}
+      className={cn("flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-white/5 bg-white/80 dark:bg-transparent backdrop-blur-sm transition-all cursor-pointer", colors[color])}
     >
       <Icon className="w-3 h-3" />
       <span className="text-[9px] font-bold uppercase tracking-wide">{text}</span>
@@ -242,7 +262,7 @@ interface ComparisonLogoProps {
 }
 
 const ComparisonLogo = ({ name }: ComparisonLogoProps) => (
-  <div className="text-lg font-bold tracking-tight text-white">{name}</div>
+  <div className="text-lg font-bold tracking-tight text-slate-900 dark:text-white">{name}</div>
 );
 
 export default Hero;

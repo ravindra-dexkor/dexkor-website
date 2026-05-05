@@ -10,6 +10,7 @@ import CustomersMegaMenu from "./CustomersMegaMenu";
 import ResourcesMegaMenu from "./ResourcesMegaMenu";
 import CompanyMegaMenu from "./CompanyMegaMenu";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -25,7 +26,7 @@ const Navbar = () => {
 
   return (
     <nav 
-      className="fixed top-0 left-0 w-full bg-black text-white z-[100] border-b border-white/5"
+      className="fixed top-0 left-0 w-full bg-white dark:bg-black text-slate-900 dark:text-white z-[100] border-b border-slate-200 dark:border-white/5 transition-colors duration-300"
       onMouseLeave={() => setActiveMenu(null)}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -67,18 +68,20 @@ const Navbar = () => {
         </div>
 
         {/* ACTIONS */}
-        <div className="flex items-center gap-6">
-          <Link href="/login" className="hidden sm:block text-sm font-semibold hover:text-blue-400 transition-colors">
+        <div className="flex items-center gap-4 sm:gap-6">
+          <ThemeToggle />
+          <Link href="/login" className="hidden sm:block text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
             Login
           </Link>
-          <button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:via-indigo-500 hover:to-violet-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all group shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
-            See DexKor Live
+          <button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:via-indigo-500 hover:to-violet-500 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all group shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
+            <span className="hidden sm:inline">See DexKor Live</span>
+            <span className="sm:hidden">Demo</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
           
           {/* MOBILE TOGGLE */}
           <button 
-            className="lg:hidden text-white"
+            className="lg:hidden text-slate-900 dark:text-white"
             onClick={() => {
               setIsMobileMenuOpen(!isMobileMenuOpen);
               if (isMobileMenuOpen) setActiveMenu(null);
@@ -113,11 +116,11 @@ const Navbar = () => {
 
       {/* MOBILE MENU OVERLAY */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-16 bg-black z-[90] lg:hidden p-6 space-y-6 overflow-y-auto">
+        <div className="fixed inset-0 top-16 bg-white dark:bg-black z-[90] lg:hidden p-6 space-y-6 overflow-y-auto transition-colors duration-300">
             {!activeMenu && (
               <>
                 {navItems.map((item) => (
-                    <div key={item.name} className="border-b border-slate-800 pb-4">
+                    <div key={item.name} className="border-b border-slate-200 dark:border-slate-800 pb-4">
                         <button 
                           onClick={() => item.hasMenu && setActiveMenu(item.name)}
                           className="flex items-center justify-between w-full text-lg font-semibold"
@@ -127,7 +130,7 @@ const Navbar = () => {
                         </button>
                     </div>
                 ))}
-                <Link href="/login" className="block text-lg font-semibold border-b border-slate-800 pb-4">
+                <Link href="/login" className="block text-lg font-semibold border-b border-slate-200 dark:border-slate-800 pb-4">
                     Login
                 </Link>
               </>
