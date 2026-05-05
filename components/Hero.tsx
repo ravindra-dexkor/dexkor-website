@@ -203,7 +203,17 @@ const Hero = () => {
   );
 };
 
-const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" }) => {
+interface NodeProps {
+    title: string;
+    desc: string;
+    stat: string;
+    icon: React.ElementType;
+    className?: string;
+    delay: number;
+    color?: "blue" | "violet" | "cyan" | "orange";
+}
+
+const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" }: NodeProps) => {
     const colors = {
         blue: "text-blue-500 bg-blue-500/10 border-blue-500/20",
         violet: "text-violet-500 bg-violet-500/10 border-violet-500/20",
@@ -234,7 +244,13 @@ const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" 
     );
 };
 
-const Notification = ({ icon: Icon, text, color }) => {
+interface NotificationProps {
+    icon: React.ElementType;
+    text: string;
+    color: "emerald" | "amber" | "blue" | "purple";
+}
+
+const Notification = ({ icon: Icon, text, color }: NotificationProps) => {
     const colors = {
         emerald: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
         amber: "text-amber-400 bg-amber-400/10 border-amber-400/20",
@@ -252,7 +268,11 @@ const Notification = ({ icon: Icon, text, color }) => {
     );
 };
 
-const ComparisonLogo = ({ name }) => (
+interface ComparisonLogoProps {
+    name: string;
+}
+
+const ComparisonLogo = ({ name }: ComparisonLogoProps) => (
     <div className="text-lg font-bold tracking-tight text-white">{name}</div>
 );
 
