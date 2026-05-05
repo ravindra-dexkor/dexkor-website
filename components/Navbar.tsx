@@ -113,7 +113,7 @@ const Navbar = () => {
 
       {/* MOBILE MENU OVERLAY */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-20 bg-black z-[90] lg:hidden p-6 space-y-6 overflow-y-auto">
+        <div className="fixed inset-0 top-16 bg-black z-[90] lg:hidden p-6 space-y-6 overflow-y-auto">
             {!activeMenu && (
               <>
                 {navItems.map((item) => (
