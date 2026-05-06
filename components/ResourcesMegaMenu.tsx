@@ -86,14 +86,14 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-[13px]">Learn</h4>
-                                    <p className="text-[10px] text-slate-400 dark:text-slate-500">Guides, playbooks, and insights.</p>
+                                    <p className="text-xs text-slate-400 dark:text-slate-500">Guides, playbooks, and insights.</p>
                                 </div>
                             </div>
                             <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-indigo-600 transition-colors" />
                         </div>
                         <ul className="pl-12 grid grid-cols-1 gap-2">
                             {learnLinks.map(link => (
-                                <li key={link} className="text-[11px] text-slate-500 dark:text-slate-400 hover:text-indigo-600 cursor-pointer flex items-center gap-2">
+                                <li key={link} className="text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 cursor-pointer flex items-center gap-2">
                                     <div className="w-1 h-1 bg-slate-200 rounded-full" />
                                     {link}
                                 </li>
@@ -110,14 +110,14 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-[13px]">Technical</h4>
-                                    <p className="text-[10px] text-slate-400 dark:text-slate-500">Docs and developer tools.</p>
+                                    <p className="text-xs text-slate-400 dark:text-slate-500">Docs and developer tools.</p>
                                 </div>
                             </div>
                             <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-emerald-600 transition-colors" />
                         </div>
                         <ul className="pl-12 grid grid-cols-1 gap-2">
                             {techLinks.map(link => (
-                                <li key={link} className="text-[11px] text-slate-500 dark:text-slate-400 hover:text-emerald-600 cursor-pointer flex items-center gap-2">
+                                <li key={link} className="text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-600 cursor-pointer flex items-center gap-2">
                                     <div className="w-1 h-1 bg-slate-200 rounded-full" />
                                     {link}
                                 </li>
@@ -141,7 +141,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
                     <div className="space-y-5">
-                        <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-[0.2em]">2026 Benchmark Report</span>
+                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-[0.2em]">2026 Benchmark Report</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white leading-tight">
                             State of Customer<br />
                             Growth <span className="text-indigo-600">2026</span>
@@ -172,9 +172,9 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                 <div>
                                     <div className="flex items-center gap-1.5 mb-8">
                                         <div className="w-4 h-4 bg-blue-600 rounded flex items-center justify-center">
-                                            <span className="text-[10px] text-white font-black italic">D</span>
+                                            <span className="text-xs text-white font-black italic">D</span>
                                         </div>
-                                        <span className="text-[9px] font-bold text-white tracking-widest">DEXKOR</span>
+                                        <span className="text-xs font-bold text-white tracking-widest">DEXKOR</span>
                                     </div>
                                     <div className="space-y-1">
                                         <span className="text-xl font-bold text-indigo-400/80">2026</span>
@@ -185,7 +185,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                         </h3>
                                     </div>
                                 </div>
-                                <div className="space-y-1 text-[8px] text-slate-400 dark:text-slate-500 font-medium">
+                                <div className="space-y-1 text-xs text-slate-400 dark:text-slate-500 font-medium">
                                     <p>500+ companies</p>
                                     <p>20+ industries</p>
                                     <p>Global insights</p>
@@ -208,7 +208,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <stat.icon className="w-3 h-3 text-indigo-400" />
                             <span className="text-[13px] font-bold text-slate-800 dark:text-slate-100">{stat.val}</span>
                         </div>
-                        <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight">{stat.label}</p>
+                        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight">{stat.label}</p>
                     </div>
                  ))}
               </div>
@@ -221,17 +221,17 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div>
                         <h4 className="font-bold text-[13px]">Learning Paths</h4>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400">Curated paths to build your expertise.</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">Curated paths to build your expertise.</p>
                     </div>
                  </div>
                  <div className="flex flex-wrap gap-2 mb-4">
                     {learningPaths.map(path => (
-                        <button key={path} className="px-3 py-1.5 bg-white border border-slate-200/50 rounded-lg text-[10px] font-bold text-slate-600 dark:text-slate-300 hover:border-indigo-200 hover:text-indigo-600 transition-all flex items-center gap-1">
+                        <button key={path} className="px-3 py-1.5 bg-white border border-slate-200/50 rounded-lg text-xs font-bold text-slate-600 dark:text-slate-300 hover:border-indigo-200 hover:text-indigo-600 transition-all flex items-center gap-1">
                             {path} <ArrowRight className="w-3 h-3" />
                         </button>
                     ))}
                  </div>
-                 <button className="text-indigo-600 text-[11px] font-bold flex items-center gap-1 hover:gap-2 transition-all">
+                 <button className="text-indigo-600 text-xs font-bold flex items-center gap-1 hover:gap-2 transition-all">
                     View all paths <ArrowRight className="w-3 h-3" />
                  </button>
               </div>
@@ -247,9 +247,9 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <item.icon className="w-4.5 h-4.5" />
                     </div>
                     <div className="flex-1">
-                        <span className={cn("text-[8px] font-bold tracking-widest", item.color)}>{item.type}</span>
-                        <h5 className="text-[11px] font-bold text-slate-800 dark:text-slate-100 leading-tight group-hover:text-indigo-600 transition-colors">{item.title}</h5>
-                        <p className="text-[9px] text-slate-400 dark:text-slate-500 mt-0.5">{item.time}</p>
+                        <span className={cn("text-xs font-bold tracking-widest", item.color)}>{item.type}</span>
+                        <h5 className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight group-hover:text-indigo-600 transition-colors">{item.title}</h5>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{item.time}</p>
                     </div>
                     <ArrowRight className="w-3.5 h-3.5 text-slate-200 group-hover:text-indigo-400 transition-colors" />
                   </div>

@@ -46,11 +46,11 @@ const FlowCard = ({
     </div>
     <div className="space-y-1.5">
       <div className="flex items-center gap-2">
-        <span className={cn("text-[9px] font-bold uppercase tracking-wider", textColorClass)}>{step}</span>
+        <span className={cn("text-xs font-bold uppercase tracking-wider", textColorClass)}>{step}</span>
       </div>
       <h4 className="font-bold text-slate-900 dark:text-white text-[13px] leading-tight">{title}</h4>
-      <p className="text-[10px] font-bold text-slate-700 dark:text-slate-200">{subtitle}</p>
-      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">{description}</p>
+      <p className="text-xs font-bold text-slate-700 dark:text-slate-200">{subtitle}</p>
+      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{description}</p>
     </div>
   </motion.div>
 );
@@ -149,14 +149,14 @@ const HowItWorksSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-10 lg:mb-14">
           {/* Left Column: Text */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <span className="text-blue-600 dark:text-blue-500 font-bold text-[9px] uppercase tracking-widest block mb-3">— HOW DEXKOR WORKS</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mb-4">
+            <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— HOW DEXKOR WORKS</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mt-4 mb-4">
               From reactive operations to <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">
                 predictive execution.
               </span>
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-6 max-w-sm font-medium">
+            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-sm font-medium">
               DexKor continuously analyzes customer activity, detects patterns, and recommends the next best action—before risks become escalations.
             </p>
             <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/10 dark:shadow-none">
@@ -195,7 +195,7 @@ const HowItWorksSection = () => {
                     <span className={cn("text-lg font-bold", metric.trend === "↑" ? "text-emerald-500" : "text-blue-500")}>{metric.trend}</span>
                   </div>
                   <h4 className="text-[13px] font-bold text-slate-900 dark:text-white mb-1">{metric.label}</h4>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                     {metric.description}
                   </p>
                 </div>

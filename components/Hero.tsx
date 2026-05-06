@@ -37,7 +37,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-[9px] font-bold text-blue-400 uppercase tracking-widest"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-xs font-bold text-blue-400 uppercase tracking-widest"
             >
               AI-Native Customer Experience Suite
             </motion.div>
@@ -85,13 +85,13 @@ const Hero = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-wrap justify-center lg:justify-start items-center gap-5 pt-2"
             >
-              <div className="flex items-center gap-1.5 text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider">
                 <ShieldCheck className="w-3 h-3 text-blue-500" /> Enterprise-ready
               </div>
-              <div className="flex items-center gap-1.5 text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider">
                 <Lock className="w-3 h-3 text-blue-500" /> SOC 2 Type II
               </div>
-              <div className="flex items-center gap-1.5 text-[9px] font-bold text-slate-500 uppercase tracking-wider">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-slate-500 uppercase tracking-wider">
                 <Globe className="w-3 h-3 text-blue-500" /> Built for global teams
               </div>
             </motion.div>
@@ -111,7 +111,7 @@ const Hero = () => {
                   <img src="/images/dexy_ai.png" alt="Dexy AI" className="w-full h-full object-cover" />
                 </div>
                 <span className="font-black text-xs tracking-widest uppercase text-slate-900 dark:text-blue-50">Dexy AI</span>
-                <span className="text-[7px] text-slate-500 dark:text-slate-400 mt-0.5 uppercase tracking-tighter">Embedded Intelligence</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5  tracking-tighter">Embedded Intelligence</span>
               </motion.div>
             </div>
 
@@ -132,7 +132,7 @@ const Hero = () => {
                   fill="none"
                   className="text-blue-500/10"
                 />
-                
+
                 {/* Animated light dots */}
                 {[
                   { x1: 60, y1: 100, x2: 200, y2: 200, delay: 0 },
@@ -146,10 +146,10 @@ const Hero = () => {
                     className="fill-blue-400"
                     style={{ filter: "drop-shadow(0 0 4px #60a5fa)" }}
                     initial={{ cx: line.x1, cy: line.y1, opacity: 0 }}
-                    animate={{ 
-                       cx: [line.x1, line.x2], 
-                       cy: [line.y1, line.y2], 
-                       opacity: [0, 1, 1, 0] 
+                    animate={{
+                      cx: [line.x1, line.x2],
+                      cy: [line.y1, line.y2],
+                      opacity: [0, 1, 1, 0]
                     }}
                     transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: line.delay }}
                   />
@@ -171,7 +171,7 @@ const Hero = () => {
 
           {/* TRUST SECTION */}
           <div className="w-full pt-8 lg:pt-6 border-t border-slate-200 dark:border-white/5">
-            <p className="text-center text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em] mb-6 lg:mb-4">
+            <p className="text-center text-xs font-bold text-slate-500 uppercase tracking-[0.2em] mb-6 lg:mb-4">
               Trusted by modern B2B teams replacing fragmented stacks
             </p>
             <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 md:gap-12 opacity-40 lg:scale-90">
@@ -215,7 +215,7 @@ const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" 
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, duration: 0.5 }}
-      className={cn("absolute w-48 p-4 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-white/5 backdrop-blur-md shadow-2xl dark:shadow-2xl", className)}
+      className={cn("absolute w-50 p-4 rounded-2xl bg-white/90 dark:bg-slate-900/80 border border-slate-200 dark:border-white/5 backdrop-blur-md shadow-2xl dark:shadow-2xl", className)}
     >
       <div className="flex items-start gap-3">
         <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0 border", colors[color])}>
@@ -223,8 +223,8 @@ const Node = ({ title, desc, stat, icon: Icon, className, delay, color = "blue" 
         </div>
         <div>
           <h4 className="font-bold text-xs text-slate-900 dark:text-white">{title}</h4>
-          <p className="text-[9px] text-slate-500 mt-0.5 leading-tight">{desc}</p>
-          <div className={cn("mt-2 inline-flex items-center gap-1 text-[9px] font-bold px-2 py-0.5 rounded-full", colors[color])}>
+          <p className="text-xs text-slate-500 mt-0.5 leading-tight">{desc}</p>
+          <div className={cn("mt-2 inline-flex items-center gap-1 text-xs font-bold px-2 py-0.5 rounded-full", colors[color])}>
             {stat}
           </div>
         </div>
@@ -252,7 +252,7 @@ const Notification = ({ icon: Icon, text, color }: NotificationProps) => {
       className={cn("flex items-center gap-2 px-3 py-2 rounded-xl border border-slate-200 dark:border-white/5 bg-white/80 dark:bg-transparent backdrop-blur-sm transition-all cursor-pointer", colors[color])}
     >
       <Icon className="w-3 h-3" />
-      <span className="text-[9px] font-bold uppercase tracking-wide">{text}</span>
+      <span className="text-xs font-bold uppercase tracking-wide">{text}</span>
     </motion.div>
   );
 };

@@ -111,7 +111,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <span className="font-semibold text-[13px] group-hover:text-blue-600 transition-colors">{module.title}</span>
                         <ArrowRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-blue-600" />
                       </div>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{module.description}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{module.description}</p>
                     </div>
                   </div>
                 ))}
@@ -134,7 +134,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-sm text-slate-900 dark:text-white">Dexy AI</span>
-                    <span className="text-[10px] font-bold bg-purple-200 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 px-1.5 py-0.5 rounded uppercase">Powered by AI</span>
+                    <span className="text-xs font-bold bg-purple-200 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 px-1.5 py-0.5 rounded uppercase">Powered by AI</span>
                   </div>
                 </div>
                 <div className="space-y-3 ml-11">
@@ -142,9 +142,9 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     <div key={item.title}>
                       <div className="flex items-center gap-2">
                         <div className="w-1 h-1 bg-purple-400 rounded-full" />
-                        <span className="font-semibold text-[11px] text-slate-900 dark:text-slate-200">{item.title}</span>
+                        <span className="font-semibold text-xs text-slate-900 dark:text-slate-200">{item.title}</span>
                       </div>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">{item.description}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -174,7 +174,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               
               <div className="flex-1 flex flex-col">
                 <div className="mb-4">
-                  <span className="text-[10px] font-bold bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full uppercase">Live Preview</span>
+                  <span className="text-xs font-bold bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 px-2 py-1 rounded-full uppercase">Live Preview</span>
                 </div>
                 <h2 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
                   Everything connected.<br />
@@ -196,7 +196,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <div className="w-3 h-3 rounded-full bg-yellow-400" />
                         <div className="w-3 h-3 rounded-full bg-green-400" />
                      </div>
-                     <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono">Unified Timeline</span>
+                     <span className="text-xs text-slate-400 dark:text-slate-500 font-mono">Unified Timeline</span>
                   </div>
                   <div className="p-2">
                     {/* Placeholder for dashboard image */}
@@ -240,7 +240,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                    ].map((item) => (
                       <div key={item.label} className="flex items-center gap-2">
                          <item.icon className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-                         <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">{item.label}</span>
+                         <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">{item.label}</span>
                       </div>
                    ))}
                    <button className="ml-4 text-blue-600 text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">

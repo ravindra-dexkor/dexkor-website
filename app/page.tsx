@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import TeamsSection from "@/components/TeamsSection";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ProblemSection />
       <SolutionSection />
       <HowItWorksSection />
+      <TeamsSection />
     </main>
   );
 }

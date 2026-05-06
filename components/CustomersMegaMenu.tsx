@@ -100,7 +100,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 <div className="space-y-6">
                     <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500">
                         <Truck className="w-4 h-4" />
-                        <span className="text-[10px] font-bold uppercase tracking-widest">Logistics SaaS</span>
+                        <span className="text-xs font-bold uppercase tracking-widest">Logistics SaaS</span>
                     </div>
 
                     <h2 className="text-4xl font-bold text-slate-900 dark:text-white leading-[1.1]">
@@ -123,8 +123,8 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                     <stat.icon className={cn("w-3 h-3", stat.color)} />
                                     <span className="text-lg font-bold">{stat.val}</span>
                                 </div>
-                                <p className="text-[10px] font-bold text-slate-800 dark:text-slate-100">{stat.label}</p>
-                                <p className="text-[9px] text-slate-400 dark:text-slate-500">{stat.desc}</p>
+                                <p className="text-xs font-bold text-slate-800 dark:text-slate-100">{stat.label}</p>
+                                <p className="text-xs text-slate-400 dark:text-slate-500">{stat.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -160,8 +160,8 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <div className="flex items-center gap-3 pl-14">
                                 <img src="https://i.pravatar.cc/100?u=rohit" className="w-8 h-8 rounded-full border-2 border-white/20" alt="Rohit" />
                                 <div>
-                                    <p className="text-[11px] font-bold">Rohit Mehta</p>
-                                    <p className="text-[9px] text-white/60">VP of Customer Success, TransloadX</p>
+                                    <p className="text-xs font-bold">Rohit Mehta</p>
+                                    <p className="text-xs text-white/60">VP of Customer Success, TransloadX</p>
                                 </div>
                             </div>
                         </div>
@@ -185,7 +185,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </div>
-                        <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -198,7 +198,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <img key={i} src={`https://i.pravatar.cc/100?img=${i+15}`} className="w-8 h-8 rounded-full border-2 border-white" alt="User" />
                         ))}
                     </div>
-                    <p className="text-[10px] font-bold text-slate-600 dark:text-slate-300 leading-tight">
+                    <p className="text-xs font-bold text-slate-600 dark:text-slate-300 leading-tight">
                         Trusted by <span className="text-indigo-600">500+</span><br />
                         customer-centric teams
                     </p>
@@ -213,7 +213,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
              <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-stretch justify-between gap-8">
                 {/* EXPLORE BY INDUSTRY */}
                 <div className="flex-1">
-                    <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Explore by Industry</h3>
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Explore by Industry</h3>
                     <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
                         {[
                             { name: "SaaS", icon: Cloud, active: true },
@@ -230,7 +230,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                 )}>
                                     <industry.icon className={cn("w-5 h-5", industry.active ? "text-indigo-600" : "text-slate-900 dark:text-white")} />
                                 </div>
-                                <span className={cn("text-[11px] font-bold transition-colors", industry.active ? "text-indigo-600" : "text-slate-600 dark:text-slate-300 group-hover:text-indigo-600")}>
+                                <span className={cn("text-xs font-bold transition-colors", industry.active ? "text-indigo-600" : "text-slate-600 dark:text-slate-300 group-hover:text-indigo-600")}>
                                     {industry.name}
                                 </span>
                             </div>
@@ -244,7 +244,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 {/* TRUSTED BY */}
                 <div className="flex-[0.8] flex flex-col justify-between">
                     <div>
-                        <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Trusted by Innovative Companies</h3>
+                        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Trusted by Innovative Companies</h3>
                         <div className="flex items-center gap-8 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                              {/* Placeholder logos - using styled text to represent logos */}
                              <div className="font-bold text-lg text-slate-800 dark:text-slate-100 tracking-tighter">uniphore</div>

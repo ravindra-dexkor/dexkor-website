@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -9,12 +9,22 @@ import SolutionsMegaMenu from "./SolutionsMegaMenu";
 import CustomersMegaMenu from "./CustomersMegaMenu";
 import ResourcesMegaMenu from "./ResourcesMegaMenu";
 import CompanyMegaMenu from "./CompanyMegaMenu";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import Logo from "../../dexkor-website/public/images/logo.png"
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Platform", hasMenu: true },
@@ -25,116 +35,128 @@ const Navbar = () => {
   ];
 
   return (
-    <nav 
-      className="fixed top-0 left-0 w-full bg-white dark:bg-black text-slate-900 dark:text-white z-[100] border-b border-slate-200 dark:border-white/5 transition-colors duration-300"
+    <nav
+      className={cn(
+        "fixed left-0 right-0 z-[100] transition-all duration-500 ease-in-out",
+        isScrolled ? "top-4 px-4" : "top-0 px-0"
+      )}
       onMouseLeave={() => setActiveMenu(null)}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* LOGO */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-             <span className="text-white font-black text-xl italic">D</span>
-          </div>
-          <span className="font-bold text-xl tracking-tight uppercase">Dexkor</span>
-        </Link>
-
-        {/* DESKTOP NAV */}
-        <div className="hidden lg:flex items-center gap-8 h-full">
-          {navItems.map((item) => (
-            <div 
-              key={item.name}
-              className="h-full flex items-center"
-              onMouseEnter={() => item.hasMenu && setActiveMenu(item.name)}
-            >
-              <button 
-                className={cn(
-                  "flex items-center gap-1 text-sm font-medium transition-colors hover:text-blue-400 py-2 relative",
-                  activeMenu === item.name && "text-blue-400"
-                )}
-              >
-                {item.name}
-                {item.hasMenu && (
-                  <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeMenu === item.name && "rotate-180")} />
-                )}
-                {activeMenu === item.name && (
-                   <motion.div 
-                    layoutId="navbar-underline"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500"
-                   />
-                )}
-              </button>
+      <div
+        className={cn(
+          "mx-auto transition-all duration-500 ease-in-out",
+          isScrolled
+            ? "max-w-7xl rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+            : "max-w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/5"
+        )}
+      >
+        <div className={cn(
+          "max-w-7xl mx-auto px-6 flex items-center justify-between transition-all duration-500",
+          isScrolled ? "h-14" : "h-16"
+        )}>
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8  rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+              <img src="./images/logo.png" alt="Logo" className="w-full h-full" />
             </div>
-          ))}
-        </div>
-
-        {/* ACTIONS */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <ThemeToggle />
-          <Link href="/login" className="hidden sm:block text-sm font-semibold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            Login
+            <span className="font-bold text-xl tracking-tight uppercase hidden sm:block">Dexkor</span>
           </Link>
-          <button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:via-indigo-500 hover:to-violet-500 text-white px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg text-sm font-bold flex items-center gap-2 transition-all group shadow-[0_0_15px_rgba(37,99,235,0.3)] hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
-            <span className="hidden sm:inline">See DexKor Live</span>
-            <span className="sm:hidden">Demo</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          
-          {/* MOBILE TOGGLE */}
-          <button 
-            className="lg:hidden text-slate-900 dark:text-white"
-            onClick={() => {
-              setIsMobileMenuOpen(!isMobileMenuOpen);
-              if (isMobileMenuOpen) setActiveMenu(null);
-            }}
-          >
-            {isMobileMenuOpen ? <X /> : <Menu />}
-          </button>
+
+          {/* DESKTOP NAV */}
+          <div className="hidden lg:flex items-center gap-8 h-full">
+            {navItems.map((item) => (
+              <div
+                key={item.name}
+                className="h-full flex items-center"
+                onMouseEnter={() => item.hasMenu && setActiveMenu(item.name)}
+              >
+                <button
+                  className={cn(
+                    "flex items-center gap-1 text-[13px] font-semibold transition-colors hover:text-blue-400 py-2 relative",
+                    activeMenu === item.name && "text-blue-400"
+                  )}
+                >
+                  {item.name}
+                  {item.hasMenu && (
+                    <ChevronDown className={cn("w-3.5 h-3.5 transition-transform duration-200", activeMenu === item.name && "rotate-180")} />
+                  )}
+                  {activeMenu === item.name && (
+                    <motion.div
+                      layoutId="navbar-underline"
+                      className="absolute bottom-[-20px] left-0 w-full h-0.5 bg-blue-500 rounded-full"
+                    />
+                  )}
+                </button>
+              </div>
+            ))}
+          </div>
+
+          {/* ACTIONS */}
+          <div className="flex items-center gap-3 sm:gap-5">
+            <ThemeToggle />
+            <Link href="/login" className="hidden sm:block text-[13px] font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Login
+            </Link>
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-xs font-bold flex items-center gap-2 transition-all group shadow-lg shadow-blue-500/20">
+              <span className="hidden sm:inline">Start for free</span>
+              <span className="sm:hidden">Start</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            {/* MOBILE TOGGLE */}
+            <button
+              className="lg:hidden text-slate-900 dark:text-white"
+              onClick={() => {
+                setIsMobileMenuOpen(!isMobileMenuOpen);
+                if (isMobileMenuOpen) setActiveMenu(null);
+              }}
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* MEGA MENUS */}
-      <PlatformMegaMenu 
-        isOpen={activeMenu === "Platform"} 
-        onClose={() => setActiveMenu(null)}
-      />
-      <SolutionsMegaMenu 
-        isOpen={activeMenu === "Solutions"} 
-        onClose={() => setActiveMenu(null)}
-      />
-      <CustomersMegaMenu 
-        isOpen={activeMenu === "Customers"} 
-        onClose={() => setActiveMenu(null)}
-      />
-      <ResourcesMegaMenu 
-        isOpen={activeMenu === "Resources"} 
-        onClose={() => setActiveMenu(null)}
-      />
-      <CompanyMegaMenu 
-        isOpen={activeMenu === "Company"} 
-        onClose={() => setActiveMenu(null)}
-      />
+      <AnimatePresence>
+        {activeMenu === "Platform" && (
+          <PlatformMegaMenu isOpen={true} onClose={() => setActiveMenu(null)} />
+        )}
+        {activeMenu === "Solutions" && (
+          <SolutionsMegaMenu isOpen={true} onClose={() => setActiveMenu(null)} />
+        )}
+        {activeMenu === "Customers" && (
+          <CustomersMegaMenu isOpen={true} onClose={() => setActiveMenu(null)} />
+        )}
+        {activeMenu === "Resources" && (
+          <ResourcesMegaMenu isOpen={true} onClose={() => setActiveMenu(null)} />
+        )}
+        {activeMenu === "Company" && (
+          <CompanyMegaMenu isOpen={true} onClose={() => setActiveMenu(null)} />
+        )}
+      </AnimatePresence>
 
       {/* MOBILE MENU OVERLAY */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 top-16 bg-white dark:bg-black z-[90] lg:hidden p-6 space-y-6 overflow-y-auto transition-colors duration-300">
-            {!activeMenu && (
-              <>
-                {navItems.map((item) => (
-                    <div key={item.name} className="border-b border-slate-200 dark:border-slate-800 pb-4">
-                        <button 
-                          onClick={() => item.hasMenu && setActiveMenu(item.name)}
-                          className="flex items-center justify-between w-full text-lg font-semibold"
-                        >
-                            {item.name}
-                            {item.hasMenu && <ChevronDown className="w-5 h-5" />}
-                        </button>
-                    </div>
-                ))}
-                <Link href="/login" className="block text-lg font-semibold border-b border-slate-200 dark:border-slate-800 pb-4">
-                    Login
-                </Link>
-              </>
-            )}
+        <div className="fixed inset-0 top-0 bg-white dark:bg-black z-[90] lg:hidden p-6 pt-24 space-y-6 overflow-y-auto transition-colors duration-300">
+          {!activeMenu && (
+            <>
+              {navItems.map((item) => (
+                <div key={item.name} className="border-b border-slate-100 dark:border-white/5 pb-4">
+                  <button
+                    onClick={() => item.hasMenu && setActiveMenu(item.name)}
+                    className="flex items-center justify-between w-full text-lg font-bold"
+                  >
+                    {item.name}
+                    {item.hasMenu && <ChevronDown className="w-5 h-5" />}
+                  </button>
+                </div>
+              ))}
+              <Link href="/login" className="block text-lg font-bold border-b border-slate-100 dark:border-white/5 pb-4">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       )}
     </nav>

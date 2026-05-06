@@ -103,7 +103,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
             {/* ABOUT DEXKOR */}
             <div className="col-span-1 md:col-span-3">
-              <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">About DexKor</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">About DexKor</h3>
               <div className="space-y-4">
                 {aboutLinks.map((item) => (
                   <div key={item.title} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer">
@@ -115,7 +115,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <span className="font-bold text-[13px] text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </div>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -127,7 +127,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* TRUST & COMPLIANCE */}
             <div className="col-span-1 md:col-span-3 border-l-0 md:border-l border-slate-100 dark:border-white/5 pl-0 md:pl-12">
-              <h3 className="text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Trust & Compliance</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Trust & Compliance</h3>
               <div className="space-y-4">
                 {trustLinks.map((item) => (
                   <div key={item.title} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer">
@@ -139,7 +139,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <span className="font-bold text-[13px] text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </div>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -162,7 +162,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                
                <div className="relative z-10 flex-1 flex flex-col">
                   <div className="px-4 pt-4 flex-1">
-                    <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-[0.2em]">From Our Founder</span>
+                    <span className="text-xs font-bold text-indigo-600 uppercase tracking-[0.2em]">From Our Founder</span>
                     
                     <div className="mt-2 relative">
                         <AnimatePresence mode="wait">
@@ -185,7 +185,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                                 </React.Fragment>
                                             ))}
                                         </h2>
-                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-xs">
+                                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-xs">
                                             {founders[currentFounder].description}
                                         </p>
                                     </div>
@@ -195,7 +195,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                             {founders[currentFounder].signature}
                                         </div>
                                         <p className="text-[12px] font-bold text-slate-900 dark:text-white">{founders[currentFounder].name}</p>
-                                        <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{founders[currentFounder].role}</p>
+                                        <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">{founders[currentFounder].role}</p>
                                     </div>
                                 </div>
 
@@ -226,7 +226,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                   </div>
 
                   <div className="p-4 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm border-t border-slate-100 dark:border-white/5">
-                    <button className="w-full text-indigo-600 py-1.5 text-[11px] font-bold flex items-center justify-center gap-2 group">
+                    <button className="w-full text-indigo-600 py-1.5 text-xs font-bold flex items-center justify-center gap-2 group">
                         Meet the leadership team <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                     </button>
                   </div>
@@ -243,7 +243,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                    </div>
                    <div>
                       <h4 className="font-bold text-xs leading-tight">Proudly building the future<br />of customer growth</h4>
-                      <p className="text-[9px] text-slate-400 dark:text-slate-500 mt-1">Trusted by innovative teams around the world.</p>
+                      <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Trusted by innovative teams around the world.</p>
                    </div>
                 </div>
 
@@ -259,13 +259,13 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <stat.icon className="w-3.5 h-3.5 text-indigo-500" />
                             <span className="text-sm font-black text-slate-800 dark:text-slate-100">{stat.val}</span>
                          </div>
-                         <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{stat.label}</p>
+                         <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{stat.label}</p>
                       </div>
                    ))}
                 </div>
 
                 <div className="lg:col-span-4 flex flex-col items-end gap-3">
-                   <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.1em]">Backed by leading investors</span>
+                   <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.1em]">Backed by leading investors</span>
                    <div className="flex items-center gap-6 opacity-30 grayscale contrast-125">
                       <span className="text-sm font-black text-slate-900 dark:text-white tracking-tighter">Accel</span>
                       <span className="text-sm font-black text-slate-900 dark:text-white tracking-tighter flex items-center gap-1">
@@ -279,7 +279,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </div>
              </div>
              
-             <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-50 flex justify-center items-center gap-2 text-[9px] text-slate-400 dark:text-slate-500 font-medium">
+             <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-50 flex justify-center items-center gap-2 text-xs text-slate-400 dark:text-slate-500 font-medium">
                 <Lock className="w-3 h-3" />
                 DexKor is committed to building a secure, inclusive, and transparent company.
              </div>

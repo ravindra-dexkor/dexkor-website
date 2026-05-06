@@ -129,7 +129,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         </span>
                         <ChevronRight className={cn("w-4 h-4 text-slate-300 transition-all", useCase.active ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0")} />
                       </div>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{useCase.description}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{useCase.description}</p>
                     </div>
                   </div>
                 ))}
@@ -160,7 +160,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     )}>
                         <industry.icon className="w-5 h-5" />
                     </div>
-                    <span className={cn("text-[11px] font-bold text-center", industry.active ? "text-indigo-600" : "text-slate-600 dark:text-slate-300")}>
+                    <span className={cn("text-xs font-bold text-center", industry.active ? "text-indigo-600" : "text-slate-600 dark:text-slate-300")}>
                         {industry.name}
                     </span>
                   </div>
@@ -171,7 +171,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <div className="bg-slate-50 dark:bg-slate-900/50 rounded-2xl p-6 border border-slate-100 dark:border-white/5 relative overflow-hidden flex-1 group cursor-pointer">
                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                     <div className="space-y-4">
-                        <span className="text-[10px] font-bold bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-full uppercase">For SaaS Teams</span>
+                        <span className="text-xs font-bold bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 px-2 py-1 rounded-full uppercase">For SaaS Teams</span>
                         <h2 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white leading-tight">
                             Scale customer success.<br />
                             Reduce churn. <span className="text-indigo-600">Drive expansion.</span>
@@ -191,7 +191,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                         <stat.icon className={cn("w-3 h-3", stat.color)} />
                                         <span className="text-sm font-bold">{stat.val}</span>
                                     </div>
-                                    <p className="text-[9px] text-slate-400 dark:text-slate-500 font-medium">{stat.label}</p>
+                                    <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -209,7 +209,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                     <div className="w-2 h-2 rounded-full bg-yellow-400" />
                                     <div className="w-2 h-2 rounded-full bg-green-400" />
                                 </div>
-                                <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tighter">Customer Health Overview</span>
+                                <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tighter">Customer Health Overview</span>
                              </div>
                              <div className="p-3">
                                 <img 
@@ -234,7 +234,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                    </div>
                    <div>
                       <h4 className="font-bold text-sm">Not sure where to start?</h4>
-                      <p className="text-[11px] text-slate-500 dark:text-slate-400 max-w-sm">Tell us about your goals and we'll recommend the right solution for your team.</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 max-w-sm">Tell us about your goals and we'll recommend the right solution for your team.</p>
                    </div>
                 </div>
 
@@ -253,7 +253,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             </div>
                          ))}
                       </div>
-                      <p className="text-[10px] font-medium text-slate-500 dark:text-slate-400 leading-tight">
+                      <p className="text-xs font-medium text-slate-500 dark:text-slate-400 leading-tight">
                          Trusted by <span className="font-bold text-slate-900 dark:text-white">500+</span> teams<br />
                          across <span className="font-bold text-slate-900 dark:text-white">20+</span> countries
                       </p>

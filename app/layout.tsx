@@ -1,11 +1,15 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Geist_Mono } from "next/font/google"
+import localFont from "next/font/local"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const satoshi = localFont({
+  src: "../public/font/Fonts/WEB/fonts/Satoshi-Variable.woff2",
+  variable: "--font-satoshi",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -21,7 +25,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={cn("antialiased", fontMono.variable, satoshi.variable, "font-sans")}
     >
       <body className="bg-background text-foreground transition-colors duration-300">
         <ThemeProvider>
