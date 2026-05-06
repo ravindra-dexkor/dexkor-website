@@ -211,7 +211,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="mt-4 text-center">
-                   <button className="w-full bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-indigo-600 py-2 rounded-lg text-xs font-bold transition-colors border border-slate-100 dark:border-white/5">
+                   <button className="w-full bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 text-indigo-600 px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold transition-colors border border-slate-100 dark:border-white/5">
                       Explore the Platform →
                    </button>
                 </div>

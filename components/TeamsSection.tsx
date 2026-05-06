@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   TrendingUp,
   Heart,
@@ -10,10 +10,17 @@ import {
   BarChart3,
   LayoutGrid,
   ArrowRight,
+  ArrowUp,
+  ArrowDown,
   ShieldCheck,
-  User,
-  ArrowUpRight,
-  ArrowDownRight
+  Zap,
+  Box,
+  Layers,
+  Search,
+  CheckCircle2,
+  Users,
+  Shield,
+  ShieldCheckIcon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -22,20 +29,16 @@ const TeamCard = ({
   description,
   icon: Icon,
   indicator,
-  indicatorValue,
   isUp,
   colorClass,
-  glowColor,
   delay
 }: {
   title: string;
   description: string;
   icon: any;
   indicator: string;
-  indicatorValue?: string;
   isUp?: boolean;
   colorClass: string;
-  glowColor: string;
   delay: number;
 }) => (
   <motion.div
@@ -43,35 +46,42 @@ const TeamCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
-    className="group relative p-6 rounded-2xl bg-white dark:bg-[#060b1a] border border-slate-100 dark:border-white/5 hover:border-slate-200 dark:hover:border-white/10 transition-all shadow-sm hover:shadow-xl"
+    className="group relative p-6 rounded-2xl bg-slate-50/50 dark:bg-[#060b1a]/40 border border-slate-100 dark:border-white/5 hover:border-blue-500/20 dark:hover:border-white/10 transition-all duration-300 shadow-sm dark:shadow-none"
   >
     <div className="flex items-start gap-5">
-      {/* Icon Container */}
-      <div className={cn(
-        "w-14 h-14 rounded-full flex items-center justify-center shrink-0 relative",
-        "bg-white dark:bg-[#0a1128] shadow-inner border border-slate-100 dark:border-white/5"
-      )}>
-        <div
-          className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity"
-          style={{ backgroundColor: glowColor }}
-        />
-        <Icon className={cn("w-6 h-6 relative z-10", colorClass)} />
+      {/* Icon Container with Circular Glow */}
+      <div className="relative shrink-0">
+        <div className={cn(
+          "w-16 h-16 rounded-full flex items-center justify-center relative z-10 border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a1128]",
+          "shadow-sm dark:shadow-[0_0_20px_rgba(0,0,0,0.5)]"
+        )}>
+          <Icon className={cn("w-7 h-7", colorClass)} />
+        </div>
+        {/* Glow Effect */}
+        <div className={cn(
+          "absolute inset-0 rounded-full blur-2xl opacity-10 dark:opacity-20 group-hover:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-500",
+          colorClass.includes("blue") ? "bg-blue-500" : 
+          colorClass.includes("emerald") ? "bg-emerald-500" :
+          colorClass.includes("purple") ? "bg-purple-500" :
+          colorClass.includes("orange") ? "bg-orange-500" :
+          colorClass.includes("teal") ? "bg-teal-500" : "bg-blue-500"
+        )} />
       </div>
 
-      <div className="space-y-2">
-        <h4 className="font-bold text-slate-900 dark:text-white text-base">{title}</h4>
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+      <div className="space-y-1">
+        <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">{title}</h4>
+        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium line-clamp-2">
           {description}
         </p>
       </div>
     </div>
 
-    {/* Indicator */}
-    <div className="mt-6 flex items-center gap-1.5 pt-4 border-t border-slate-50 dark:border-white/5">
+    {/* Bottom Indicator */}
+    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5">
       {isUp ? (
-        <ArrowUpRight className={cn("w-3.5 h-3.5", colorClass)} />
+        <ArrowUp className={cn("w-3.5 h-3.5", colorClass)} />
       ) : (
-        <ArrowDownRight className={cn("w-3.5 h-3.5", colorClass)} />
+        <ArrowDown className={cn("w-3.5 h-3.5", colorClass)} />
       )}
       <span className={cn("text-xs font-bold uppercase tracking-wider", colorClass)}>
         {indicator}
@@ -81,51 +91,135 @@ const TeamCard = ({
 );
 
 const OrbitalGraphic = () => {
-  return (
-    <div className="relative w-full h-[300px] md:h-[400px] flex items-center justify-center overflow-hidden">
-      {/* Central Node */}
-      <motion.div
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-        className="w-24 h-24 rounded-3xl bg-blue-600 flex items-center justify-center relative z-20 shadow-[0_0_50px_rgba(37,99,235,0.4)]"
-      >
-        <img src="/images/logo.png" alt="Logo" className="w-12 h-12 invert" />
+  const [rotation, setRotation] = useState(0);
 
-        {/* Pulsing Rings */}
-        <div className="absolute inset-0 rounded-3xl border-2 border-blue-500/50 animate-ping" style={{ animationDuration: '3s' }} />
-        <div className="absolute -inset-8 rounded-full border border-blue-500/10" />
-        <div className="absolute -inset-16 rounded-full border border-blue-500/5" />
-      </motion.div>
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setRotation(prev => (prev + 0.2) % 360);
+    }, 20);
+    return () => clearInterval(interval);
+  }, []);
+
+  const orbitingIcons = [
+    { Icon: TrendingUp, color: "text-blue-500 dark:text-blue-400", angle: 0, radius: 80 },
+    { Icon: Heart, color: "text-emerald-500 dark:text-emerald-400", angle: 60, radius: 100 },
+    { Icon: Headphones, color: "text-purple-500 dark:text-purple-400", angle: 120, radius: 90 },
+    { Icon: Rocket, color: "text-orange-500 dark:text-orange-400", angle: 180, radius: 110 },
+    { Icon: BarChart3, color: "text-blue-600 dark:text-blue-400", angle: 240, radius: 85 },
+    { Icon: Layers, color: "text-teal-500 dark:text-teal-400", angle: 300, radius: 105 },
+  ];
+
+  const lightingDots = [
+    { angle: 30, radius: 80, color: "bg-blue-400" },
+    { angle: 150, radius: 110, color: "bg-indigo-400" },
+    { angle: 270, radius: 95, color: "bg-cyan-400" },
+  ];
+
+  return (
+    <div className="relative w-full h-[300px] lg:h-[350px] flex items-center justify-center overflow-hidden lg:overflow-visible">
+      {/* Central Hub */}
+      <div className="relative z-20">
+        <motion.div
+          animate={{ 
+            scale: [1, 1.05, 1],
+            boxShadow: [
+              "0 0 20px rgba(37,99,235,0.1)",
+              "0 0 40px rgba(37,99,235,0.3)",
+              "0 0 20px rgba(37,99,235,0.1)"
+            ]
+          }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          className="w-24 h-24 rounded-full bg-white dark:bg-gradient-to-br dark:from-blue-600 dark:to-indigo-700 border border-slate-200 dark:border-white/20 flex items-center justify-center relative overflow-hidden shadow-xl"
+        >
+            {/* DexKor Logo */}
+            <div className="relative z-10 w-14 h-14 flex items-center justify-center">
+                <img 
+                    src="/images/logo.png" 
+                    alt="DexKor Logo" 
+                    className="w-full h-full object-contain dark:invert" 
+                />
+            </div>
+            {/* Animated Inner Shine */}
+            <motion.div 
+                animate={{ x: [-100, 200] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/10 dark:via-white/20 to-transparent skew-x-12"
+            />
+        </motion.div>
+        
+        {/* Decorative Rings */}
+        <div className="absolute inset-0 -m-4 rounded-full border border-blue-500/10 dark:border-blue-500/20" />
+        <div className="absolute inset-0 -m-8 rounded-full border border-blue-500/5 dark:border-blue-500/10" />
+      </div>
+
+      {/* Orbital Path Rings */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <svg className="w-full h-full">
+          <circle cx="50%" cy="50%" r="80" fill="none" stroke="currentColor" className="text-slate-200 dark:text-white/10" strokeWidth="1" strokeDasharray="4 4" />
+          <circle cx="50%" cy="50%" r="110" fill="none" stroke="currentColor" className="text-slate-200 dark:text-white/10" strokeWidth="0.5" strokeDasharray="2 6" />
+          <circle cx="50%" cy="50%" r="140" fill="none" stroke="currentColor" className="text-slate-200 dark:text-white/10" strokeWidth="0.5" strokeDasharray="1 8" />
+        </svg>
+      </div>
 
       {/* Orbiting Icons */}
-      {[
-        { top: '15%', left: '15%', delay: 0 },
-        { top: '10%', right: '20%', delay: 1 },
-        { bottom: '20%', left: '20%', delay: 2 },
-        { bottom: '15%', right: '15%', delay: 3 },
-      ].map((pos, idx) => (
-        <motion.div
-          key={idx}
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            y: [0, -15, 0],
-          }}
-          transition={{
-            opacity: { duration: 1 },
-            y: { repeat: Infinity, duration: 3 + idx, ease: "easeInOut", delay: pos.delay }
-          }}
-          className="absolute z-10 p-2 rounded-full bg-white dark:bg-[#0a1128] border border-slate-100 dark:border-white/10 shadow-lg"
-          style={pos}
-        >
-          <div className="w-6 h-6 flex items-center justify-center">
-            <User className="w-4 h-4 text-slate-400 dark:text-slate-500" />
-          </div>
-        </motion.div>
-      ))}
+      {orbitingIcons.map((item, idx) => {
+        const currentAngle = (item.angle + rotation) * (Math.PI / 180);
+        const x = Math.cos(currentAngle) * item.radius;
+        const y = Math.sin(currentAngle) * item.radius;
 
-      {/* Background Glows */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+        return (
+          <motion.div
+            key={idx}
+            className="absolute z-10 p-2 rounded-full bg-white dark:bg-[#0a1128] border border-slate-200 dark:border-white/10 shadow-lg"
+            style={{ x, y }}
+          >
+            <div className={cn("w-6 h-6 flex items-center justify-center", item.color)}>
+              <item.Icon className="w-4 h-4" />
+            </div>
+          </motion.div>
+        );
+      })}
+
+      {/* Orbiting Lighting Dots */}
+      {lightingDots.map((dot, idx) => {
+          const currentAngle = (dot.angle + rotation * 1.5) * (Math.PI / 180);
+          const x = Math.cos(currentAngle) * dot.radius;
+          const y = Math.sin(currentAngle) * dot.radius;
+
+          return (
+              <motion.div
+                key={`dot-${idx}`}
+                className={cn(
+                    "absolute z-30 w-1.5 h-1.5 rounded-full",
+                    dot.color,
+                    "shadow-[0_0_8px_currentColor,0_0_12px_#60a5fa,0_0_20px_#3b82f6]"
+                )}
+                style={{ x, y }}
+              />
+          );
+      })}
+
+      {/* Small floating background dots */}
+      {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            animate={{ 
+                opacity: [0.1, 0.4, 0.1],
+                scale: [1, 1.2, 1],
+                y: [0, -10, 0]
+            }}
+            transition={{ 
+                repeat: Infinity, 
+                duration: 2 + i, 
+                delay: i * 0.5 
+            }}
+            className="absolute w-1 h-1 bg-blue-500 dark:bg-blue-400 rounded-full"
+            style={{ 
+                top: `${20 + i * 15}%`, 
+                left: `${15 + (i % 3) * 20}%` 
+            }}
+          />
+      ))}
     </div>
   );
 };
@@ -139,7 +233,6 @@ const TeamsSection = () => {
       indicator: "Pipeline visibility",
       isUp: true,
       colorClass: "text-blue-500",
-      glowColor: "#3b82f6",
       delay: 0.1
     },
     {
@@ -149,7 +242,6 @@ const TeamsSection = () => {
       indicator: "Churn signals",
       isUp: false,
       colorClass: "text-emerald-500",
-      glowColor: "#10b981",
       delay: 0.2
     },
     {
@@ -159,7 +251,6 @@ const TeamsSection = () => {
       indicator: "Resolution time",
       isUp: false,
       colorClass: "text-purple-500",
-      glowColor: "#a855f7",
       delay: 0.3
     },
     {
@@ -169,7 +260,6 @@ const TeamsSection = () => {
       indicator: "Project delays",
       isUp: false,
       colorClass: "text-orange-500",
-      glowColor: "#f97316",
       delay: 0.4
     },
     {
@@ -178,35 +268,36 @@ const TeamsSection = () => {
       icon: BarChart3,
       indicator: "Forecast accuracy",
       isUp: true,
-      colorClass: "text-blue-600",
-      glowColor: "#2563eb",
+      colorClass: "text-blue-600 dark:text-blue-400",
       delay: 0.5
     },
     {
       title: "RevOps",
       description: "Align data, automation, and execution.",
-      icon: LayoutGrid,
+      icon: Layers,
       indicator: "Process efficiency",
       isUp: true,
-      colorClass: "text-teal-500",
-      glowColor: "#14b8a6",
+      colorClass: "text-teal-600 dark:text-teal-400",
       delay: 0.6
     }
   ];
 
   return (
-    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] transition-colors duration-300 overflow-hidden">
+    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-50 dark:border-white/5">
+      {/* Background Glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[120px] pointer-events-none -mr-48 -mt-48" />
+      
       <div className="max-w-7xl mx-auto px-6 relative z-10">
 
         {/* Header Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10 lg:mb-14">
-          <div className="space-y-6 max-w-xl">
+          <div className="space-y-6 max-w-xl text-center lg:text-left">
             <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— BUILT FOR EVERY TEAM</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white mt-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mt-4">
               One platform.<br />
-              Every <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">customer-facing team.</span>
+              Every <span className="text-blue-600 dark:text-blue-500">customer-facing team.</span>
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-xl font-medium">
+            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed font-medium">
               From revenue to retention, DexKor gives every team one shared customer timeline, one intelligence layer, and one source of truth.
             </p>
           </div>
@@ -215,7 +306,7 @@ const TeamsSection = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16 lg:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {teams.map((team, idx) => (
             <TeamCard key={idx} {...team} />
           ))}
@@ -227,29 +318,26 @@ const TeamsSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full bg-slate-900 dark:bg-white/5 rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden relative"
+          className="w-full bg-slate-50/80 dark:bg-[#060b1a]/80 backdrop-blur-xl border border-slate-200 dark:border-white/5 rounded-[2rem] p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm dark:shadow-none"
         >
           <div className="flex items-center gap-6">
-            <div className="w-14 h-14 rounded-full bg-blue-600/10 border border-blue-500/20 flex items-center justify-center shrink-0">
-              <ShieldCheck className="w-7 h-7 text-blue-500" />
+            <div className="w-14 h-14 rounded-full bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30 flex items-center justify-center shrink-0 shadow-sm dark:shadow-[0_0_20px_rgba(37,99,235,0.2)]">
+              <ShieldCheckIcon className="w-7 h-7 text-blue-600 dark:text-blue-500" />
             </div>
-            <h3 className="text-xl md:text-2xl font-bold text-white">
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
               No silos. No blind spots. No handoff failures.
             </h3>
           </div>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-500/20">
-            Explore Use Cases <ArrowRight className="w-4 h-4" />
-          </button>
-
-          {/* Decorative Background Elements */}
-          <div className="absolute top-0 right-0 w-64 h-full bg-gradient-to-l from-blue-500/10 to-transparent pointer-events-none" />
+          <div className="flex items-center gap-4">
+              <div className="hidden lg:block w-px h-12 bg-slate-200 dark:bg-white/10 mx-4" />
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
+                Explore Use Cases <ArrowRight className="w-4 h-4" />
+              </button>
+          </div>
         </motion.div>
 
       </div>
-
-      {/* Section Background Decoration */}
-      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-100 dark:via-white/5 to-transparent pointer-events-none" />
     </section>
   );
 };

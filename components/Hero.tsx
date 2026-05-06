@@ -46,7 +46,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white"
+              className="text-4xl lg:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white"
             >
               One operating system<br />
               for the entire<br />
@@ -68,10 +68,10 @@ const Hero = () => {
               transition={{ delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto"
             >
-              <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
+              <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]">
                 See DexKor Live <ArrowRight className="w-4 h-4" />
               </button>
-              <button className="w-full sm:w-auto bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-5 py-2.5 rounded-lg text-sm font-bold flex items-center justify-center gap-2 transition-all group shadow-sm dark:shadow-none">
+              <button className="w-full sm:w-auto bg-white hover:bg-slate-50 dark:bg-white/5 dark:hover:bg-white/10 border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all group shadow-sm dark:shadow-none">
                 <div className="w-4 h-4 rounded-full bg-slate-100 dark:bg-white/10 flex items-center justify-center group-hover:bg-slate-200 dark:group-hover:bg-white/20 transition-colors">
                   <Play className="w-2 h-2 fill-slate-900 dark:fill-white ml-0.5" />
                 </div>

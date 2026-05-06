@@ -159,7 +159,7 @@ const HowItWorksSection = () => {
             <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-sm font-medium">
               DexKor continuously analyzes customer activity, detects patterns, and recommends the next best action—before risks become escalations.
             </p>
-            <button className="bg-blue-600 text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/10 dark:shadow-none">
+            <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/10 dark:shadow-none">
               See Dexy in Action <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

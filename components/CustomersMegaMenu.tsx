@@ -130,7 +130,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     </div>
 
                     <div className="flex items-center gap-6 pt-2">
-                        <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl text-xs font-bold flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 dark:shadow-none">
+                        <button className="bg-indigo-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200 dark:shadow-none">
                             View full story <ArrowRight className="w-4 h-4" />
                         </button>
                         <button className="text-indigo-600 text-xs font-bold flex items-center gap-2 hover:gap-3 transition-all">

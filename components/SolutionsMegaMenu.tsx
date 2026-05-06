@@ -196,7 +196,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             ))}
                         </div>
 
-                        <button className="bg-indigo-600 text-white px-5 py-2 rounded-lg text-xs font-bold flex items-center gap-2 hover:bg-indigo-700 transition-all">
+                        <button className="bg-indigo-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 hover:bg-indigo-700 transition-all">
                             Explore solutions for SaaS <ArrowRight className="w-4 h-4" />
                         </button>
                     </div>

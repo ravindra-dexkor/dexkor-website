@@ -149,7 +149,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <p className="text-[13px] text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                             Key data and insights from 500+ B2B companies on what's driving customer growth and retention.
                         </p>
-                        <button className="bg-indigo-600 text-white px-7 py-3 rounded-xl text-sm font-bold flex items-center gap-3 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 dark:shadow-none">
+                        <button className="bg-indigo-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-3 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 dark:shadow-none">
                             Read the report <ArrowRight className="w-4 h-4" />
                         </button>
                     </div>

@@ -238,7 +238,7 @@ const SolutionSection = () => {
                         </span>
                     </h3>
 
-                    <button className="bg-blue-600 text-white px-8 py-3.5 rounded-xl text-sm font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none mb-10">
+                    <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none mb-10">
                         Explore the Platform <ArrowRight className="w-4 h-4" />
                     </button>
 
