@@ -48,24 +48,24 @@ const FinalCTASection = () => {
         </div>
       </div>
 
-      {/* 2. TRIPLE LAYER HORIZON BEAM */}
+      {/* 2. REFINED HORIZON BEAM */}
       <div className="absolute top-[120px] left-1/2 -translate-x-1/2 w-full h-[400px] pointer-events-none z-10">
         <motion.div
           style={{ opacity: beamOpacity, width: beamWidth }}
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-500 to-transparent shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent [mask-image:linear-gradient(to_right,white_0%,white_40%,transparent_45%,transparent_55%,white_60%,white_100%)]"
         />
         <motion.div
-          animate={{ opacity: [0.3, 0.6, 0.3] }}
+          animate={{ opacity: [0.1, 0.3, 0.1] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-[-1px] left-1/2 -translate-x-1/2 w-[80%] h-[3px] bg-blue-400/20 blur-md rounded-full"
+          className="absolute top-[-1px] left-1/2 -translate-x-1/2 w-[60%] h-[2px] bg-blue-400/10 blur-xl rounded-full"
         />
         <motion.div
-          className="absolute top-[-1px] left-0 w-60 h-[2px] bg-gradient-to-r from-transparent via-white to-transparent blur-sm z-20"
-          animate={{ x: ["-100%", "800%"] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+          className="absolute top-[-1px] left-0 w-40 h-[1px] bg-gradient-to-r from-transparent via-blue-400/30 to-transparent blur-md z-20"
+          animate={{ x: ["-100%", "1000%"] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
         />
         
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-full bg-gradient-to-b from-blue-600/10 to-transparent blur-[100px] opacity-40 dark:opacity-60" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[90%] h-full bg-gradient-to-b from-blue-600/5 to-transparent blur-[120px] opacity-30 dark:opacity-40" />
       </div>
 
       {/* 3. MULTI-DIRECTIONAL FLOATING PARTICLES - Fixed positions for Hydration */}
@@ -138,7 +138,7 @@ const FinalCTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium mb-12"
+          className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto font-medium mb-12"
         >
           DexKor unifies every signal, every workflow, and every customer-facing team—so growth doesn't depend on disconnected systems.
         </motion.p>
@@ -175,12 +175,12 @@ const FinalCTASection = () => {
           className="relative group"
         >
           <div className="absolute inset-0 bg-blue-500/20 blur-xl rounded-full group-hover:scale-125 transition-transform" />
-          <button className="relative bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-blue-500/30 active:scale-95 group">
+          <button className="relative bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-blue-500/30 active:scale-95 group">
             See DexKor Live <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
         </motion.div>
 
-        <div className="mt-16 flex items-center gap-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
+        <div className="mt-16 flex items-center gap-4 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
           <div className="flex items-center gap-1.5">
             <Globe className="w-3.5 h-3.5 text-blue-500/70" />
             Built in India

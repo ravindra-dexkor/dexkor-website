@@ -48,7 +48,7 @@ const FlowCard = ({
       <div className="flex items-center gap-2">
         <span className={cn("text-xs font-bold uppercase tracking-wider", textColorClass)}>{step}</span>
       </div>
-      <h4 className="font-bold text-slate-900 dark:text-white text-[13px] leading-tight">{title}</h4>
+      <h4 className="font-bold text-slate-900 dark:text-white text-sm leading-tight">{title}</h4>
       <p className="text-xs font-bold text-slate-700 dark:text-slate-200">{subtitle}</p>
       <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{description}</p>
     </div>
@@ -156,10 +156,10 @@ const HowItWorksSection = () => {
                 predictive execution.
               </span>
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-sm font-medium">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 max-w-sm font-medium">
               DexKor continuously analyzes customer activity, detects patterns, and recommends the next best action—before risks become escalations.
             </p>
-            <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/10 dark:shadow-none">
+            <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-500/10 dark:shadow-none">
               See Dexy in Action <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -194,7 +194,7 @@ const HowItWorksSection = () => {
                     <span className="text-2xl font-extrabold text-slate-900 dark:text-white">{metric.value}</span>
                     <span className={cn("text-lg font-bold", metric.trend === "↑" ? "text-emerald-500" : "text-blue-500")}>{metric.trend}</span>
                   </div>
-                  <h4 className="text-[13px] font-bold text-slate-900 dark:text-white mb-1">{metric.label}</h4>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">{metric.label}</h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
                     {metric.description}
                   </p>

@@ -61,7 +61,7 @@ const StoryCard = ({
           <Icon className={cn("w-6 h-6", colorClass)} />
         </div>
         <div className="space-y-0.5">
-          <p className={cn("text-[10px] font-bold uppercase tracking-widest", colorClass)}>{industry}</p>
+          <p className={cn("text-xs font-bold uppercase tracking-widest", colorClass)}>{industry}</p>
           <h4 className="text-xl font-bold text-slate-900 dark:text-white">{company}</h4>
         </div>
       </div>
@@ -73,7 +73,7 @@ const StoryCard = ({
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <AlertCircle className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">CHALLENGE</span>
+          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">CHALLENGE</span>
         </div>
         <p className="text-xs text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
           {challenge}
@@ -84,7 +84,7 @@ const StoryCard = ({
       <div className="space-y-2">
         <div className="flex items-center gap-2">
           <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
-          <span className="text-[10px] font-bold text-blue-500 uppercase tracking-wider">WITH DEXKOR</span>
+          <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">WITH DEXKOR</span>
         </div>
         <p className="text-xs text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
           {solution}
@@ -95,7 +95,7 @@ const StoryCard = ({
       <div className="pt-4 border-t border-slate-100 dark:border-white/5">
         <div className="flex items-center gap-2 mb-3">
           <TrendingUp className={cn("w-3.5 h-3.5", colorClass)} />
-          <span className={cn("text-[10px] font-bold uppercase tracking-wider", colorClass)}>OUTCOME</span>
+          <span className={cn("text-xs font-bold uppercase tracking-wider", colorClass)}>OUTCOME</span>
         </div>
         <div className="flex items-baseline gap-2">
           <span className={cn("text-3xl font-black tracking-tighter", colorClass)}>{outcomeValue}</span>
@@ -162,7 +162,7 @@ const CustomerStoriesSection = () => {
     <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 border-t border-slate-50 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
-        <div className="space-y-6 mb-12 lg:mb-16">
+        <div className="space-y-6 mb-10 lg:mb-14">
           <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— CUSTOMER STORIES</span>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-4 max-w-2xl">
@@ -170,7 +170,7 @@ const CustomerStoriesSection = () => {
                 Built with teams<br />
                 that refuse <span className="text-blue-600 dark:text-blue-500">reactive growth.</span>
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium leading-relaxed">
+              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed">
                 See how modern B2B teams use DexKor to unify operations, reduce churn risk, accelerate onboarding, and unlock expansion.
               </p>
             </div>
@@ -198,7 +198,7 @@ const CustomerStoriesSection = () => {
                Different industries. <span className="text-blue-600 dark:text-blue-500">One operating layer.</span>
              </h3>
           </div>
-          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
+          <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
             Explore Customer Stories <ArrowRight className="w-4 h-4" />
           </button>
         </div>

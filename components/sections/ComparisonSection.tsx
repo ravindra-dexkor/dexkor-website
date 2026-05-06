@@ -52,7 +52,7 @@ const ComparisonSection = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12 lg:mb-16">
+        <div className="text-center space-y-4 mb-10 lg:mb-14">
           <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">
             — THE COST OF WAITING
           </span>
@@ -60,7 +60,7 @@ const ComparisonSection = () => {
             Every disconnected customer moment <br />
             is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">revenue left behind.</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium">
+          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto font-medium">
             While teams switch between tools, customers wait, risks escalate, renewals slip, and expansion opportunities disappear.
           </p>
         </div>
@@ -79,7 +79,7 @@ const ComparisonSection = () => {
               <div className="w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 flex items-center justify-center">
                 <X className="w-4 h-4 text-red-500" />
               </div>
-              <span className="font-bold text-[11px] tracking-widest text-red-500 uppercase">WITHOUT DEXKOR</span>
+              <span className="font-bold text-xs tracking-widest text-red-500 uppercase">WITHOUT DEXKOR</span>
             </div>
 
             <div className="space-y-6">
@@ -128,7 +128,7 @@ const ComparisonSection = () => {
 
                 {/* Transition Text */}
                 <div className="mt-6 text-center">
-                  <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1">FROM</div>
+                  <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">FROM</div>
                   <div className="text-xs font-black text-red-500 uppercase tracking-tighter">REACTIVE</div>
                   <div className="h-4 w-px bg-white/10 mx-auto my-1" />
                   <div className="text-xs font-black text-blue-500 uppercase tracking-tighter">PREDICTIVE</div>
@@ -147,7 +147,7 @@ const ComparisonSection = () => {
               <div className="w-8 h-8 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
                 <Check className="w-4 h-4 text-blue-500" />
               </div>
-              <span className="font-bold text-[11px] tracking-widest text-blue-500 uppercase">WITH DEXKOR</span>
+              <span className="font-bold text-xs tracking-widest text-blue-500 uppercase">WITH DEXKOR</span>
             </div>
 
             <div className="space-y-6">
@@ -181,10 +181,10 @@ const ComparisonSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto relative z-10">
-            <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-blue-500/20">
+            <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg shadow-blue-500/20">
               See DexKor Live <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="w-full sm:w-auto bg-white dark:bg-transparent border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 text-slate-900 dark:text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+            <button className="w-full sm:w-auto bg-white dark:bg-transparent border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 text-slate-900 dark:text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
               Talk to our team <ArrowRight className="w-4 h-4 opacity-50" />
             </button>
           </div>
@@ -201,8 +201,8 @@ const ComparisonSection = () => {
                 <pillar.icon className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors" />
               </div>
               <div className="space-y-0.5">
-                <h4 className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{pillar.title}</h4>
-                <p className="text-[9px] text-slate-400 dark:text-slate-500 font-medium leading-none">{pillar.desc}</p>
+                <h4 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">{pillar.title}</h4>
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium leading-tight">{pillar.desc}</p>
               </div>
             </div>
           ))}

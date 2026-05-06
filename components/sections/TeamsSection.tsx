@@ -297,7 +297,7 @@ const TeamsSection = () => {
               One platform.<br />
               Every <span className="text-blue-600 dark:text-blue-500">customer-facing team.</span>
             </h2>
-            <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed font-medium">
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">
               From revenue to retention, DexKor gives every team one shared customer timeline, one intelligence layer, and one source of truth.
             </p>
           </div>
@@ -331,7 +331,7 @@ const TeamsSection = () => {
 
           <div className="flex items-center gap-4">
               <div className="hidden lg:block w-px h-12 bg-slate-200 dark:bg-white/10 mx-4" />
-              <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
+              <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
                 Explore Use Cases <ArrowRight className="w-4 h-4" />
               </button>
           </div>

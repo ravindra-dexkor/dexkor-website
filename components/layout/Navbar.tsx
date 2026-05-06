@@ -11,7 +11,6 @@ import ResourcesMegaMenu from "./ResourcesMegaMenu";
 import CompanyMegaMenu from "./CompanyMegaMenu";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
-import Logo from "../../dexkor-website/public/images/logo.png"
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -57,7 +56,7 @@ const Navbar = () => {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2 group">
             <div className="w-8 h-8  rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-              <img src="./images/logo.png" alt="Logo" className="w-full h-full" />
+              <img src="/images/logo.png" alt="Logo" className="w-full h-full" />
             </div>
             <span className="font-bold text-xl tracking-tight uppercase hidden sm:block">Dexkor</span>
           </Link>
@@ -72,7 +71,7 @@ const Navbar = () => {
               >
                 <button
                   className={cn(
-                    "flex items-center gap-1 text-[15px] font-semibold transition-colors hover:text-blue-400 py-2 relative",
+                    "flex items-center gap-1 text-sm font-semibold transition-colors hover:text-blue-400 py-2 relative",
                     activeMenu === item.name && "text-blue-400"
                   )}
                 >
@@ -94,10 +93,10 @@ const Navbar = () => {
           {/* ACTIONS */}
           <div className="flex items-center gap-3 sm:gap-5">
             <ThemeToggle />
-            <Link href="/login" className="hidden sm:block text-[15px] font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            <Link href="/login" className="hidden sm:block text-sm font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Login
             </Link>
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-2 transition-all group shadow-lg shadow-blue-500/20">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all group shadow-lg shadow-blue-500/20">
               <span className="hidden sm:inline">Start for free</span>
               <span className="sm:hidden">Start</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

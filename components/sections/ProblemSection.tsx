@@ -51,7 +51,7 @@ const ProblemSection = () => {
             Point solutions manage stages.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">They don't manage the journey.</span>
           </h2>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl font-medium">
+          <p className="mt-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl font-medium">
             Most B2B companies still rely on separate tools for sales, onboarding, support, and customer success—creating broken handoffs, fragmented intelligence, and revenue leakage as they scale.
           </p>
         </div>

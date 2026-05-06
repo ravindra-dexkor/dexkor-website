@@ -75,11 +75,11 @@ const NextStepSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white overflow-hidden transition-colors duration-300">
+    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white overflow-hidden transition-colors duration-300 border-t border-slate-100 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header */}
-        <div className="text-center space-y-4 mb-12 lg:mb-16">
+        <div className="text-center space-y-4 mb-10 lg:mb-14">
           <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">
             — CHOOSE YOUR NEXT STEP
           </span>
@@ -87,7 +87,7 @@ const NextStepSection = () => {
             However you evaluate software— <br />
             <span className="text-blue-600 dark:text-blue-500">DexKor is ready.</span>
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-2xl mx-auto font-medium">
+          <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl mx-auto font-medium">
             Whether you're exploring, comparing, validating security, or planning migration—start where your team needs to.
           </p>
         </div>
@@ -108,7 +108,7 @@ const NextStepSection = () => {
               )}
             >
               <div className={cn(
-                "px-3 py-1 rounded-full text-[10px] font-bold tracking-widest mb-8",
+                "px-3 py-1 rounded-full text-xs font-bold tracking-widest mb-8",
                 card.theme.label
               )}>
                 {card.label}
@@ -132,7 +132,7 @@ const NextStepSection = () => {
               </p>
 
               <button className={cn(
-                "w-full px-4 py-2 sm:px-5 sm:py-2 rounded-full text-white font-bold text-[15px] flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg",
+                "w-full px-4 py-2 sm:px-5 sm:py-2 rounded-full text-white font-bold text-sm flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg",
                 card.theme.button
               )}>
                 {card.cta} <ArrowRight className="w-4 h-4" />
@@ -145,7 +145,7 @@ const NextStepSection = () => {
         <div className="flex flex-col items-center justify-center gap-4 mb-16 lg:mb-24">
             <div className="flex items-center gap-3 py-4 px-6 bg-blue-50/50 dark:bg-blue-500/5 rounded-full border border-blue-100 dark:border-blue-500/10">
                 <CheckCircle2 className="w-5 h-5 text-blue-600 dark:text-blue-500" />
-                <span className="text-sm md:text-lg font-bold text-slate-900 dark:text-white tracking-tight">
+                <span className="text-sm font-bold text-slate-900 dark:text-white tracking-tight">
                     No pressure. No hard sell. Just clarity.
                 </span>
             </div>
@@ -159,8 +159,8 @@ const NextStepSection = () => {
                         <pillar.icon className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                     </div>
                     <div className="space-y-1">
-                        <h5 className="text-[11px] font-bold text-slate-900 dark:text-white uppercase tracking-widest leading-none">{pillar.title}</h5>
-                        <p className="text-[10px] text-slate-500 dark:text-slate-500 font-medium leading-none">{pillar.desc}</p>
+                        <h5 className="text-xs font-bold text-slate-900 dark:text-white uppercase tracking-widest leading-none">{pillar.title}</h5>
+                        <p className="text-xs text-slate-500 dark:text-slate-500 font-medium leading-tight">{pillar.desc}</p>
                     </div>
                 </div>
             ))}

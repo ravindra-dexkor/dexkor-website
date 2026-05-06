@@ -223,10 +223,10 @@ const TrustSection = () => {
                 by design. <br />
                 <span className="text-blue-600 dark:text-blue-500">Not added later.</span>
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-sm font-medium">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8 max-w-sm font-medium">
                 Security, compliance, reliability, extensibility, and AI governance—built into DexKor from day one.
               </p>
-              <button className="group bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-3 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none">
+              <button className="group bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-3 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none">
                 Explore Trust Center 
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </button>
@@ -257,7 +257,7 @@ const TrustSection = () => {
                 <div className="w-12 h-12 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-500/20">
                   <pillar.icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </div>
-                <span className="text-[13px] font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                <span className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                   {pillar.label}
                 </span>
               </div>

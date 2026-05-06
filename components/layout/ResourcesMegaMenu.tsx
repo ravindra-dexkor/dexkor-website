@@ -41,9 +41,9 @@ const trendingNow = [
 
 const learningPaths = [
   "Revenue Growth",
-  "AI in Customer Operations",
-  "Customer Success 101",
   "Support Excellence",
+  "Customer Success 101",
+  "AI in Customer Operations",
   "Onboarding Best Practices"
 ];
 
@@ -85,7 +85,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                     <BookOpen className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-[13px]">Learn</h4>
+                                    <h4 className="font-bold text-sm">Learn</h4>
                                     <p className="text-xs text-slate-400 dark:text-slate-500">Guides, playbooks, and insights.</p>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                     <Code2 className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-[13px]">Technical</h4>
+                                    <h4 className="font-bold text-sm">Technical</h4>
                                     <p className="text-xs text-slate-400 dark:text-slate-500">Docs and developer tools.</p>
                                 </div>
                             </div>
@@ -146,10 +146,10 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             State of Customer<br />
                             Growth <span className="text-indigo-600">2026</span>
                         </h2>
-                        <p className="text-[13px] text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                        <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                             Key data and insights from 500+ B2B companies on what's driving customer growth and retention.
                         </p>
-                        <button className="bg-indigo-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center gap-3 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 dark:shadow-none">
+                        <button className="bg-indigo-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-3 hover:bg-indigo-700 transition-all shadow-xl shadow-indigo-200 dark:shadow-none">
                             Read the report <ArrowRight className="w-4 h-4" />
                         </button>
                     </div>
@@ -206,7 +206,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     <div key={stat.label} className="text-center">
                         <div className="flex items-center justify-center gap-1 mb-1">
                             <stat.icon className="w-3 h-3 text-indigo-400" />
-                            <span className="text-[13px] font-bold text-slate-800 dark:text-slate-100">{stat.val}</span>
+                            <span className="text-sm font-bold text-slate-800 dark:text-slate-100">{stat.val}</span>
                         </div>
                         <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight">{stat.label}</p>
                     </div>
@@ -220,7 +220,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <GraduationCap className="w-6 h-6" />
                     </div>
                     <div>
-                        <h4 className="font-bold text-[13px]">Learning Paths</h4>
+                        <h4 className="font-bold text-sm">Learning Paths</h4>
                         <p className="text-xs text-slate-500 dark:text-slate-400">Curated paths to build your expertise.</p>
                     </div>
                  </div>
@@ -263,7 +263,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
           {/* BOTTOM BAR */}
           <div className="bg-slate-50 dark:bg-white/5 border-t border-slate-100 dark:border-white/5">
-             <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6">
+             <div className="max-w-full mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-1 max-w-2xl w-full">
                     <div className="relative group">
                         <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500 group-focus-within:text-indigo-600 transition-colors" />

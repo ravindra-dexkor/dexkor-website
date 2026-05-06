@@ -42,7 +42,7 @@ const FutureSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white overflow-hidden transition-colors duration-300 border-t border-slate-100 dark:border-white/5">
+    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white overflow-hidden transition-colors duration-300 border-t border-slate-100 dark:border-white/5">
       {/* Background Glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 dark:bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -56,7 +56,7 @@ const FutureSection = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white">
             Growth won't be managed in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">silos.</span>
           </h2>
-          <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed font-medium">
+          <p className="mt-4 text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-medium">
             The companies that win tomorrow won't manage sales, support, and success separately. <span className="text-blue-600 dark:text-blue-500">Neither should you.</span>
           </p>
         </div>
@@ -105,7 +105,7 @@ const FutureSection = () => {
                              <node.icon className="w-6 h-6 lg:w-8 lg:h-8 text-blue-600 dark:text-blue-400 relative z-10 drop-shadow-[0_4px_4px_rgba(37,99,235,0.3)]" />
                           </div>
                           
-                          <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase bg-white/80 dark:bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 dark:border-white/10 shadow-sm whitespace-nowrap">
+                          <span className="text-xs font-black text-slate-500 dark:text-slate-400 tracking-[0.2em] uppercase bg-white/80 dark:bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200 dark:border-white/10 shadow-sm whitespace-nowrap">
                             {node.name}
                           </span>
                        </motion.div>
@@ -120,7 +120,7 @@ const FutureSection = () => {
                <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-2 shadow-2xl shadow-blue-500/20 flex items-center justify-center relative border border-white/20">
                   <img src="/images/logo.png" alt="DexKor" className="w-full h-full object-contain invert brightness-0" />
                   <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap">
-                    <span className="text-[10px] font-black text-blue-600 dark:text-blue-500 tracking-[0.3em] uppercase italic">DEXKOR</span>
+                    <span className="text-xs font-black text-blue-600 dark:text-blue-500 tracking-[0.2em] uppercase italic">DEXKOR</span>
                   </div>
                </div>
                {/* Pulsing Core */}
@@ -162,7 +162,7 @@ const FutureSection = () => {
                     <feature.icon className="w-5 h-5 text-blue-600 dark:text-blue-500" />
                   </div>
                   <div>
-                    <h4 className="text-base lg:text-lg font-bold text-slate-900 dark:text-white">{feature.title}</h4>
+                    <h4 className="text-sm lg:text-base font-bold text-slate-900 dark:text-white">{feature.title}</h4>
                     <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{feature.desc}</p>
                   </div>
                 </motion.div>
@@ -172,15 +172,15 @@ const FutureSection = () => {
             {/* Buttons & Trust Info */}
             <div className="space-y-8">
               <div className="flex flex-col sm:flex-row items-center gap-4">
-                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+                <button className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-5 py-2 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
                   See DexKor Live <ArrowRight className="w-4 h-4" />
                 </button>
-                <button className="w-full sm:w-auto bg-white dark:bg-transparent border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 text-slate-900 dark:text-white px-5 py-2 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+                <button className="w-full sm:w-auto bg-white dark:bg-transparent border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/5 text-slate-900 dark:text-white px-5 py-2 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
                   Talk to our team <ArrowRight className="w-4 h-4 opacity-50" />
                 </button>
               </div>
 
-              <div className="flex items-center gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pt-4 border-t border-slate-100 dark:border-white/5">
+              <div className="flex items-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-widest pt-4 border-t border-slate-100 dark:border-white/5">
                 <div className="flex items-center gap-1.5">
                     <Globe className="w-3.5 h-3.5 text-blue-500" />
                     Built in India
@@ -196,7 +196,7 @@ const FutureSection = () => {
         <div className="mt-16 lg:mt-24 pt-10 border-t border-slate-100 dark:border-white/5 text-center">
             <div className="max-w-2xl mx-auto relative px-8">
                 <Quote className="absolute top-0 left-0 w-8 h-8 text-blue-500/10 -translate-x-1/2 -translate-y-1/2" />
-                <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 italic font-medium leading-relaxed">
+                <p className="text-sm text-slate-500 dark:text-slate-400 italic font-medium leading-relaxed">
                     “Customer success doesn't start at onboarding—it starts where most tools stop.”
                 </p>
             </div>

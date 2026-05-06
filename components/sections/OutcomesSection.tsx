@@ -145,7 +145,7 @@ const OutcomesSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-50 dark:border-white/5">
+    <section className="relative w-full py-10 lg:py-16 bg-slate-50/50 dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-100 dark:border-white/5">
       {/* Background Decorative Element */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-[0.03] dark:opacity-[0.05]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-500 via-transparent to-transparent blur-[120px]" />
@@ -157,11 +157,11 @@ const OutcomesSection = () => {
           <div className="flex items-center justify-center">
              <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— REAL BUSINESS OUTCOMES</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-black leading-[1.1] tracking-tighter">
+          <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight">
             Measured in outcomes.<br />
             <span className="text-blue-600 dark:text-blue-500">Not activity.</span>
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium max-w-xl mx-auto">
+          <p className="text-slate-500 dark:text-slate-400 text-sm font-medium max-w-xl mx-auto">
             DexKor helps customer-facing teams reduce risk, accelerate time-to-value, improve retention, and unlock expansion—across the entire customer lifecycle.
           </p>
         </div>
@@ -183,7 +183,7 @@ const OutcomesSection = () => {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent skew-x-12"
                 />
                 <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-500 relative z-10" />
-                <span className="text-slate-900 dark:text-white font-bold text-base relative z-10">Every signal becomes an outcome.</span>
+                <span className="text-slate-900 dark:text-white font-bold text-sm relative z-10">Every signal becomes an outcome.</span>
                 <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
             </div>
         </div>
@@ -196,18 +196,18 @@ const OutcomesSection = () => {
                 <item.icon className="w-4 h-4 text-blue-600 dark:text-blue-500" />
               </div>
               <div className="space-y-0.5">
-                <p className="font-bold text-slate-900 dark:text-white text-[13px]">{item.title}</p>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight">{item.desc}</p>
+                <p className="font-bold text-slate-900 dark:text-white text-sm">{item.title}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight">{item.desc}</p>
               </div>
               {idx < features.length - 1 && <div className="hidden lg:block w-px h-6 bg-slate-100 dark:bg-white/10 ml-6" />}
             </div>
           ))}
           
           <div className="lg:pl-6 flex flex-col gap-1.5">
-            <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold flex items-center justify-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95 group">
+            <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center justify-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95 group">
               See Customer Stories <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <p className="text-[9px] text-slate-400 dark:text-slate-500 text-center font-bold uppercase tracking-wider">Real customers. Real results.</p>
+            <p className="text-xs text-slate-400 dark:text-slate-500 text-center font-bold uppercase tracking-wider">Real customers. Real results.</p>
           </div>
         </div>
       </div>

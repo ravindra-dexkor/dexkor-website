@@ -45,7 +45,7 @@ const founders = [
     role: "Co-founder & CEO, DexKor",
     quote: "Customer success doesn't start at onboarding. It starts with understanding.",
     description: "DexKor was built to help modern B2B teams turn every customer interaction into lasting growth. One relationship at a time.",
-    image: "../images/richard.png",
+    image: "/images/richard.png",
     signature: "Richard"
   },
   {
@@ -53,7 +53,7 @@ const founders = [
     role: "Co-founder & CTO, DexKor",
     quote: "Engineering is not just about code; it's about solving real-world human problems.",
     description: "We are building a world-class infrastructure that scales with our customers' ambitions, ensuring data is always actionable.",
-    image: "../images/shashank.png",
+    image: "/images/shashank.png",
     signature: "Shashank"
   },
   {
@@ -61,7 +61,7 @@ const founders = [
     role: "Co-founder & COO, DexKor",
     quote: "Operations is the backbone of trust. We deliver consistency at scale.",
     description: "Our focus is on creating a seamless experience for every partner and customer, making growth predictable and sustainable.",
-    image: "../images/neshat.png",
+    image: "/images/neshat.png",
     signature: "Neshat"
   }
 ];
@@ -100,7 +100,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Company</span>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
+          <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
             {/* ABOUT DEXKOR */}
             <div className="col-span-1 md:col-span-3">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">About DexKor</h3>
@@ -112,7 +112,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className="flex-1">
                         <div className="flex items-center justify-between">
-                            <span className="font-bold text-[13px] text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
+                            <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
@@ -136,7 +136,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     </div>
                     <div className="flex-1">
                         <div className="flex items-center justify-between">
-                            <span className="font-bold text-[13px] text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
+                            <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                             <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
@@ -194,7 +194,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                         <div className="font-serif text-2xl text-slate-400 dark:text-slate-500 mb-0.5 italic opacity-60">
                                             {founders[currentFounder].signature}
                                         </div>
-                                        <p className="text-[12px] font-bold text-slate-900 dark:text-white">{founders[currentFounder].name}</p>
+                                        <p className="text-xs font-bold text-slate-900 dark:text-white">{founders[currentFounder].name}</p>
                                         <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">{founders[currentFounder].role}</p>
                                     </div>
                                 </div>

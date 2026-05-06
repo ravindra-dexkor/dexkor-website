@@ -171,12 +171,13 @@ const Footer = () => {
               <div key={idx} className="space-y-4">
                 <div className="flex items-center gap-2 text-slate-400 dark:text-slate-500 border-b border-slate-200 dark:border-white/5 pb-2 group">
                    <col.icon className="w-3.5 h-3.5 text-blue-600 dark:text-blue-500 group-hover:scale-110 transition-transform" />
-                   <h4 className="text-[10px] font-black uppercase tracking-[0.2em]">{col.title}</h4>
+                   {/* Column heading: xs is the minimum — no sub-xs here */}
+                   <h4 className="text-xs font-black uppercase tracking-[0.2em]">{col.title}</h4>
                 </div>
                 <ul className="space-y-2.5 pt-1">
                   {col.links.map((link, lidx) => (
                     <li key={lidx}>
-                      <a href="#" className="text-[11px] font-bold text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center justify-between group">
+                      <a href="#" className="text-xs font-medium text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white transition-colors flex items-center justify-between group">
                         {link}
                         <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all" />
                       </a>
@@ -196,9 +197,10 @@ const Footer = () => {
              <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
-                  <span className="text-[9px] font-black text-slate-400 dark:text-slate-500 tracking-widest uppercase">DEXKOR CLOUD LIVE</span>
+                  {/* "DEXKOR CLOUD LIVE" label: minimum xs */}
+                  <span className="text-xs font-black text-slate-400 dark:text-slate-500 tracking-widest uppercase">DEXKOR CLOUD LIVE</span>
                 </div>
-                <span className="text-[8px] font-black text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20 uppercase tracking-tighter">Live</span>
+                <span className="text-xs font-black text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full border border-green-500/20 uppercase tracking-tight">Live</span>
              </div>
              
              <div className="grid grid-cols-3 gap-4">
@@ -209,7 +211,7 @@ const Footer = () => {
                 ].map((stat, idx) => (
                   <div key={idx} className="flex flex-col items-center text-center">
                      <span className="text-xl font-black text-slate-900 dark:text-white leading-none mb-1">{stat.val}</span>
-                     <span className="text-[8px] font-bold text-slate-400 dark:text-slate-600 uppercase tracking-wider">{stat.label}</span>
+                     <span className="text-xs font-bold text-slate-400 dark:text-slate-600 uppercase tracking-wider">{stat.label}</span>
                   </div>
                 ))}
              </div>
@@ -217,10 +219,10 @@ const Footer = () => {
 
           {/* Compact Partners Cloud */}
           <div className="flex-grow p-5 rounded-2xl bg-white/40 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 flex flex-col justify-center space-y-4">
-             <h4 className="text-[9px] font-black text-slate-400 dark:text-slate-600 uppercase tracking-[0.3em] text-center">TRUSTED BY INNOVATIVE TEAMS</h4>
+             <h4 className="text-xs font-black text-slate-400 dark:text-slate-600 uppercase tracking-[0.2em] text-center">TRUSTED BY INNOVATIVE TEAMS</h4>
              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 opacity-40 hover:opacity-100 transition-opacity">
                 {logoNames.map((name) => (
-                  <span key={name} className="text-[10px] font-black text-slate-900 dark:text-white tracking-widest italic">{name.toUpperCase()}</span>
+                  <span key={name} className="text-xs font-black text-slate-900 dark:text-white tracking-widest italic">{name.toUpperCase()}</span>
                 ))}
              </div>
           </div>
@@ -229,12 +231,12 @@ const Footer = () => {
         {/* COMPACT BOTTOM BANNER: Quote & Action */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12 items-center border-t border-slate-200 dark:border-white/5 pt-10">
            
-           {/* Founder Quote (One Line style) */}
+           {/* Founder Quote */}
            <div className="flex items-center gap-5">
               <Quote className="w-8 h-8 text-blue-600/20 dark:text-blue-600/10 shrink-0" />
               <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <p className="text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed italic max-w-md">
-                  “Customer success starts where most tools stop.”
+                  "Customer success starts where most tools stop."
                 </p>
                 <div className="flex items-center gap-3 border-l border-slate-200 dark:border-white/10 sm:pl-4">
                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-600 to-purple-600 p-0.5">
@@ -243,8 +245,9 @@ const Footer = () => {
                       </div>
                    </div>
                    <div className="flex flex-col">
-                      <h5 className="text-[11px] font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 italic leading-none">Richard Samuel</h5>
-                      <span className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">CEO</span>
+                      {/* Name: minimum xs — was text-[11px] */}
+                      <h5 className="text-xs font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500 italic leading-none">Richard Samuel</h5>
+                      <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">CEO</span>
                    </div>
                 </div>
               </div>
@@ -254,9 +257,9 @@ const Footer = () => {
            <div className="flex items-center justify-center lg:justify-end gap-6">
               <div className="hidden sm:flex flex-col items-end text-right">
                 <h4 className="text-xs font-bold text-slate-900 dark:text-white tracking-tight">Ready to see DexKor?</h4>
-                <p className="text-[10px] text-slate-500 font-medium">Book a personalized walkthrough.</p>
+                <p className="text-xs text-slate-500 font-medium">Book a personalized walkthrough.</p>
               </div>
-              <button className="bg-slate-900 dark:bg-indigo-600/10 border border-slate-900 dark:border-indigo-500/20 hover:bg-slate-800 dark:hover:bg-indigo-500/20 text-white dark:text-indigo-400 px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg active:scale-95">
+              <button className="bg-slate-900 dark:bg-indigo-600/10 border border-slate-900 dark:border-indigo-500/20 hover:bg-slate-800 dark:hover:bg-indigo-500/20 text-white dark:text-indigo-400 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest flex items-center gap-2 transition-all shadow-lg active:scale-95">
                 Schedule a Demo <ArrowRight className="w-3.5 h-3.5" />
               </button>
            </div>
@@ -269,17 +272,18 @@ const Footer = () => {
                  <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center border border-slate-200 dark:border-white/10">
                     <img src="/images/logo.png" alt="D" className="w-4 h-4 invert dark:invert brightness-0 opacity-40" />
                  </div>
-                 <div className="text-[9px] font-bold text-slate-400 dark:text-slate-600 tracking-widest uppercase">
+                 {/* Copyright: minimum xs */}
+                 <div className="text-xs font-bold text-slate-400 dark:text-slate-600 tracking-widest uppercase">
                     © 2026 DEXKORCRM. All rights reserved.
                  </div>
               </div>
               <div className="flex items-center gap-8">
-                <div className="flex items-center gap-2 text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                <div className="flex items-center gap-2 text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-600/50" />
                   India
                 </div>
-                <div className="flex items-center gap-2 text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-                  <div className="w-4 h-4 flex items-center justify-center border border-slate-300 dark:border-slate-700 rounded-full text-[7px]">IN</div>
+                <div className="flex items-center gap-2 text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                  <div className="w-4 h-4 flex items-center justify-center border border-slate-300 dark:border-slate-700 rounded-full text-xs">IN</div>
                   Global B2B
                 </div>
               </div>
@@ -293,7 +297,7 @@ const Footer = () => {
               ].map((badge, idx) => (
                 <div key={idx} className="flex items-center gap-2 group">
                    <badge.icon className="w-4 h-4 text-slate-400 dark:text-slate-600 group-hover:text-blue-500 transition-colors" />
-                   <span className="text-[10px] font-black text-slate-900 dark:text-white tracking-tight uppercase">{badge.title}</span>
+                   <span className="text-xs font-black text-slate-900 dark:text-white tracking-tight uppercase">{badge.title}</span>
                 </div>
               ))}
            </div>

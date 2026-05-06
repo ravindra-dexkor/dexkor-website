@@ -133,7 +133,7 @@ const SolutionSection = () => {
                             </span>
                         </h2>
 
-                        <p className="mt-6 text-slate-500 dark:text-slate-400 text-sm md:text-base leading-relaxed max-w-sm font-medium">
+                        <p className="mt-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm font-medium">
                             Replace disconnected sales, onboarding, support, and customer success tools with one shared operating layer—powered by Dexy AI.
                         </p>
                     </div>
@@ -165,9 +165,9 @@ const SolutionSection = () => {
                             }}
                         >
                             {/* Robot Avatar */}
-                            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 mb-4 shadow-xl shadow-blue-500/20">
-                                <div className="w-full h-full bg-white dark:bg-[#040814] rounded-2xl flex items-center justify-center overflow-hidden">
-                                    <img src="/dexy-robot.png" alt="Dexy AI" className="w-12 h-12 object-contain" />
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 mb-4 shadow-xl shadow-blue-500/20">
+                                <div className="w-full h-full bg-white dark:bg-[#040814] rounded-full flex items-center justify-center overflow-hidden">
+                                    <img src="./images/dexy_ai.svg" alt="Dexy AI" className="w-20 h-20 object-contain" />
                                 </div>
                             </div>
 
@@ -231,14 +231,14 @@ const SolutionSection = () => {
                 >
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
-                    <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-6">
+                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
                         Every team works in one system.<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
                             Every customer lives in one timeline.
                         </span>
                     </h3>
 
-                    <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-[15px] font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none mb-10">
+                    <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none mb-10">
                         Explore the Platform <ArrowRight className="w-4 h-4" />
                     </button>
 
