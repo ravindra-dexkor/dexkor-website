@@ -215,9 +215,10 @@ const TrustSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-[0.2em] block mb-4">
-                — ENTERPRISE TRUST
-              </span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-4">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Enterprise Trust</span>
+              </div>
               <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white mb-5">
                 Enterprise-grade <br />
                 by design. <br />

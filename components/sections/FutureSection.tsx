@@ -50,9 +50,10 @@ const FutureSection = () => {
         
         {/* Header - More Compact */}
         <div className="max-w-3xl mb-12 lg:mb-16">
-          <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block mb-4">
-            — THE FUTURE OF CUSTOMER GROWTH
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-4">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Future of Customer Growth</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white">
             Growth won't be managed in <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">silos.</span>
           </h2>

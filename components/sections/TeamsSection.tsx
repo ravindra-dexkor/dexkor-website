@@ -292,7 +292,10 @@ const TeamsSection = () => {
         {/* Header Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-10 lg:mb-14">
           <div className="space-y-6 max-w-xl text-center lg:text-left">
-            <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— BUILT FOR EVERY TEAM</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Built for Every Team</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mt-4">
               One platform.<br />
               Every <span className="text-blue-600 dark:text-blue-500">customer-facing team.</span>

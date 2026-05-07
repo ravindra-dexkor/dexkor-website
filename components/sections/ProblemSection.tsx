@@ -1,233 +1,303 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import { motion } from "framer-motion";
 import {
-  User,
-  ClipboardList,
-  Headset,
-  TrendingUp,
-  TrendingDown,
-  Puzzle,
-  Clock,
-  AlertTriangle,
-  Cloud,
-  Leaf,
-  BarChart,
-  CircleAlert
+  ReactFlow,
+  ReactFlowProvider,
+  Handle,
+  Position,
+  type NodeTypes,
+  type Node,
+  type Edge,
+  BaseEdge,
+  getBezierPath,
+  type EdgeProps,
+} from "@xyflow/react";
+import "@xyflow/react/dist/style.css";
+import {
+  TrendingDown, Database, Clock, Users,
+  AlertTriangle, ChevronDown, ArrowRight,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// Running dashed line SVG
-const HorizontalLine = ({ className }: { className?: string }) => (
-  <div className={cn("absolute top-6 left-[60%] w-[80%] h-[2px] hidden lg:block z-0 pointer-events-none overflow-hidden", className)}>
-    <svg width="100%" height="100%" preserveAspectRatio="none">
-      <motion.line
-        x1="0" y1="1" x2="100%" y2="1"
-        stroke="#ef4444"
-        strokeWidth="2"
-        strokeDasharray="6 6"
-        animate={{ strokeDashoffset: [0, -24] }}
-        transition={{ repeat: Infinity, ease: "linear", duration: 1 }}
-        opacity="0.5"
-      />
-    </svg>
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-[#040814] rounded-full p-0.5 z-10">
-      <CircleAlert className="w-4 h-4 text-red-500 fill-red-50 dark:fill-red-950" />
+/* ─── Custom Nodes ──────────────────────────────────────────── */
+
+// Tool pill node — logo is optional: pass data.logo as an img src or leave undefined for initial badge
+const ToolNode = ({ data }: { data: { label: string; logo?: string; color?: string } }) => (
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/15 shadow-sm text-xs font-bold text-slate-700 dark:text-slate-200 whitespace-nowrap select-none">
+    {/* Brand logo — swap src for a real image when available */}
+    {data.logo ? (
+      <img src={data.logo} alt={data.label} className="w-4 h-4 object-contain" />
+    ) : (
+      <div
+        className="w-4 h-4 rounded-sm flex items-center justify-center text-[9px] font-black text-white shrink-0"
+        style={{ background: data.color ?? "#64748b" }}
+      >
+        {data.label[0]}
+      </div>
+    )}
+    {data.label}
+    <Handle type="source" position={Position.Bottom} className="!w-2 !h-2 !bg-slate-300 dark:!bg-slate-600 !border-0" />
+  </div>
+);
+
+// Impact card node
+const ImpactNode = ({ data }: { data: { label: string; sub: string } }) => (
+  <div className="flex items-center gap-3 px-5 py-4 rounded-2xl bg-red-50 dark:bg-red-500/5 border border-red-100 dark:border-red-500/20 w-[560px] select-none">
+    <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-red-300 !border-0" />
+    <div className="w-9 h-9 rounded-xl bg-white dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 flex items-center justify-center shrink-0">
+      <AlertTriangle className="w-4 h-4 text-red-500" />
+    </div>
+    <div>
+      <p className="font-bold text-sm text-slate-900 dark:text-white">{data.label}</p>
+      <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{data.sub}</p>
     </div>
   </div>
 );
 
+const nodeTypes: NodeTypes = {
+  tool: ToolNode as NodeTypes[string],
+  impact: ImpactNode as NodeTypes[string],
+};
 
+/* ─── Custom Edge: dashed converging line ───────────────────── */
+const DashedEdge = ({ sourceX, sourceY, targetX, targetY, sourcePosition, targetPosition }: EdgeProps) => {
+  const [edgePath] = getBezierPath({ sourceX, sourceY, sourcePosition, targetX, targetY, targetPosition });
+  return (
+    <BaseEdge
+      path={edgePath}
+      style={{
+        stroke: "#94a3b8",
+        strokeWidth: 1.5,
+        strokeDasharray: "5 5",
+        opacity: 0.6,
+      }}
+    />
+  );
+};
+
+const edgeTypes = { dashed: DashedEdge };
+
+/* ─── Flow graph data ───────────────────────────────────────── */
+const toolLabels = ["HubSpot", "rocketlane", "zendesk", "freshworks", "Gainsight", "Zoho", "slack", "Jira"];
+const TOOL_Y = 0;
+const IMPACT_Y = 160;
+const FLOW_WIDTH = 900;
+const GAP = FLOW_WIDTH / toolLabels.length;
+
+// Brand colors for initial badge (replace with real logo srcs later)
+const toolColors: Record<string, string> = {
+  HubSpot: "#ff7a59", rocketlane: "#6366f1", zendesk: "#03363d",
+  freshworks: "#22c55e", Gainsight: "#00b4e6", Zoho: "#e42527",
+  slack: "#611f69", Jira: "#0052cc",
+};
+
+const initialNodes: Node[] = [
+  ...toolLabels.map((label, i): Node => ({
+    id: `tool-${i}`,
+    type: "tool",
+    position: { x: i * GAP, y: TOOL_Y },
+    data: { label, color: toolColors[label] /* swap: logo: "/logos/hubspot.svg" */ },
+    draggable: false,
+    selectable: false,
+  })),
+  {
+    id: "impact",
+    type: "impact",
+    position: { x: FLOW_WIDTH / 2 - 280, y: IMPACT_Y },
+    data: {
+      label: "Broken handoffs. Silos of data. No unified view.",
+      sub: "Teams operate in isolation. Context is lost. Customers feel the gaps.",
+    },
+    draggable: false,
+    selectable: false,
+  },
+];
+
+const initialEdges: Edge[] = toolLabels.map((_, i): Edge => ({
+  id: `e-tool-${i}`,
+  source: `tool-${i}`,
+  target: "impact",
+  type: "dashed",
+  animated: true, // running dashed line — native React Flow animation
+}));
+
+/* ─── Flow Panel (no controls, no bg) ──────────────────────── */
+const ToolFlowPanel = () => {
+  return (
+    <div style={{ height: 280 }} className="w-full">
+      <ReactFlow
+        nodes={initialNodes}
+        edges={initialEdges}
+        nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
+        fitView
+        fitViewOptions={{ padding: 0.15 }}
+        panOnDrag={false}
+        zoomOnScroll={false}
+        zoomOnPinch={false}
+        zoomOnDoubleClick={false}
+        preventScrolling={false}
+        proOptions={{ hideAttribution: true }}
+        className="!bg-transparent"
+        nodesDraggable={false}
+        nodesConnectable={false}
+        elementsSelectable={false}
+      />
+    </div>
+  );
+};
+
+/* ─── Problem card ──────────────────────────────────────────── */
+const ProblemCard = ({
+  icon: Icon, iconColor, iconBg, title, desc
+}: {
+  icon: React.ElementType; iconColor: string; iconBg: string; title: string; desc: string;
+}) => (
+  <div className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+    <div className={cn("w-9 h-9 rounded-xl flex items-center justify-center shrink-0", iconBg)}>
+      <Icon className={cn("w-4 h-4", iconColor)} />
+    </div>
+    <div>
+      <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{title}</h4>
+      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
+    </div>
+  </div>
+);
+
+/* ─── Main Section ──────────────────────────────────────────── */
 const ProblemSection = () => {
   return (
     <section className="relative w-full py-10 lg:py-16 bg-slate-50/50 dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-100 dark:border-white/5">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 space-y-8">
 
-        {/* Header */}
-        <div className="mb-10 md:mb-14 max-w-3xl">
-          <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest">— THE PROBLEM</span>
-          <h2 className="text-3xl md:text-4xl font-extrabold mt-4 leading-[1.1] tracking-tight text-slate-900 dark:text-white">
-            Point solutions manage stages.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">They don't manage the journey.</span>
-          </h2>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed max-w-2xl font-medium">
-            Most B2B companies still rely on separate tools for sales, onboarding, support, and customer success—creating broken handoffs, fragmented intelligence, and revenue leakage as they scale.
-          </p>
-        </div>
-
-        {/* TOP STAGES */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 relative z-10">
-
-          {/* Stage 1: Sales */}
-          <div className="relative flex flex-col items-center text-center group">
-            <HorizontalLine />
-            <div className="w-14 h-14 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center border border-blue-100 dark:border-blue-500/20 mb-4 shadow-sm z-10 relative">
-              <User className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+        {/* ── ROW 1: Header + Stat Card ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Problem</span>
             </div>
-            <h3 className="font-bold text-lg">Sales</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Win the deal</p>
-
-            <div className="mt-4 w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm transition-all group-hover:border-slate-300 dark:group-hover:border-white/20">
-              <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">Common tools</p>
-              <div className="flex items-center justify-center gap-4">
-                {/* HubSpot Mock */}
-                <div className="flex items-center gap-1 font-bold text-slate-700 dark:text-slate-200 text-xs tracking-tight">
-                  <span className="text-[#ff7a59]">Hub</span>Spot
-                </div>
-                {/* Salesforce Mock */}
-                <div className="flex items-center gap-1 font-bold text-[#00a1e0] text-xs tracking-tight">
-                  <Cloud className="w-4 h-4 fill-[#00a1e0]" /> Salesforce
-                </div>
-              </div>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mb-4">
+              Point solutions manage stages.<br />
+              <span className="text-blue-600 dark:text-blue-400">They don't manage the journey.</span>
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
+              Most B2B companies still rely on separate tools for sales, onboarding,
+              support, and customer success—creating broken handoffs, fragmented
+              intelligence, and revenue leakage as they scale.
+            </p>
           </div>
 
-          {/* Stage 2: Onboarding */}
-          <div className="relative flex flex-col items-center text-center group">
-            <HorizontalLine />
-            <div className="w-14 h-14 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center border border-indigo-100 dark:border-indigo-500/20 mb-4 shadow-sm z-10 relative">
-              <ClipboardList className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
-            </div>
-            <h3 className="font-bold text-lg">Onboarding</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Implement & activate</p>
-
-            <div className="mt-4 w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm transition-all group-hover:border-slate-300 dark:group-hover:border-white/20">
-              <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">Common tools</p>
-              <div className="flex items-center justify-center gap-2 font-bold text-slate-800 dark:text-white text-xs tracking-tight">
-                <span className="text-blue-600">»</span> rocketlane
-              </div>
-            </div>
-          </div>
-
-          {/* Stage 3: Support */}
-          <div className="relative flex flex-col items-center text-center group">
-            <HorizontalLine />
-            <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center border border-emerald-100 dark:border-emerald-500/20 mb-4 shadow-sm z-10 relative">
-              <Headset className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
-            </div>
-            <h3 className="font-bold text-lg">Support</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Resolve & respond</p>
-
-            <div className="mt-4 w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm transition-all group-hover:border-slate-300 dark:group-hover:border-white/20">
-              <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">Common tools</p>
-              <div className="flex items-center justify-center gap-4">
-                {/* Zendesk Mock */}
-                <div className="flex items-center gap-1 font-bold text-slate-800 dark:text-white text-xs tracking-tight">
-                  <div className="w-4 h-4 bg-emerald-700 rounded-sm flex items-center justify-center text-xs text-white">Z</div> zendesk
-                </div>
-                {/* Freshworks Mock */}
-                <div className="flex items-center gap-1 font-bold text-slate-800 dark:text-white text-xs tracking-tight">
-                  <Leaf className="w-3 h-3 text-emerald-500" /> freshworks
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Stage 4: Success */}
-          <div className="relative flex flex-col items-center text-center group">
-            <div className="w-14 h-14 rounded-full bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center border border-purple-100 dark:border-purple-500/20 mb-4 shadow-sm z-10 relative">
-              <TrendingUp className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            </div>
-            <h3 className="font-bold text-lg">Success</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Retain & expand</p>
-
-            <div className="mt-4 w-full p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm transition-all group-hover:border-slate-300 dark:group-hover:border-white/20">
-              <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-3">Common tools</p>
-              <div className="flex items-center justify-center gap-1 font-bold text-slate-800 dark:text-white text-xs tracking-tight">
-                <BarChart className="w-4 h-4 text-[#00b4e6]" /> Gainsight
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        {/* DOWNWARD CONNECTIONS (Desktop only) */}
-        <div className="hidden lg:block relative h-16 w-full z-0">
-          <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="overflow-visible text-red-500">
-            {/* Paths to Card 1 (16.6%) */}
-            <motion.path d="M 12.5 0 C 12.5 50, 16.6 50, 16.6 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-            <motion.path d="M 37.5 0 C 37.5 50, 16.6 50, 16.6 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-
-            {/* Paths to Card 2 (50%) */}
-            <motion.path d="M 37.5 0 C 37.5 50, 50 50, 50 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-            <motion.path d="M 62.5 0 C 62.5 50, 50 50, 50 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-
-            {/* Paths to Card 3 (83.3%) */}
-            <motion.path d="M 62.5 0 C 62.5 50, 83.3 50, 83.3 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-            <motion.path d="M 87.5 0 C 87.5 50, 83.3 50, 83.3 100" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" animate={{ strokeDashoffset: [0, -12] }} transition={{ repeat: Infinity, ease: "linear", duration: 1 }} vectorEffect="non-scaling-stroke" opacity="0.3" />
-          </svg>
-
-          {/* Downward Arrowheads */}
-          <div className="absolute left-[16.6%] bottom-[-5px] hidden lg:block text-red-500 opacity-50 -translate-x-1/2">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-          </div>
-          <div className="absolute left-[50%] bottom-[-5px] hidden lg:block text-red-500 opacity-50 -translate-x-1/2">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-          </div>
-          <div className="absolute left-[83.3%] bottom-[-5px] hidden lg:block text-red-500 opacity-50 -translate-x-1/2">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-          </div>
-        </div>
-
-        {/* BOTTOM CONSEQUENCE CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mt-12 lg:mt-0">
-
-          {/* Card 1 */}
-          <div className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl shadow-red-500/5 dark:shadow-none flex items-start gap-5 hover:-translate-y-1 transition-transform">
-            <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center shrink-0">
-              <TrendingDown className="w-6 h-6 text-red-500" />
+          {/* Stat card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="flex items-start gap-4 p-5 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm w-full lg:w-[400px] shrink-0"
+          >
+            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0">
+              <Database className="w-6 h-6 text-blue-600 dark:text-blue-400" />
             </div>
             <div>
-              <div className="text-red-500 font-bold text-xs mb-1">01</div>
-              <h4 className="font-bold text-lg mb-2">Revenue Leakage</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                Poor handoffs slow onboarding, reduce service quality, and miss expansion opportunities.
+              <p className="text-3xl font-extrabold text-blue-600 dark:text-blue-400 leading-none mb-1">80%+</p>
+              <p className="text-sm text-slate-700 dark:text-slate-300 font-medium leading-snug">
+                of enterprise data remains unstructured and scattered across disconnected systems.
               </p>
+              <p className="text-xs font-bold text-blue-600 dark:text-blue-400 mt-2">— IDC</p>
             </div>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl shadow-orange-500/5 dark:shadow-none flex items-start gap-5 hover:-translate-y-1 transition-transform">
-            <div className="w-12 h-12 rounded-full bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center shrink-0">
-              <Puzzle className="w-6 h-6 text-orange-500" />
-            </div>
-            <div>
-              <div className="text-orange-500 font-bold text-xs mb-1">02</div>
-              <h4 className="font-bold text-lg mb-2">Fragmented Tools</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                Every team has a tool. No team has the full customer picture.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl p-6 shadow-xl shadow-red-500/5 dark:shadow-none flex items-start gap-5 hover:-translate-y-1 transition-transform">
-            <div className="w-12 h-12 rounded-full bg-red-50 dark:bg-red-500/10 flex items-center justify-center shrink-0">
-              <Clock className="w-6 h-6 text-red-500" />
-            </div>
-            <div>
-              <div className="text-red-500 font-bold text-xs mb-1">03</div>
-              <h4 className="font-bold text-lg mb-2">Reactive Operations</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                Risks are discovered after escalation—not when signals first appear.
-              </p>
-            </div>
-          </div>
-
+          </motion.div>
         </div>
 
-        {/* BOTTOM BANNER */}
-        <div className="mt-8 lg:mt-12 w-full relative">
-          {/* Center Alert Icon */}
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-50/50 dark:bg-[#02040a] px-4 z-10">
-            <AlertTriangle className="w-6 h-6 text-red-500" />
+        {/* ── ROW 2: Fragmented Stack label */}
+        <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr] items-start gap-0">
+          <div className="p-5 pt-2">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">Fragmented<br className="hidden lg:block" /> Tool Stack</p>
+            <p className="text-xs text-slate-500 dark:text-slate-500 font-medium mt-1">Disconnected tools.<br />Disconnected data.</p>
           </div>
 
-          <div className="w-full py-6 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 flex items-center justify-center text-center shadow-sm relative z-0">
-            <span className="font-bold text-sm md:text-xl text-slate-900 dark:text-white tracking-tight">
-              The result? <span className="text-red-500">Lower efficiency. Weaker retention.</span> <span className="text-blue-600 dark:text-blue-400">Slower growth.</span>
-            </span>
+          {/* ReactFlow panel — tools converging to impact */}
+          <div className="rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm overflow-hidden px-4 pt-4 pb-0">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1 lg:hidden">The Impact</p>
+            <ReactFlowProvider>
+              <ToolFlowPanel />
+            </ReactFlowProvider>
+          </div>
+        </div>
+
+        {/* ── ROW 3: THE IMPACT label (desktop — shown as left label) */}
+        {/* <div className="hidden lg:grid grid-cols-[180px_1fr] -mt-6"> */}
+          <div className="p-0">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">The Impact</p>
+          </div>
+          <div />
+        {/* </div> */}
+
+        {/* ── ROW 4: 4 Problem Cards ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <ProblemCard
+            icon={TrendingDown} iconColor="text-red-500" iconBg="bg-red-50 dark:bg-red-500/10"
+            title="Revenue Leakage"
+            desc="Opportunities missed, renewals at risk, and expansion delayed."
+          />
+          <ProblemCard
+            icon={Database} iconColor="text-orange-500" iconBg="bg-orange-50 dark:bg-orange-500/10"
+            title="Fragmented Data"
+            desc="Scattered customer data leads to inaccurate insights and reporting."
+          />
+          <ProblemCard
+            icon={Clock} iconColor="text-red-500" iconBg="bg-red-50 dark:bg-red-500/10"
+            title="Reactive Operations"
+            desc="Teams respond late, escalations increase, and SLAs are impacted."
+          />
+          <ProblemCard
+            icon={Users} iconColor="text-blue-500" iconBg="bg-blue-50 dark:bg-blue-500/10"
+            title="Poor Customer Experience"
+            desc="Inconsistent experiences across touchpoints erode trust and loyalty."
+          />
+        </div>
+
+        {/* ── Divider ── */}
+        {/* <div className="flex items-center justify-center py-1">
+          <div className="w-8 h-8 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 flex items-center justify-center shadow-sm">
+            <ChevronDown className="w-4 h-4 text-slate-400" />
+          </div>
+        </div> */}
+
+        {/* ── ROW 5: The Result ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-0">
+          <div className="pb-5 flex items-start pt-5">
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">The Result</p>
+          </div>
+          <div className="flex flex-col lg:flex-row items-stretch gap-0 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm overflow-hidden">
+            <div className="flex-1 grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100 dark:divide-white/5">
+              {[
+                { icon: Clock, val: "32%", label: "Slower onboarding", sub: "due to manual handoffs" },
+                { icon: TrendingDown, val: "18%", label: "Revenue leakage", sub: "from delayed actions" },
+                { icon: Users, val: "24%", label: "Higher support costs", sub: "from reactive operations" },
+                { icon: Zap, val: "2.3x", label: "Higher churn risk", sub: "from poor experiences" },
+              ].map(({ icon: Icon, val, label, sub }) => (
+                <div key={label} className="flex items-center gap-3 px-5 py-5">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0">
+                    <Icon className="w-3.5 h-3.5 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="text-xl font-extrabold leading-none text-blue-600">{val}</p>
+                    <p className="text-xs font-bold text-slate-900 dark:text-white mt-1">{label}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="lg:w-[220px] shrink-0 border-t lg:border-t-0 lg:border-l border-slate-100 dark:border-white/5 px-5 py-5 flex flex-col justify-center bg-slate-50/80 dark:bg-white/[0.02]">
+              <p className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug mb-0.5">One platform. One journey.</p>
+              <p className="text-sm font-extrabold text-blue-600 dark:text-blue-400 leading-snug mb-3">Better outcomes at scale.</p>
+              <button className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:gap-2.5 transition-all group">
+                See how DexKor solves this
+                <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </button>
+            </div>
           </div>
         </div>
 

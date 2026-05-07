@@ -2,6 +2,7 @@ import { Geist_Mono } from "next/font/google"
 import localFont from "next/font/local"
 
 import "./globals.css"
+import "@xyflow/react/dist/style.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";

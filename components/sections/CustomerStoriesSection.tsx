@@ -163,7 +163,10 @@ const CustomerStoriesSection = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="space-y-6 mb-10 lg:mb-14">
-          <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— CUSTOMER STORIES</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Customer Stories</span>
+          </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-4 max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight">

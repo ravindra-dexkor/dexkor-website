@@ -1,266 +1,253 @@
 "use client";
 
-import React, { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import {
-    BarChart3,
-    Users,
-    HeadphonesIcon,
-    Rocket,
-    CheckCircle2,
-    ArrowRight,
-    ShieldCheck,
-    Sparkles,
-    Zap,
-    Network
+  BarChart3, Users, Headphones, Rocket,
+  CheckCircle2, ArrowRight, PlayCircle,
+  ShieldCheck, Zap, GitMerge, BarChart2, Plug,
+  TrendingUp, Clock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-// --- Subcomponents ---
-
-const HubNode = ({
-    icon: Icon, title, subtitle, color, glowColor, positionClasses, delay
+/* ─── HubCard — exact same as Hero ──────────────────────────── */
+const HubCard = ({
+  title, desc, stat, statColor, icon: Icon, iconBg, iconColor, delay, position
 }: {
-    icon: any, title: string, subtitle: string, color: string, glowColor: string, positionClasses: string, delay: number
-}) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay, duration: 0.6, type: "spring" }}
-            className={cn(
-                "absolute w-48 md:w-56 p-4 rounded-2xl bg-white/90 dark:bg-[#060b1a]/90 backdrop-blur-md border border-slate-200 dark:border-white/10 shadow-2xl z-20 group hover:scale-105 transition-transform cursor-pointer",
-                positionClasses,
-                `hover:border-[${color}]`
-            )}
-        >
-            <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                style={{ boxShadow: `0 0 30px ${glowColor}` }} />
+  title: string; desc: string; stat: string; statColor: string;
+  icon: React.ElementType; iconBg: string; iconColor: string;
+  delay: number; position: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, scale: 0.85 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ delay, duration: 0.5, ease: "easeOut" }}
+    className={cn(
+      "absolute bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-3 shadow-lg w-[152px]",
+      position
+    )}
+  >
+    <div className="flex flex-col items-start gap-1">
+      <div className="flex items-center gap-2">
+        <div className={cn("w-8 h-8 rounded-xl flex items-center justify-center shrink-0", iconBg)}>
+          <Icon className={cn("w-4 h-4", iconColor)} />
+        </div>
+        <div className="min-w-0">
+          <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{title}</p>
+          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{desc}</p>
+        </div>
+      </div>
+      <div className={cn("mt-1 inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full", statColor)}>
+        {stat}
+      </div>
+    </div>
+  </motion.div>
+);
 
-            <div className="flex items-start gap-4 relative z-10">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-inner" style={{ backgroundColor: color }}>
-                    <Icon className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                    <h4 className="font-bold text-slate-900 dark:text-white text-sm">{title}</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">{subtitle}</p>
-                </div>
-            </div>
-        </motion.div>
-    );
-};
+/* ─── Foundation bar ─────────────────────────────────────────── */
+const foundations = [
+  { icon: GitMerge,    label: "Unified Timeline",     sub: "360° view across teams" },
+  { icon: Zap,         label: "Workflow Automation",   sub: "End-to-end automation" },
+  { icon: Plug,        label: "APIs & Integrations",   sub: "Connect your stack" },
+  { icon: BarChart2,   label: "Analytics & Reporting", sub: "Real-time insights" },
+  { icon: ShieldCheck, label: "Security & Compliance", sub: "Enterprise-grade" },
+];
 
-const StatChart = ({ title, value, change, positionClasses, chartColor, delay }: any) => {
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: delay + 0.3, duration: 0.5 }}
-            className={cn(
-                "absolute p-3 rounded-xl bg-white dark:bg-[#060b1a] border border-slate-100 dark:border-white/5 shadow-xl z-30 hidden md:block",
-                positionClasses
-            )}
-        >
-            <div className="flex items-center justify-between gap-6 mb-2">
-                <span className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{title}</span>
-                <span className="text-xs font-bold text-emerald-500 flex items-center gap-0.5">
-                    ↑ {change}
-                </span>
-            </div>
-            <div className="font-mono text-lg font-bold text-slate-900 dark:text-white mb-2">{value}</div>
+/* ─── 8 spoke positions (SVG %) ──────────────────────────────── */
+const spokes = [
+  { x1: "12%", y1: "12%", x2: "50%", y2: "50%", delay: 0.0 },  // TL
+  { x1: "50%", y1: "4%",  x2: "50%", y2: "50%", delay: 0.3 },  // TC
+  { x1: "88%", y1: "12%", x2: "50%", y2: "50%", delay: 0.6 },  // TR
+  { x1: "96%", y1: "50%", x2: "50%", y2: "50%", delay: 0.9 },  // RC
+  { x1: "88%", y1: "88%", x2: "50%", y2: "50%", delay: 1.2 },  // BR
+  { x1: "50%", y1: "96%", x2: "50%", y2: "50%", delay: 1.5 },  // BC
+  { x1: "12%", y1: "88%", x2: "50%", y2: "50%", delay: 1.8 },  // BL
+  { x1: "4%",  y1: "50%", x2: "50%", y2: "50%", delay: 2.1 },  // LC
+];
 
-            {/* Fake SVG Sparkline */}
-            <svg width="100" height="20" className="opacity-80">
-                <motion.path
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: delay + 0.6, duration: 1.5, ease: "easeOut" }}
-                    d="M0 15 Q 10 5, 20 10 T 40 12 T 60 5 T 80 15 T 100 2"
-                    fill="none"
-                    stroke={chartColor}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                />
-            </svg>
-        </motion.div>
-    );
-};
+/* ─── 8 Hub cards — content from reference image ────────────── */
+const hubCards = [
+  // TL — OnboardHub
+  {
+    title: "OnboardHub",  desc: "Accelerate implementation.",
+    stat: "↑ 40% faster",  statColor: "text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10",
+    icon: BarChart3, iconBg: "bg-emerald-50 dark:bg-emerald-500/10", iconColor: "text-emerald-600",
+    position: "top-0 left-0", delay: 0.4,
+  },
+  // TC — SalesHub
+  {
+    title: "SalesHub",    desc: "Win pipeline. Forecast growth.",
+    stat: "+32% Pipeline", statColor: "text-blue-600 bg-blue-50 dark:bg-blue-500/10",
+    icon: Rocket,  iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600",
+    position: "top-0 left-1/2 -translate-x-1/2", delay: 0.5,
+  },
+  // TR — Pipeline KPI
+  {
+    title: "Pipeline Generated", desc: "$28.4M",
+    stat: "↑ 32% vs last 30 days", statColor: "text-indigo-600 bg-indigo-50 dark:bg-indigo-500/10",
+    icon: TrendingUp, iconBg: "bg-indigo-50 dark:bg-indigo-500/10", iconColor: "text-indigo-600",
+    position: "top-0 right-0", delay: 0.6,
+  },
+  // RC — AccountCare
+  {
+    title: "AccountCare", desc: "Retain customers. Expand revenue.",
+    stat: "+25% Expansion", statColor: "text-purple-600 bg-purple-50 dark:bg-purple-500/10",
+    icon: Users, iconBg: "bg-purple-50 dark:bg-purple-500/10", iconColor: "text-purple-600",
+    position: "top-1/2 right-0 -translate-y-1/2", delay: 0.7,
+  },
+  // BR — Expansion Revenue KPI
+  {
+    title: "Expansion Revenue", desc: "$6.7M",
+    stat: "↑ 25% vs last 30 days", statColor: "text-violet-600 bg-violet-50 dark:bg-violet-500/10",
+    icon: BarChart2, iconBg: "bg-violet-50 dark:bg-violet-500/10", iconColor: "text-violet-600",
+    position: "bottom-0 right-0", delay: 0.8,
+  },
+  // BC — HelpDesk
+  {
+    title: "HelpDesk",    desc: "Resolve faster. Scale support.",
+    stat: "+28% CSAT",    statColor: "text-orange-600 bg-orange-50 dark:bg-orange-500/10",
+    icon: Headphones, iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600",
+    position: "bottom-0 left-1/2 -translate-x-1/2", delay: 0.9,
+  },
+  // BL — Resolution Time KPI
+  {
+    title: "Resolution Time", desc: "2.4 hrs",
+    stat: "↓ 28% vs last 30 days", statColor: "text-orange-600 bg-orange-50 dark:bg-orange-500/10",
+    icon: Clock, iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600",
+    position: "bottom-0 left-0", delay: 1.0,
+  },
+  // LC — Time to Value KPI
+  {
+    title: "Time to Value", desc: "18 days",
+    stat: "↓ 40% vs last 30 days", statColor: "text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10",
+    icon: Zap, iconBg: "bg-emerald-50 dark:bg-emerald-500/10", iconColor: "text-emerald-600",
+    position: "top-1/2 left-0 -translate-y-1/2", delay: 1.1,
+  },
+];
 
-const ConnectingLine = ({ x1, y1, x2, y2, color }: any) => {
-    return (
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
-            {/* Base faint line */}
-            <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth="1" strokeOpacity="0.2" />
-
-            {/* Animated glowing dot moving towards center (50%, 50%) */}
-            <motion.circle r="3" fill={color} style={{ filter: `drop-shadow(0 0 4px ${color})` }}>
-                <animateMotion
-                    dur="3s"
-                    repeatCount="indefinite"
-                    path={`M ${x1} ${y1} L ${x2} ${y2}`}
-                />
-            </motion.circle>
-        </svg>
-    );
-};
-
-
-// --- Main Component ---
-
+/* ─── Main Section ───────────────────────────────────────────── */
 const SolutionSection = () => {
-    return (
-        <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden">
+  return (
+    <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
 
-            {/* Background Decorative Rings (Visible mostly in dark mode) */}
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] border border-slate-100 dark:border-white/5 rounded-full opacity-50 pointer-events-none hidden lg:block" />
-            <div className="absolute top-1/2 right-10 -translate-y-1/2 w-[600px] h-[600px] border border-slate-100 dark:border-white/5 rounded-full opacity-30 pointer-events-none hidden lg:block" />
+        {/* ── Main 2-col grid ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-12 lg:mb-16">
 
-            <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-
-                    {/* LEFT COLUMN: TEXT CONTENT */}
-                    <div className="lg:col-span-4 z-20 max-w-3xl">
-                        <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest">— THE SOLUTION</span>
-
-                        <h2 className="text-3xl md:text-4xl font-extrabold mt-4 leading-[1.1] tracking-tight text-slate-900 dark:text-white">
-                            Meet DexKor.<br />
-                            One platform.<br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
-                                Four connected modules.
-                            </span>
-                        </h2>
-
-                        <p className="mt-6 text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm font-medium">
-                            Replace disconnected sales, onboarding, support, and customer success tools with one shared operating layer—powered by Dexy AI.
-                        </p>
-                    </div>
-
-                    {/* RIGHT COLUMN: ORBITAL DIAGRAM */}
-                    <div className="lg:col-span-8 relative h-[600px] md:h-[700px] w-full flex items-center justify-center">
-
-                        {/* Connecting Lines */}
-                        <div className="absolute inset-0 hidden md:block">
-                            {/* Top to Center */}
-                            <ConnectingLine x1="50%" y1="15%" x2="50%" y2="50%" color="#3b82f6" />
-                            {/* Right to Center */}
-                            <ConnectingLine x1="85%" y1="50%" x2="50%" y2="50%" color="#a855f7" />
-                            {/* Bottom to Center */}
-                            <ConnectingLine x1="50%" y1="85%" x2="50%" y2="50%" color="#f97316" />
-                            {/* Left to Center */}
-                            <ConnectingLine x1="15%" y1="50%" x2="50%" y2="50%" color="#14b8a6" />
-                        </div>
-
-                        {/* CENTRAL NODE: DEXY AI */}
-                        <motion.div
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, type: "spring" }}
-                            className="absolute z-30 w-56 h-56 rounded-[2rem] bg-white dark:bg-[#060b1a] border border-blue-200 dark:border-blue-500/30 flex flex-col items-center justify-center p-6"
-                            style={{
-                                boxShadow: "0 0 80px rgba(59, 130, 246, 0.15), inset 0 0 40px rgba(59, 130, 246, 0.05)"
-                            }}
-                        >
-                            {/* Robot Avatar */}
-                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 mb-4 shadow-xl shadow-blue-500/20">
-                                <div className="w-full h-full bg-white dark:bg-[#040814] rounded-full flex items-center justify-center overflow-hidden">
-                                    <img src="./images/dexy_ai.svg" alt="Dexy AI" className="w-20 h-20 object-contain" />
-                                </div>
-                            </div>
-
-                            <h3 className="text-lg font-bold text-slate-900 dark:text-white">Dexy AI</h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 text-center mt-1 mb-4 leading-tight">
-                                Embedded intelligence across the lifecycle
-                            </p>
-
-                            <div className="space-y-1.5 w-full">
-                                {['Risk detected', 'Expansion identified', 'Sentiment improved', 'Workflow automated'].map((feat, i) => (
-                                    <div key={i} className="flex items-center gap-1.5">
-                                        <CheckCircle2 className="w-3 h-3 text-emerald-500" />
-                                        <span className="text-xs text-slate-600 dark:text-slate-300 font-medium">{feat}</span>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        {/* THE 4 HUB NODES */}
-                        {/* 1. SalesHub (Top) */}
-                        <HubNode
-                            icon={BarChart3} title="SalesHub" subtitle="Win and grow revenue"
-                            color="#3b82f6" glowColor="rgba(59,130,246,0.3)"
-                            positionClasses="md:top-[5%] md:left-1/2 md:-translate-x-1/2 top-0 left-0 relative md:absolute mb-4 md:mb-0" delay={0.1}
-                        />
-                        <StatChart title="Pipeline Value" value="$28.4M" change="32%" chartColor="#3b82f6" positionClasses="top-[5%] right-[10%]" delay={0.1} />
-
-                        {/* 2. AccountCare (Right) */}
-                        <HubNode
-                            icon={Users} title="AccountCare" subtitle="Retain and expand customers"
-                            color="#a855f7" glowColor="rgba(168,85,247,0.3)"
-                            positionClasses="md:right-[5%] md:top-1/2 md:-translate-y-1/2 top-0 right-0 relative md:absolute mb-4 md:mb-0" delay={0.2}
-                        />
-                        <StatChart title="Expansion Revenue" value="$6.7M" change="25%" chartColor="#a855f7" positionClasses="top-[60%] right-[5%]" delay={0.2} />
-
-                        {/* 3. HelpDesk (Bottom) */}
-                        <HubNode
-                            icon={HeadphonesIcon} title="HelpDesk" subtitle="Deliver exceptional support"
-                            color="#f97316" glowColor="rgba(249,115,22,0.3)"
-                            positionClasses="md:bottom-[5%] md:left-1/2 md:-translate-x-1/2 bottom-0 left-0 relative md:absolute mb-4 md:mb-0" delay={0.3}
-                        />
-                        <StatChart title="Resolution Time" value="2.4 hrs" change="28%" chartColor="#f97316" positionClasses="bottom-[10%] right-[15%]" delay={0.3} />
-
-                        {/* 4. OnboardHub (Left) */}
-                        <HubNode
-                            icon={Rocket} title="OnboardHub" subtitle="Accelerate time-to-value"
-                            color="#14b8a6" glowColor="rgba(20,184,166,0.3)"
-                            positionClasses="md:left-[5%] md:top-1/2 md:-translate-y-1/2 bottom-0 right-0 relative md:absolute" delay={0.4}
-                        />
-                        <StatChart title="Time to Value" value="18 days" change="40%" chartColor="#14b8a6" positionClasses="top-[60%] left-[5%]" delay={0.4} />
-                    </div>
-                </div>
-
-                {/* FULL WIDTH BOTTOM CTA BANNER */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mt-16 w-full rounded-[2rem] bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-8 md:p-12 relative overflow-hidden text-center"
-                >
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-
-                    <h3 className="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-6">
-                        Every team works in one system.<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-500">
-                            Every customer lives in one timeline.
-                        </span>
-                    </h3>
-
-                    <button className="bg-blue-600 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold inline-flex items-center gap-2 hover:bg-blue-700 transition-all shadow-xl shadow-blue-500/20 dark:shadow-none mb-10">
-                        Explore the Platform <ArrowRight className="w-4 h-4" />
-                    </button>
-
-                    {/* Feature Tags */}
-                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
-                        {[
-                            { icon: Network, label: "Unified customer data" },
-                            { icon: Sparkles, label: "AI-powered insights" },
-                            { icon: Zap, label: "Real-time collaboration" },
-                            { icon: ShieldCheck, label: "Enterprise-grade security" }
-                        ].map((tag, i) => (
-                            <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-[#040814] border border-slate-200 dark:border-white/10 shadow-sm text-xs font-medium text-slate-600 dark:text-slate-300">
-                                <tag.icon className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
-                                {tag.label}
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
-
+          {/* LEFT */}
+          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Solution</span>
             </div>
-        </section>
-    );
+            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mb-5">
+              One platform.<br />Every team.<br />
+              <span className="text-blue-600 dark:text-blue-400">One customer journey.</span>
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
+              DexKor unifies sales, onboarding, support, and customer success on a single AI-native platform—so every team works from the same data, in the same flow.
+            </p>
+            <ul className="space-y-2.5 mb-8">
+              {["Shared customer context", "AI-powered automation", "Real-time visibility across the journey"].map(item => (
+                <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />{item}
+                </li>
+              ))}
+            </ul>
+            <div className="flex items-center gap-4 flex-wrap">
+              <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20">
+                See how it works <ArrowRight className="w-4 h-4" />
+              </button>
+              <button className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 transition-colors">
+                <PlayCircle className="w-5 h-5 text-slate-400" />Watch 2-min overview
+              </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT — Hub diagram (Hero pattern, 8 cards) */}
+          <motion.div
+            initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} transition={{ delay: 0.3 }}
+            className="hidden lg:block relative select-none"
+            style={{ height: 440 }}
+          >
+            {/* SVG spoke lines + animated traveling dots */}
+            <svg className="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+              <defs>
+                <marker id="sdot" markerWidth="4" markerHeight="4" refX="2" refY="2">
+                  <circle cx="2" cy="2" r="1.5" fill="#93c5fd" />
+                </marker>
+              </defs>
+              {spokes.map((s, i) => (
+                <line key={i}
+                  x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2}
+                  stroke="#bfdbfe" strokeWidth="1.5" strokeDasharray="4 4"
+                  markerEnd="url(#sdot)"
+                />
+              ))}
+              {spokes.map((s, i) => (
+                <motion.circle
+                  key={i} r="3" fill="#3b82f6"
+                  style={{ filter: "drop-shadow(0 0 4px #60a5fa)" }}
+                  initial={{ opacity: 0 }}
+                  animate={{ cx: [s.x1, s.x2], cy: [s.y1, s.y2], opacity: [0, 1, 1, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: s.delay, repeatDelay: 1 }}
+                />
+              ))}
+            </svg>
+
+            {/* Center hub */}
+            <motion.div
+              animate={{ scale: [1, 1.04, 1] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+            >
+              <div className="w-[150px] h-[150px] rounded-full bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-500/30 shadow-2xl flex flex-col items-center justify-center gap-1 relative">
+                <div className="absolute inset-0 rounded-full border border-blue-300/40 dark:border-blue-500/20 scale-110 animate-ping opacity-20" />
+                <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 mb-0.5 relative">
+                  <img src="/images/dexy_ai.svg" alt="Dexy AI" className="w-16 h-16 rounded-full"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+                  {/* <span className="text-white font-black text-xl absolute">D</span> */}
+                </div>
+                <span className="text-[9px] text-slate-500 dark:text-slate-400 text-center leading-none px-2">
+                  Embedded Intelligence<br />Across the Journey
+                </span>
+              </div>
+            </motion.div>
+
+            {/* 8 HubCards */}
+            {hubCards.map((card) => (
+              <HubCard key={card.title} {...card} />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* ── Foundation bar ── */}
+        <div className="rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-white/5">
+            <div className="px-6 py-5 flex items-center lg:w-52">
+              <p className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug">Built on a unified operating foundation</p>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-5 divide-x divide-y lg:divide-y-0 divide-slate-200 dark:divide-white/5">
+              {foundations.map(({ icon: Icon, label, sub }) => (
+                <div key={label} className="flex items-start gap-3 px-4 py-4">
+                  <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                    <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-slate-900 dark:text-white">{label}</p>
+                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">{sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 };
 
 export default SolutionSection;

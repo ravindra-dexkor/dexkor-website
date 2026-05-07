@@ -106,9 +106,10 @@ const FinalCTASection = () => {
           <div className="absolute inset-[-10px] bg-blue-500/20 blur-2xl rounded-full scale-150 animate-pulse" />
         </motion.div>
 
-        <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block mb-4">
-          — THE CONCLUSION
-        </span>
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-4">
+          <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Conclusion</span>
+        </div>
 
         <div className="mb-8 relative">
           <motion.h2

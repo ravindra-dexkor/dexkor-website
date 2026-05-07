@@ -149,7 +149,10 @@ const HowItWorksSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-10 lg:mb-14">
           {/* Left Column: Text */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
-            <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— HOW DEXKOR WORKS</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-4">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">How DexKor Works</span>
+            </div>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mt-4 mb-4">
               From reactive operations to <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">

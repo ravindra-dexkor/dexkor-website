@@ -53,9 +53,10 @@ const ComparisonSection = () => {
         
         {/* Header */}
         <div className="text-center space-y-4 mb-10 lg:mb-14">
-          <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">
-            — THE COST OF WAITING
-          </span>
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10">
+            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+            <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Cost of Waiting</span>
+          </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white max-w-4xl mx-auto">
             Every disconnected customer moment <br />
             is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">revenue left behind.</span>

@@ -155,7 +155,10 @@ const OutcomesSection = () => {
         {/* Header */}
         <div className="text-center space-y-5 mb-10 lg:mb-14 max-w-3xl mx-auto">
           <div className="flex items-center justify-center">
-             <span className="text-blue-600 dark:text-blue-500 font-bold text-xs uppercase tracking-widest block">— REAL BUSINESS OUTCOMES</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10">
+              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Real Business Outcomes</span>
+            </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight">
             Measured in outcomes.<br />
