@@ -135,7 +135,7 @@ const FutureSection = () => (
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
             Growth won't be<br />managed in silos.<br />
-            <span className="text-blue-600 dark:text-blue-400">It'll be predicted,<br />orchestrated, and<br />scaled.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">It'll be predicted,<br />orchestrated, and<br />scaled.</span>
           </h2>
           <div className="w-8 h-0.5 bg-blue-500 mb-4" />
           <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-2">

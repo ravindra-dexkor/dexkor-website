@@ -99,7 +99,7 @@ const ComparisonSection = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
             Every disconnected customer moment<br />
-            is <span className="text-blue-600 dark:text-blue-400">revenue left behind.</span>
+            is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">revenue left behind.</span>
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
             While teams switch between tools, customers wait, risks escalate,<br className="hidden md:block" />

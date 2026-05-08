@@ -182,7 +182,7 @@ const ProblemSection = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mb-4">
               Point solutions manage stages.<br />
-              <span className="text-blue-600 dark:text-blue-400">They don't manage the journey.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">They don't manage the journey.</span>
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
               Most B2B companies still rely on separate tools for sales, onboarding,

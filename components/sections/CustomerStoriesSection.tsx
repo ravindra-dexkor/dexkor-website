@@ -171,7 +171,7 @@ const CustomerStoriesSection = () => {
             <div className="space-y-4 max-w-2xl">
               <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight">
                 Built with teams<br />
-                that refuse <span className="text-blue-600 dark:text-blue-500">reactive growth.</span>
+                that refuse <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">reactive growth.</span>
               </h2>
               <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed">
                 See how modern B2B teams use DexKor to unify operations, reduce churn risk, accelerate onboarding, and unlock expansion.

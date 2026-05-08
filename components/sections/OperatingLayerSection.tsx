@@ -157,7 +157,7 @@ const OperatingLayerSection = () => (
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
           Every team works in one system.<br />
-          <span className="text-blue-600 dark:text-blue-400">Every customer lives in one timeline.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Every customer lives in one timeline.</span>
         </h2>
         <p className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
           From pipeline to onboarding, support to renewal—<br className="hidden md:block" />

@@ -149,7 +149,7 @@ const OutcomesSection = () => (
 
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
             Measured in outcomes.<br />
-            <span className="text-blue-600 dark:text-blue-400">Not activity.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Not activity.</span>
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md">
             DexKor helps customer-facing teams reduce risk, accelerate time-to-value, improve retention, and unlock expansion—across the entire customer lifecycle.

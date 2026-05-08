@@ -215,7 +215,7 @@ const Hero = () => {
               className="text-3xl lg:text-[2.4rem] font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white"
             >
               The{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400">AI-native</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">AI-native</span>{" "}
               operating<br />
               system for Sales, Support,<br />
               and Customer Success teams.

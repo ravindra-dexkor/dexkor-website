@@ -143,7 +143,7 @@ const SolutionSection = () => {
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mb-5">
               One platform.<br />Every team.<br />
-              <span className="text-blue-600 dark:text-blue-400">One customer journey.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">One customer journey.</span>
             </h2>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
               DexKor unifies sales, onboarding, support, and customer success on a single AI-native platform—so every team works from the same data, in the same flow.
