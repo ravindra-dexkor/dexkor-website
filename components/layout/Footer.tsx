@@ -198,7 +198,7 @@ const Footer = () => (
     {/* ── FOUNDER QUOTE + CTA ── */}
     <div className="border-t border-slate-100 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6 elevation-2">
 
           {/* Quote */}
           <div className="flex items-start gap-4">

@@ -19,7 +19,7 @@ const TrustCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay: 0.1 + index * 0.1, duration: 0.45, ease: "easeOut" }}
-    className="p-5 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:-translate-y-0.5 transition-all duration-300"
+    className="p-5 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 elevation-1 hover:border-blue-500/30 dark:hover:border-blue-500/30 hover:-translate-y-0.5 transition-all duration-300"
   >
     {/* Icon + title */}
     <div className="flex items-center gap-3 mb-4">
@@ -124,7 +124,7 @@ const TrustSection = () => (
       <motion.div
         initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.3 }}
-        className="rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 overflow-hidden"
+        className="rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 elevation-1 overflow-hidden"
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-white/5">
           {pillars.map(({ icon: Icon, label }, idx) => (

@@ -19,7 +19,7 @@ import "@xyflow/react/dist/style.css";
 const ProductNode = ({ data }: { data: { icon: React.ElementType; color: string; title: string; sub: string } }) => {
   const Icon = data.icon;
   return (
-    <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-md w-[230px]">
+    <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 elevation-2 w-[230px]">
       <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-white" style={{ background: data.color }}>
         <Icon className="w-4 h-4 text-white" />
       </div>
@@ -34,7 +34,7 @@ const ProductNode = ({ data }: { data: { icon: React.ElementType; color: string;
 
 /* ── Dexy AI Hub Node ─────────────────────────────────────────── */
 const DexyNode = ({ data }: { data: Record<string, never> }) => (
-  <div className="relative flex flex-col items-center bg-white dark:bg-slate-900 border border-blue-200 dark:border-blue-500/30 rounded-2xl px-5 py-3 shadow-xl shadow-blue-500/10 w-[300px]">
+  <div className="relative flex flex-col items-center bg-white dark:bg-slate-900 border border-blue-200 dark:border-blue-500/30 rounded-2xl px-5 py-3 elevation-3 glow-3 w-[300px]">
     <Handle type="target" position={Position.Top} className="!w-2 !h-2 !bg-blue-400 !border-0 !opacity-70" />
     {/* Orbit rings */}
     <div className="absolute -inset-2 rounded-2xl border border-blue-200/30 dark:border-blue-500/10 pointer-events-none" />
@@ -89,7 +89,7 @@ const GAP = 280;
 const START_X = 0;
 const TOP_Y = 0;
 const HUB_Y = 130;
-const HUB_X = (GAP * 3) / 2 - 150; // center-align 300px hub across 4 nodes
+const HUB_X = 385; // Center of the 4 nodes (total width 1070) - half of DexyNode width (150)
 
 const flowNodes: Node[] = [
   { id: "sales",   type: "product", position: { x: START_X + GAP * 0, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Rocket,     color: "#3b82f6", title: "SalesHub",    sub: "Win pipeline. Forecast growth." } },
@@ -181,7 +181,7 @@ const OperatingLayerSection = () => (
     <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-6 mt-2">
       <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 }}
-        className="rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 overflow-hidden"
+        className="rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 elevation-1 overflow-hidden"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
           {pillars.map(({ icon: Icon, label, sub }) => (
@@ -201,7 +201,7 @@ const OperatingLayerSection = () => (
       {/* Stats bar */}
       <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 }}
-        className="rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 overflow-hidden"
+        className="rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 elevation-1 overflow-hidden"
       >
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
           {stats.map(({ icon: Icon, color, bg, val, label, delta }) => (

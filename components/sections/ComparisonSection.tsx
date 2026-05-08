@@ -128,7 +128,7 @@ const ComparisonSection = () => {
 
             {/* LEFT — Without DexKor */}
             <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-              className="rounded-2xl border border-red-200 dark:border-red-500/20 bg-white dark:bg-white/[0.02] p-5 shadow-sm"
+              className="rounded-2xl border border-red-200 dark:border-red-500/20 bg-white dark:bg-white/[0.02] p-5 elevation-2"
             >
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-red-200 dark:border-red-500/20 bg-red-50 dark:bg-red-500/10 mb-4">
                 <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
@@ -159,7 +159,7 @@ const ComparisonSection = () => {
                 <div className="absolute w-24 h-24 rounded-full border border-blue-200/50 dark:border-blue-500/20" />
                 <div className="absolute w-16 h-16 rounded-full border border-blue-200/30 dark:border-blue-500/10" />
                 <motion.div animate={{ scale: [1, 1.06, 1] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center shadow-xl shadow-blue-500/30">
+                  className="relative w-14 h-14 rounded-full bg-blue-600 flex items-center justify-center elevation-3 glow-3">
                   <div className="absolute inset-0 rounded-full border border-blue-300/40 animate-ping opacity-20" />
                   <ArrowRight className="w-6 h-6 text-white" />
                 </motion.div>
@@ -174,7 +174,7 @@ const ComparisonSection = () => {
 
             {/* RIGHT — With DexKor */}
             <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-              className="rounded-2xl border border-blue-200 dark:border-blue-500/20 bg-white dark:bg-white/[0.02] p-5 shadow-sm"
+              className="rounded-2xl border border-blue-200 dark:border-blue-500/20 bg-white dark:bg-white/[0.02] p-5 elevation-2"
             >
               <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-blue-200 dark:border-blue-500/20 bg-blue-50 dark:bg-blue-500/10 mb-4">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
@@ -203,7 +203,7 @@ const ComparisonSection = () => {
 
         {/* Stats bar */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.2 }}
-          className="rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 shadow-sm overflow-hidden"
+          className="rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 elevation-1 overflow-hidden"
         >
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
             {/* Left label */}
@@ -235,7 +235,7 @@ const ComparisonSection = () => {
 
         {/* CTA banner */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.25 }}
-          className="rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-sm"
+          className="rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-5 elevation-1"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center shrink-0">

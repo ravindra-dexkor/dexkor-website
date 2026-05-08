@@ -41,7 +41,7 @@ const KpiCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.45, ease: "easeOut" }}
-    className="flex flex-col gap-3 p-4 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+    className="flex flex-col gap-3 p-4 rounded-2xl bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 elevation-1 hover:-translate-y-0.5 transition-all duration-300"
   >
     {/* Top row: icon + value + arrow */}
     <div className="flex items-center gap-2">

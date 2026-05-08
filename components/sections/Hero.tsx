@@ -23,7 +23,7 @@ const HubCard = ({
     animate={{ opacity: 1, scale: 1 }}
     transition={{ delay, duration: 0.5, ease: "easeOut" }}
     className={cn(
-      "absolute bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-3 shadow-lg w-[155px]",
+      "absolute bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl p-3 w-[155px] elevation-2",
       position
     )}
   >
@@ -51,7 +51,7 @@ const MiniDashboard = () => (
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ delay: 0.7, duration: 0.6 }}
-    className="w-full bg-white dark:bg-[#0a0e1a] rounded-2xl border border-slate-200 dark:border-white/10 shadow-2xl overflow-hidden"
+    className="w-full bg-white dark:bg-[#0a0e1a] rounded-2xl border border-slate-200 dark:border-white/10 elevation-3 overflow-hidden"
     style={{ maxHeight: 210 }}
   >
     {/* Titlebar */}
@@ -341,7 +341,7 @@ const Hero = () => {
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
               >
-                <div className="w-[150px] h-[150px] rounded-full bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-500/30 shadow-2xl flex flex-col items-center justify-center gap-1 relative">
+                <div className="w-[150px] h-[150px] rounded-full bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-500/30 elevation-3 glow-3 flex flex-col items-center justify-center gap-1 relative">
                   <div className="absolute inset-0 rounded-full border border-blue-300/40 dark:border-blue-500/20 scale-110 animate-ping opacity-20" />
                   <div className="w-20 h-20 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 mb-0.5">
                     {/* <span className="text-white font-black text-xl italic">D</span> */}

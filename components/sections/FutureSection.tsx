@@ -186,7 +186,7 @@ const FutureSection = () => (
 
       {/* ── Stats bar ── */}
       <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.2 }}
-        className="rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 overflow-hidden"
+        className="rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 elevation-1 overflow-hidden"
       >
         <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-white/5">
           <div className="flex items-center gap-3 px-6 py-5 lg:w-56 shrink-0">

@@ -156,7 +156,7 @@ const ProblemCard = ({
 }: {
   icon: React.ElementType; iconColor: string; iconBg: string; title: string; desc: string;
 }) => (
-  <div className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+  <div className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 elevation-1 transition-all">
     <div className={cn("w-9 h-9 rounded-xl flex items-center justify-center shrink-0", iconBg)}>
       <Icon className={cn("w-4 h-4", iconColor)} />
     </div>
