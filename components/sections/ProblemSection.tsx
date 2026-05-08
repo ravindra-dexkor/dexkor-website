@@ -228,10 +228,10 @@ const ProblemSection = () => {
 
         {/* ── ROW 3: THE IMPACT label (desktop — shown as left label) */}
         {/* <div className="hidden lg:grid grid-cols-[180px_1fr] -mt-6"> */}
-          <div className="p-0">
-            <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">The Impact</p>
-          </div>
-          <div />
+        <div className="p-0">
+          <p className="text-xs font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">The Impact</p>
+        </div>
+        <div />
         {/* </div> */}
 
         {/* ── ROW 4: 4 Problem Cards ── */}

@@ -46,16 +46,16 @@ const TeamCard = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
-    className="group relative p-6 rounded-2xl bg-slate-50/50 dark:bg-[#060b1a]/40 border border-slate-100 dark:border-white/5 hover:border-blue-500/20 dark:hover:border-white/10 transition-all duration-300 shadow-sm dark:shadow-none"
+    className="group relative p-5 rounded-2xl bg-white dark:bg-[#060b1a]/40 border border-slate-200 dark:border-white/10 hover:border-blue-500/30 dark:hover:border-white/20 transition-all duration-300 shadow-sm dark:shadow-none"
   >
-    <div className="flex items-start gap-5">
+    <div className="flex items-start gap-4">
       {/* Icon Container with Circular Glow */}
       <div className="relative shrink-0">
         <div className={cn(
-          "w-16 h-16 rounded-full flex items-center justify-center relative z-10 border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a1128]",
+          "w-12 h-12 rounded-xl flex items-center justify-center relative z-10 border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a1128]",
           "shadow-sm dark:shadow-[0_0_20px_rgba(0,0,0,0.5)]"
         )}>
-          <Icon className={cn("w-7 h-7", colorClass)} />
+          <Icon className={cn("w-5 h-5", colorClass)} />
         </div>
         {/* Glow Effect */}
         <div className={cn(
@@ -68,16 +68,16 @@ const TeamCard = ({
         )} />
       </div>
 
-      <div className="space-y-1">
-        <h4 className="font-bold text-slate-900 dark:text-white text-lg tracking-tight">{title}</h4>
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium line-clamp-2">
+      <div className="space-y-1 mt-1">
+        <h4 className="font-bold text-slate-900 dark:text-white text-sm tracking-tight">{title}</h4>
+        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
           {description}
         </p>
       </div>
     </div>
 
     {/* Bottom Indicator */}
-    <div className="mt-6 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5">
+    <div className="mt-5 pt-4 border-t border-slate-100 dark:border-white/5 flex items-center gap-1.5">
       {isUp ? (
         <ArrowUp className={cn("w-3.5 h-3.5", colorClass)} />
       ) : (

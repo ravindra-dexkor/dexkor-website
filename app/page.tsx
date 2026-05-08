@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import ProblemSection from "@/components/sections/ProblemSection";
 import SolutionSection from "@/components/sections/SolutionSection";
+import OperatingLayerSection from "@/components/sections/OperatingLayerSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import TeamsSection from "@/components/sections/TeamsSection";
 import OutcomesSection from "@/components/sections/OutcomesSection";
@@ -20,15 +21,16 @@ export default function Home() {
       <Hero />
       <ProblemSection />
       <SolutionSection />
-      <HowItWorksSection />
-      <TeamsSection />
+      <OperatingLayerSection />
+      {/* <HowItWorksSection /> */}
+      {/* <TeamsSection /> */}
       <OutcomesSection />
       <CustomerStoriesSection />
       <TrustSection />
       <ComparisonSection />
       <FutureSection />
-      <NextStepSection />
-      <FinalCTASection />
+      {/* <NextStepSection />
+      <FinalCTASection /> */}
       <Footer />
     </main>
   );

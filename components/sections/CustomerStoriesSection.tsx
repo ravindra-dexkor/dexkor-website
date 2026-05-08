@@ -191,7 +191,7 @@ const CustomerStoriesSection = () => {
         </div>
 
         {/* Bottom Banner */}
-        <div className="w-full bg-slate-50/80 dark:bg-[#060b1a]/80 backdrop-blur-xl border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* <div className="w-full bg-slate-50/80 dark:bg-[#060b1a]/80 backdrop-blur-xl border border-slate-200 dark:border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6">
              <div className="w-12 h-12 rounded-full bg-blue-600/10 dark:bg-blue-600/20 border border-blue-500/20 dark:border-blue-500/30 flex items-center justify-center relative overflow-hidden shrink-0 shadow-sm">
                 <div className="w-6 h-6 flex items-center justify-center font-black text-blue-600 dark:text-blue-500 italic">D</div>
@@ -204,7 +204,7 @@ const CustomerStoriesSection = () => {
           <button className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all whitespace-nowrap shadow-xl shadow-blue-600/20 active:scale-95">
             Explore Customer Stories <ArrowRight className="w-4 h-4" />
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );
