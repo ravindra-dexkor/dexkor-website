@@ -47,11 +47,41 @@ const HubCard = ({
 
 /* ─── Foundation bar ─────────────────────────────────────────── */
 const foundations = [
-  { icon: GitMerge, label: "Unified Timeline", sub: "360° view across teams" },
-  { icon: Zap, label: "Workflow Automation", sub: "End-to-end automation" },
-  { icon: Plug, label: "APIs & Integrations", sub: "Connect your stack" },
-  { icon: BarChart2, label: "Analytics & Reporting", sub: "Real-time insights" },
-  { icon: ShieldCheck, label: "Security & Compliance", sub: "Enterprise-grade" },
+  {
+    icon: GitMerge,
+    label: "Shared customer context",
+    sub: "360° view across every team",
+    color: "text-blue-600",
+    bg: "bg-blue-50 dark:bg-blue-500/10"
+  },
+  {
+    icon: Zap,
+    label: "Trigger actions automatically",
+    sub: "End-to-end workflow automation",
+    color: "text-purple-600",
+    bg: "bg-purple-50 dark:bg-purple-500/10"
+  },
+  {
+    icon: Plug,
+    label: "Connect your existing stack",
+    sub: "APIs & integrations built for flexibility",
+    color: "text-cyan-600",
+    bg: "bg-cyan-50 dark:bg-cyan-500/10"
+  },
+  {
+    icon: BarChart2,
+    label: "Real-time business signals",
+    sub: "Analytics & reporting that drive decisions",
+    color: "text-indigo-600",
+    bg: "bg-indigo-50 dark:bg-indigo-500/10"
+  },
+  {
+    icon: ShieldCheck,
+    label: "Enterprise-grade trust",
+    sub: "Security, compliance & data protection",
+    color: "text-emerald-600",
+    bg: "bg-emerald-50 dark:bg-emerald-500/10"
+  },
 ];
 
 /* ─── 8 spoke positions (SVG %) ──────────────────────────────── */
@@ -129,7 +159,7 @@ const hubCards = [
 /* ─── Main Section ───────────────────────────────────────────── */
 const SolutionSection = () => {
   return (
-    <section className="relative w-full py-12 lg:py-20 bg-[#F8FAFF] dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
+    <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ── Main 2-col grid ── */}
@@ -137,32 +167,21 @@ const SolutionSection = () => {
 
           {/* LEFT */}
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-6">
-              <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Solution</span>
-            </div>
+            
             <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mb-5">
               One platform.<br />Every team.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">One customer journey.</span>
             </h2>
             <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
-              DexKor unifies sales, onboarding, support, and customer success on a single AI-native platform—so every team works from the same data, in the same flow.
-            </p>
+              From first touch to renewal, every team works from the same customer context—powered by AI, automation, and real-time intelligence.            </p>
             <ul className="space-y-2.5 mb-8">
-              {["Shared customer context", "AI-powered automation", "Real-time visibility across the journey"].map(item => (
+              {[" Real-time signals across onboarding, support, and growth", " AI automates workflows before issues escalate", "Real-time signals across onboarding, support, and growth"].map(item => (
                 <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />{item}
                 </li>
               ))}
             </ul>
-            <div className="flex items-center gap-4 flex-wrap">
-              <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20">
-                See how it works <ArrowRight className="w-4 h-4" />
-              </button>
-              <button className="inline-flex items-center gap-2 text-sm font-bold text-slate-700 dark:text-slate-300 hover:text-blue-600 transition-colors">
-                <PlayCircle className="w-5 h-5 text-slate-400" />Watch 2-min overview
-              </button>
-            </div>
+          
           </motion.div>
 
           {/* RIGHT — Hub diagram (Hero pattern, 8 cards) */}
@@ -206,7 +225,7 @@ const SolutionSection = () => {
               <div className="w-[150px] h-[150px] rounded-full bg-white dark:bg-slate-900 border-2 border-blue-200 dark:border-blue-500/30 shadow-2xl flex flex-col items-center justify-center gap-1 relative">
                 <div className="absolute inset-0 rounded-full border border-blue-300/40 dark:border-blue-500/20 scale-110 animate-ping opacity-20" />
                 <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 mb-0.5 relative">
-                  <img src="/images/dexy_ai.svg" alt="Dexy AI" className="w-16 h-16 rounded-full"
+                  <img src="/images/Dexy_AI_LOGO.svg" alt="Dexy AI" className="w-16 h-16 rounded-full"
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
                   {/* <span className="text-white font-black text-xl absolute">D</span> */}
                 </div>
@@ -224,20 +243,25 @@ const SolutionSection = () => {
         </div>
 
         {/* ── Foundation bar ── */}
-        <div className="rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-200 dark:divide-white/5">
-            <div className="px-6 py-5 flex items-center lg:w-52">
-              <p className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug">Built on a unified operating foundation</p>
+        <div className="rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 overflow-hidden shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
+            {/* Header */}
+            <div className="px-8 py-6 flex flex-col justify-center">
+              <p className="text-base font-bold text-slate-900 dark:text-white leading-[1.2]">
+                Built for scale.<br />
+                Powered by <span className="text-blue-600">one<br />operating layer.</span>
+              </p>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-5 divide-x divide-y lg:divide-y-0 divide-slate-200 dark:divide-white/5">
-              {foundations.map(({ icon: Icon, label, sub }) => (
-                <div key={label} className="flex items-start gap-3 px-4 py-4">
-                  <div className="w-7 h-7 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+            {/* Foundation Items */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-x divide-slate-100 dark:divide-white/5">
+              {foundations.map(({ icon: Icon, label, sub, color, bg }) => (
+                <div key={label} className="flex flex-col gap-4 px-6 py-6 border-b sm:border-b-0 border-slate-100 dark:border-white/5">
+                  <div className={cn("w-10 h-10 rounded-full flex items-center justify-center shrink-0", bg)}>
+                    <Icon className={cn("w-5 h-5", color)} strokeWidth={2} />
                   </div>
                   <div>
-                    <p className="text-xs font-bold text-slate-900 dark:text-white">{label}</p>
-                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">{sub}</p>
+                    <h4 className="text-[13px] font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">{label}</h4>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal font-medium">{sub}</p>
                   </div>
                 </div>
               ))}

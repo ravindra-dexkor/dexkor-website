@@ -41,7 +41,7 @@ const DexyNode = ({ data }: { data: Record<string, never> }) => (
     <div className="flex items-center gap-3 mb-2">
       <div className="relative w-11 h-11 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 shrink-0">
         <div className="absolute inset-0 rounded-full border border-blue-300/40 animate-ping opacity-20" />
-        <img src="/images/dexy_ai.svg" alt="Dexy AI" className="w-11 h-11 rounded-full"
+        <img src="/images/Dexy_AI_LOGO.svg" alt="Dexy AI" className="w-11 h-11 rounded-full"
           onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
         {/* <span className="text-white font-black text-base absolute">D</span> */}
       </div>
@@ -151,8 +151,7 @@ const OperatingLayerSection = () => (
         viewport={{ once: true }} transition={{ duration: 0.5 }}
         className="text-center max-w-3xl mx-auto"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
-          <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+        <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
           <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">One Operating Layer</span>
         </div>
         <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
