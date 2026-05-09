@@ -71,7 +71,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Resources</span>
           </div>
 
-          <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-6">
+          <div className="max-w-full mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-6">
             {/* BROWSE RESOURCES */}
             <div className="col-span-1 md:col-span-3 space-y-6">
               <div>

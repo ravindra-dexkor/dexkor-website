@@ -79,7 +79,7 @@ const badges = [
 
 /* ── Main Footer ──────────────────────────────────────────────── */
 const Footer = () => (
-  <footer className="relative w-full bg-white dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-200 dark:border-white/5 overflow-hidden">
+  <footer className="relative w-full bg-[#0B1020] dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-200 dark:border-white/5 overflow-hidden">
 
     {/* ── TOP: Logo/desc + 4 nav columns ── */}
     <div className="max-w-7xl mx-auto px-6 pt-14 pb-10">
@@ -241,7 +241,7 @@ const Footer = () => (
 
           {/* Copyright + location */}
           <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-500 font-medium">
-            <span>© 2026 DexKorCRM Pvt. Ltd. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} DexKorCRM Pvt. Ltd. All rights reserved.</span>
             <div className="flex items-center gap-1.5">
               <img src="/images/india-flag.svg" alt="India" className="w-5 h-3.5  object-cover" />
               <span>Built in India</span>

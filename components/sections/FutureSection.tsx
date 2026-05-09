@@ -32,11 +32,10 @@ const toDeg = (d: number) => (d * Math.PI) / 180;
 
 // Card anchor points (pentagon, clockwise from top)
 const cards = [
-  { id: "sales",   icon: TrendingUp, color: "#10b981", bg: "bg-emerald-50 dark:bg-emerald-500/10", label: "SalesHub",    sub: "Win more",                angle: 270, delay: 0.3 },
-  { id: "onboard", icon: Rocket,     color: "#f97316", bg: "bg-orange-50 dark:bg-orange-500/10",   label: "OnboardHub",  sub: "Launch smoothly",         angle: 342, delay: 0.4 },
-  { id: "dexy",    icon: Sparkles,   color: "#8b5cf6", bg: "bg-violet-50 dark:bg-violet-500/10",   label: "Dexy AI",     sub: "Predict. Recommend. Act.", angle: 54,  delay: 0.5 },
-  { id: "account", icon: Users,      color: "#3b82f6", bg: "bg-blue-50 dark:bg-blue-500/10",       label: "AccountCare", sub: "Retain longer",           angle: 126, delay: 0.6 },
-  { id: "help",    icon: Headphones, color: "#a855f7", bg: "bg-purple-50 dark:bg-purple-500/10",   label: "HelpDesk",    sub: "Resolve faster",          angle: 198, delay: 0.7 },
+  { id: "sales",   icon: TrendingUp, color: "#10b981", bg: "bg-emerald-50 dark:bg-emerald-500/10", label: "SalesHub",    sub: "Win more",                angle: 225, delay: 0.3 },
+  { id: "onboard", icon: Rocket,     color: "#f97316", bg: "bg-orange-50 dark:bg-orange-500/10",   label: "OnboardHub",  sub: "Launch smoothly",         angle: 315, delay: 0.4 },
+  { id: "account", icon: Users,      color: "#3b82f6", bg: "bg-blue-50 dark:bg-blue-500/10",       label: "AccountCare", sub: "Retain longer",           angle: 45,  delay: 0.5 },
+  { id: "help",    icon: Headphones, color: "#a855f7", bg: "bg-purple-50 dark:bg-purple-500/10",   label: "HelpDesk",    sub: "Resolve faster",          angle: 135, delay: 0.6 },
 ].map(c => ({
   ...c,
   // card center on orbit circle
@@ -49,7 +48,7 @@ const cards = [
 
 const CARD_W = 130, CARD_H = 84;
 
-const OrbitalDiagram = () => (
+export const OrbitalDiagram = () => (
   <div className="relative mx-auto select-none overflow-visible" style={{ width: W, height: H }}>
 
     {/* SVG: dashed circle + connection lines + traveling dots */}
@@ -76,6 +75,16 @@ const OrbitalDiagram = () => (
           transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.5, repeatDelay: 0.8 }}
         />
       ))}
+
+      {/* Rotating orbit dots */}
+      <motion.g
+        animate={{ rotate: 360 }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        style={{ transformOrigin: `${CX}px ${CY}px` }}
+      >
+        <circle cx={CX + R} cy={CY} r="4" fill="#3b82f6" style={{ filter: "drop-shadow(0 0 6px #60a5fa)" }} />
+        <circle cx={CX - R} cy={CY} r="3" fill="#8b5cf6" style={{ filter: "drop-shadow(0 0 6px #a78bfa)" }} />
+      </motion.g>
     </svg>
 
     {/* Center hub */}
@@ -87,7 +96,7 @@ const OrbitalDiagram = () => (
     >
       <div className="absolute inset-0 rounded-full border border-blue-300/30 dark:border-blue-500/20 animate-ping opacity-20" />
       <div className="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30 mb-1 relative shrink-0">
-        <img src="/images/dexy_ai.svg" alt="DexKor" className="w-12 h-12 rounded-full"
+        <img src="/images/Dexy_AI.svg" alt="DexKor" className="w-12 h-12 rounded-full"
           onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
         {/* <span className="text-white font-black text-lg absolute">D</span> */}
       </div>

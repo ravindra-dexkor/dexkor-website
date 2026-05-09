@@ -170,7 +170,7 @@ const ProblemCard = ({
 /* ─── Main Section ──────────────────────────────────────────── */
 const ProblemSection = () => {
   return (
-    <section className="relative w-full py-10 lg:py-16 bg-slate-50/50 dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-100 dark:border-white/5">
+    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 overflow-hidden border-t border-slate-100 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 space-y-8">
 
         {/* ── ROW 1: Header + Stat Card ── */}

@@ -129,7 +129,7 @@ const hubCards = [
 /* ─── Main Section ───────────────────────────────────────────── */
 const SolutionSection = () => {
   return (
-    <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
+    <section className="relative w-full py-12 lg:py-20 bg-[#F8FAFF] dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* ── Main 2-col grid ── */}

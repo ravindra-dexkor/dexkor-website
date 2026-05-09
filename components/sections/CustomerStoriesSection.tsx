@@ -159,7 +159,7 @@ const CustomerStoriesSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-10 lg:py-16 bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 border-t border-slate-50 dark:border-white/5">
+    <section className="relative w-full py-10 lg:py-16 bg-[#F8FAFF] dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 border-t border-slate-50 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="space-y-6 mb-10 lg:mb-14">

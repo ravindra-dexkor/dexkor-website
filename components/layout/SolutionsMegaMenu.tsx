@@ -262,7 +262,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
              <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Solutions</span>
           </div>
 
-          <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
+          <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-4">
             
             {/* COLUMN 1: BROWSE BY USE CASE */}
             <div className="col-span-1 md:col-span-3">
@@ -307,9 +307,9 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* COLUMN 2 & 3: EXPLORE BY INDUSTRY & CONTENT */}
             <div className="col-span-1 md:col-span-9 flex flex-col">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-6">EXPLORE BY INDUSTRY</h3>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-4">EXPLORE BY INDUSTRY</h3>
               
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3 mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
                 {industries.map((industry) => (
                   <div 
                     key={industry.id}
@@ -319,7 +319,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         }
                     }}
                     className={cn(
-                        "flex flex-col items-center justify-center p-2 rounded-2xl border transition-all gap-3 relative overflow-hidden",
+                        "flex flex-col items-center justify-center p-2 rounded-2xl border transition-all gap-2 relative overflow-hidden",
                         industrySelectionEnabled ? "cursor-pointer" : "cursor-default",
                         selectedIndustry === industry.id && industrySelectionEnabled
                           ? "border-blue-200 bg-white dark:bg-white/10 shadow-lg dark:shadow-none" 
@@ -354,15 +354,15 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white/50 dark:bg-slate-900/40 rounded-[32px] p-8 border border-slate-200 dark:border-white/5 relative overflow-hidden flex-1 group"
+                  className="bg-white/50 dark:bg-slate-900/40 rounded-[32px] p-4 border border-slate-200 dark:border-white/5 relative overflow-hidden flex-1 group"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-                    <div className="lg:col-span-5 space-y-6">
+                    <div className="lg:col-span-6 space-y-2">
                         <span className="text-xs font-black bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">{activeContent.tag}</span>
                         <h2 className="text-3xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
                            {activeContent.headline.split('.').map((part: string, i: number) => (
                              <React.Fragment key={i}>
-                               {part}{i < activeContent.headline.split('.').length - 1 && "."}<br />
+                               {part}{i < activeContent.headline.split('.').length - 1 && "."}
                              </React.Fragment>
                            ))}
                         </h2>
@@ -387,7 +387,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         </button>
                     </div>
 
-                    <div className="lg:col-span-7 relative">
+                    <div className="lg:col-span-6 relative">
                          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-white/10 overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 max-h-[320px] flex flex-col">
                              <div className="p-2 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 shrink-0">
                                 <div className="flex gap-1.5">
