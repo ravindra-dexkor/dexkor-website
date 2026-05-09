@@ -34,7 +34,7 @@ const TrustCard = ({
       {features.map((f, i) => (
         <li key={i} className="flex items-center gap-2.5">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-          <span className="text-xs text-slate-600 dark:text-slate-400 font-medium">{f}</span>
+          <span className="text-xs text-slate-700 dark:text-slate-400 font-medium">{f}</span>
         </li>
       ))}
     </ul>
@@ -43,10 +43,10 @@ const TrustCard = ({
 
 /* ── Bottom pillar bar ───────────────────────────────────────────── */
 const pillars = [
-  { icon: Globe,     label: "API-First" },
+  { icon: Globe, label: "API-First" },
   { icon: Building2, label: "Enterprise-Ready" },
-  { icon: Cloud,     label: "Global Deployment" },
-  { icon: Sparkles,  label: "AI-Native" },
+  { icon: Cloud, label: "Global Deployment" },
+  { icon: Sparkles, label: "AI-Native" },
 ];
 
 /* ── Trust cards data ────────────────────────────────────────────── */

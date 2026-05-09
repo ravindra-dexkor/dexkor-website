@@ -63,7 +63,7 @@ const DexyNode = ({ data }: { data: Record<string, never> }) => (
 
 const nodeTypes: NodeTypes = {
   product: ProductNode as NodeTypes[string],
-  dexy:    DexyNode    as NodeTypes[string],
+  dexy: DexyNode as NodeTypes[string],
 };
 
 /* ── Animated dashed edge ─────────────────────────────────────── */
@@ -92,11 +92,11 @@ const HUB_Y = 130;
 const HUB_X = 385; // Center of the 4 nodes (total width 1070) - half of DexyNode width (150)
 
 const flowNodes: Node[] = [
-  { id: "sales",   type: "product", position: { x: START_X + GAP * 0, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Rocket,     color: "#3b82f6", title: "SalesHub",    sub: "Win pipeline. Forecast growth." } },
-  { id: "onboard", type: "product", position: { x: START_X + GAP * 1, y: TOP_Y }, draggable: false, selectable: false, data: { icon: BarChart3,  color: "#10b981", title: "OnboardHub",  sub: "Accelerate implementation." } },
-  { id: "help",    type: "product", position: { x: START_X + GAP * 2, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Headphones, color: "#f97316", title: "HelpDesk",    sub: "Resolve faster. Scale support." } },
-  { id: "account", type: "product", position: { x: START_X + GAP * 3, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Users,      color: "#8b5cf6", title: "AccountCare", sub: "Retain customers. Expand revenue." } },
-  { id: "dexy",    type: "dexy",    position: { x: HUB_X,              y: HUB_Y }, draggable: false, selectable: false, data: {} },
+  { id: "sales", type: "product", position: { x: START_X + GAP * 0, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Rocket, color: "#3b82f6", title: "SalesHub", sub: "Win pipeline. Forecast growth." } },
+  { id: "onboard", type: "product", position: { x: START_X + GAP * 1, y: TOP_Y }, draggable: false, selectable: false, data: { icon: BarChart3, color: "#10b981", title: "OnboardHub", sub: "Accelerate implementation." } },
+  { id: "help", type: "product", position: { x: START_X + GAP * 2, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Headphones, color: "#f97316", title: "HelpDesk", sub: "Resolve faster. Scale support." } },
+  { id: "account", type: "product", position: { x: START_X + GAP * 3, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Users, color: "#8b5cf6", title: "AccountCare", sub: "Retain customers. Expand revenue." } },
+  { id: "dexy", type: "dexy", position: { x: HUB_X, y: HUB_Y }, draggable: false, selectable: false, data: {} },
 ];
 
 const flowEdges: Edge[] = ["sales", "onboard", "help", "account"].map((id) => ({
@@ -121,20 +121,20 @@ const FlowPanel = () => (
 
 /* ── Feature pillars ──────────────────────────────────────────── */
 const pillars = [
-  { icon: GitMerge,    label: "Unified Customer Timeline", sub: "360° view of every interaction across teams and channels" },
-  { icon: Zap,         label: "AI Signals & Automation",   sub: "Proactive insights and automations across the customer lifecycle" },
-  { icon: Plug,        label: "APIs & Webhooks",           sub: "Connect with your stack. Extend without limits." },
-  { icon: ShieldCheck, label: "Security & Compliance",     sub: "Enterprise-grade security and data governance." },
-  { icon: BarChart2,   label: "Analytics & Forecasting",   sub: "Real-time insights. Smarter decisions." },
+  { icon: GitMerge, label: "Unified Customer Timeline", sub: "360° view of every interaction across teams and channels" },
+  { icon: Zap, label: "AI Signals & Automation", sub: "Proactive insights and automations across the customer lifecycle" },
+  { icon: Plug, label: "APIs & Webhooks", sub: "Connect with your stack. Extend without limits." },
+  { icon: ShieldCheck, label: "Security & Compliance", sub: "Enterprise-grade security and data governance." },
+  { icon: BarChart2, label: "Analytics & Forecasting", sub: "Real-time insights. Smarter decisions." },
 ];
 
 /* ── Stats ────────────────────────────────────────────────────── */
 const stats = [
-  { icon: Clock,       color: "text-blue-600",    bg: "bg-blue-50 dark:bg-blue-500/10",       val: "2.4 hrs", label: "Avg Resolution Time",  delta: "↓ 28%" },
-  { icon: Activity,    color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-500/10", val: "18 days", label: "Time to Value",         delta: "↓ 40%" },
-  { icon: Heart,       color: "text-violet-600",  bg: "bg-violet-50 dark:bg-violet-500/10",   val: "82",      label: "Avg Health Score",      delta: "↑ 32%" },
-  { icon: TrendingUp,  color: "text-orange-600",  bg: "bg-orange-50 dark:bg-orange-500/10",   val: "$6.7M",   label: "Expansion Revenue",     delta: "↑ 25%" },
-  { icon: ShieldCheck, color: "text-blue-600",    bg: "bg-blue-50 dark:bg-blue-500/10",       val: "99.9%",   label: "Platform Uptime (SLA)", delta: "" },
+  { icon: Clock, color: "text-blue-600", bg: "bg-blue-50 dark:bg-blue-500/10", val: "2.4 hrs", label: "Avg Resolution Time", delta: "↓ 28%" },
+  { icon: Activity, color: "text-emerald-600", bg: "bg-emerald-50 dark:bg-emerald-500/10", val: "18 days", label: "Time to Value", delta: "↓ 40%" },
+  { icon: Heart, color: "text-violet-600", bg: "bg-violet-50 dark:bg-violet-500/10", val: "82", label: "Avg Health Score", delta: "↑ 32%" },
+  { icon: TrendingUp, color: "text-orange-600", bg: "bg-orange-50 dark:bg-orange-500/10", val: "$6.7M", label: "Expansion Revenue", delta: "↑ 25%" },
+  { icon: ShieldCheck, color: "text-blue-600", bg: "bg-blue-50 dark:bg-blue-500/10", val: "99.9%", label: "Platform Uptime (SLA)", delta: "" },
 ];
 
 /* ── Main Section ─────────────────────────────────────────────── */
@@ -159,7 +159,7 @@ const OperatingLayerSection = () => (
           Every team works in one system.<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Every customer lives in one timeline.</span>
         </h2>
-        <p className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
           From pipeline to onboarding, support to renewal—<br className="hidden md:block" />
           every interaction, every workflow, every signal in one shared operating layer.
         </p>

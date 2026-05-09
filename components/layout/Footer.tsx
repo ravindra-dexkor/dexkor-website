@@ -55,26 +55,26 @@ const navCols = [
 
 /* ── Integration logos (text pills, reference image shows brand logos) */
 const integrations = [
-  { name: "slack",    color: "#611f69", text: "slack"    },
-  { name: "Jira",    color: "#0052cc", text: "Jira"     },
-  { name: "Google",  color: "#4285f4", text: "G"        },
-  { name: "HubSpot", color: "#ff7a59", text: "HubSpot"  },
-  { name: "Teams",   color: "#6264a7", text: "Teams"    },
-  { name: "WhatsApp",color: "#25d366", text: "WhatsApp" },
+  { name: "slack", color: "#611f69", text: "slack" },
+  { name: "Jira", color: "#0052cc", text: "Jira" },
+  { name: "Google", color: "#4285f4", text: "G" },
+  { name: "HubSpot", color: "#ff7a59", text: "HubSpot" },
+  { name: "Teams", color: "#6264a7", text: "Teams" },
+  { name: "WhatsApp", color: "#25d366", text: "WhatsApp" },
 ];
 
 /* ── Footer stats ─────────────────────────────────────────────── */
 const footerStats = [
-  { icon: Users2,    val: "50K+",  label: "Customer profiles unified",         color: "text-blue-600 dark:text-blue-400",    bg: "bg-blue-50 dark:bg-blue-500/10"   },
-  { icon: Activity,  val: "120K+", label: "Events processed monthly",          color: "text-emerald-600 dark:text-emerald-400",bg: "bg-emerald-50 dark:bg-emerald-500/10" },
-  { icon: Shield,    val: "99.9%", label: "Enterprise-grade reliability (Uptime)", color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-50 dark:bg-violet-500/10" },
+  { icon: Users2, val: "50K+", label: "Customer profiles unified", color: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50 dark:bg-blue-500/10" },
+  { icon: Activity, val: "120K+", label: "Events processed monthly", color: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-500/10" },
+  { icon: Shield, val: "99.9%", label: "Enterprise-grade reliability (Uptime)", color: "text-violet-600 dark:text-violet-400", bg: "bg-violet-50 dark:bg-violet-500/10" },
 ];
 
 /* ── Compliance badges ────────────────────────────────────────── */
 const badges = [
-  { icon: Shield,      label: "SOC 2",      sub: "Compliant"  },
-  { icon: ShieldCheck, label: "ISO 27001",   sub: "Ready"      },
-  { icon: Lock,        label: "GDPR",        sub: "Compliant"  },
+  { icon: Shield, label: "SOC 2", sub: "Compliant" },
+  { icon: ShieldCheck, label: "ISO 27001", sub: "Ready" },
+  { icon: Lock, label: "GDPR", sub: "Compliant" },
 ];
 
 /* ── Main Footer ──────────────────────────────────────────────── */
@@ -111,9 +111,9 @@ const Footer = () => (
           <div className="flex items-center gap-2.5">
             {[
               { Icon: LinkedIn, color: "hover:text-[#0077b5]", bg: "hover:bg-[#0077b5]/10 hover:border-[#0077b5]/30" },
-              { Icon: XIcon,   color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
+              { Icon: XIcon, color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
               { Icon: YouTube, color: "hover:text-red-600", bg: "hover:bg-red-50 dark:hover:bg-red-500/10 hover:border-red-300/50 dark:hover:border-red-500/30" },
-              { Icon: GitHub,  color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
+              { Icon: GitHub, color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
             ].map(({ Icon, color, bg }, i) => (
               <button key={i} className={cn(
                 "w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 flex items-center justify-center text-slate-400 dark:text-slate-500 transition-all",
@@ -137,7 +137,7 @@ const Footer = () => (
               <ul className="space-y-2.5">
                 {col.links.map((link, li) => (
                   <li key={li}>
-                    <a href="#" className="text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white font-medium transition-colors">
+                    <a href="#" className="text-xs text-slate-700 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white font-medium transition-colors">
                       {link}
                     </a>
                   </li>

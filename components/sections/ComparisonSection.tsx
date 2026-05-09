@@ -10,38 +10,38 @@ import {
 import { cn } from "@/lib/utils";
 
 const leftItems = [
-  { icon: TrendingDown, title: "Missed expansion signals",       sub: "Growth opportunities go unnoticed." },
-  { icon: AlertTriangle,title: "Escalations discovered too late", sub: "Issues surface after damage is done." },
-  { icon: Clock,        title: "Onboarding delays",              sub: "Slow starts lead to churn risk." },
-  { icon: Database,     title: "Fragmented customer data",       sub: "Incomplete context. Poor decisions." },
-  { icon: Users,        title: "Reactive, manual processes",     sub: "Teams stuck in firefighting mode." },
+  { icon: TrendingDown, title: "Missed expansion signals", sub: "Growth opportunities go unnoticed." },
+  { icon: AlertTriangle, title: "Escalations discovered too late", sub: "Issues surface after damage is done." },
+  { icon: Clock, title: "Onboarding delays", sub: "Slow starts lead to churn risk." },
+  { icon: Database, title: "Fragmented customer data", sub: "Incomplete context. Poor decisions." },
+  { icon: Users, title: "Reactive, manual processes", sub: "Teams stuck in firefighting mode." },
 ];
 
 const rightItems = [
-  { icon: Users2,    title: "One shared customer timeline",  sub: "Everyone works with the same context." },
-  { icon: Target,    title: "Predictive risk detection",     sub: "AI identifies issues before they escalate." },
-  { icon: Zap,       title: "AI-guided workflows",           sub: "The right actions. At the right time." },
-  { icon: TrendingUp,title: "Real-time expansion signals",   sub: "Surfaced early. Acted on faster." },
-  { icon: Layers,    title: "Unified data. Smarter decisions.", sub: "Complete view. Better outcomes." },
+  { icon: Users2, title: "One shared customer timeline", sub: "Everyone works with the same context." },
+  { icon: Target, title: "Predictive risk detection", sub: "AI identifies issues before they escalate." },
+  { icon: Zap, title: "AI-guided workflows", sub: "The right actions. At the right time." },
+  { icon: TrendingUp, title: "Real-time expansion signals", sub: "Surfaced early. Acted on faster." },
+  { icon: Layers, title: "Unified data. Smarter decisions.", sub: "Complete view. Better outcomes." },
 ];
 
 const stats = [
-  { icon: Clock,       val: "-28%", label: "Longer time-to-value" },
+  { icon: Clock, val: "-28%", label: "Longer time-to-value" },
   { icon: ShieldAlert, val: "+23%", label: "Higher churn risk" },
-  { icon: TrendingDown,val: "-29%", label: "Lower expansion" },
-  { icon: DollarSign,  val: "-18%", label: "Revenue impact" },
+  { icon: TrendingDown, val: "-29%", label: "Lower expansion" },
+  { icon: DollarSign, val: "-18%", label: "Revenue impact" },
 ];
 
 /* ─── Main ───────────────────────────────────────────────── */
 const ComparisonSection = () => {
-  const containerRef    = useRef<HTMLDivElement>(null);
-  const centerRef       = useRef<HTMLDivElement>(null);
-  const leftRefs        = useRef<(HTMLDivElement | null)[]>([]);
-  const rightRefs       = useRef<(HTMLDivElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const centerRef = useRef<HTMLDivElement>(null);
+  const leftRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const rightRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [lPaths, setLP] = useState<string[]>([]);
   const [rPaths, setRP] = useState<string[]>([]);
-  const [svgH,   setSH] = useState(0);
-  const [svgW,   setSW] = useState(0);
+  const [svgH, setSH] = useState(0);
+  const [svgW, setSW] = useState(0);
 
   const calc = useCallback(() => {
     const con = containerRef.current;
@@ -50,8 +50,8 @@ const ComparisonSection = () => {
 
     const cRect = con.getBoundingClientRect();
     const eRect = cen.getBoundingClientRect();
-    const cx = eRect.left + eRect.width  / 2 - cRect.left;
-    const cy = eRect.top  + eRect.height / 2 - cRect.top;
+    const cx = eRect.left + eRect.width / 2 - cRect.left;
+    const cy = eRect.top + eRect.height / 2 - cRect.top;
     const cr = eRect.width / 2;
 
     setSW(con.offsetWidth);
@@ -61,7 +61,7 @@ const ComparisonSection = () => {
       if (!r) return "";
       const b = r.getBoundingClientRect();
       const x = b.left + b.width / 2 - cRect.left;
-      const y = b.top  + b.height / 2 - cRect.top;
+      const y = b.top + b.height / 2 - cRect.top;
       const mx = (x + cx - cr) / 2;
       return `M ${x},${y} C ${mx},${y} ${mx},${cy} ${cx - cr},${cy}`;
     }).filter(Boolean));
@@ -70,7 +70,7 @@ const ComparisonSection = () => {
       if (!r) return "";
       const b = r.getBoundingClientRect();
       const x = b.left + b.width / 2 - cRect.left;
-      const y = b.top  + b.height / 2 - cRect.top;
+      const y = b.top + b.height / 2 - cRect.top;
       const mx = (cx + cr + x) / 2;
       return `M ${cx + cr},${cy} C ${mx},${cy} ${mx},${y} ${x},${y}`;
     }).filter(Boolean));
@@ -211,7 +211,7 @@ const ComparisonSection = () => {
               <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0">
                 <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
-              <p className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-snug">
+              <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-snug">
                 Disconnected moments don't just slow teams down—<br />
                 <span className="font-extrabold text-slate-900 dark:text-white">they show up in your numbers.</span>
               </p>

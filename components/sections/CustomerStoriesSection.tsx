@@ -48,13 +48,13 @@ const StoryCard = ({
   >
     {/* Card Header with Image Background */}
     <div className="relative h-48 w-full overflow-hidden">
-      <img 
-        src={image} 
-        alt={company} 
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+      <img
+        src={image}
+        alt={company}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#060b1a] via-white/40 dark:via-[#060b1a]/40 to-transparent" />
-      
+
       {/* Industry Info */}
       <div className="absolute bottom-6 left-6 right-6 flex items-center gap-4">
         <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center border border-white/20 backdrop-blur-md shadow-xl", bgColorClass)}>
@@ -75,7 +75,7 @@ const StoryCard = ({
           <AlertCircle className="w-3.5 h-3.5 text-slate-400" />
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">CHALLENGE</span>
         </div>
-        <p className="text-xs text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
           {challenge}
         </p>
       </div>
@@ -86,7 +86,7 @@ const StoryCard = ({
           <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
           <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">WITH DEXKOR</span>
         </div>
-        <p className="text-xs text-slate-600 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
           {solution}
         </p>
       </div>

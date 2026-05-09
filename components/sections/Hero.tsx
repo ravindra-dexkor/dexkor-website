@@ -217,15 +217,15 @@ const Hero = () => {
             >
 
               AI-native{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">support</span> platform for the entire customer{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">lifecycle.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">support</span> platform for <br /> the entire customer{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">lifecycle</span>
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.16 }}
-              className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed max-w-md font-medium"
+              className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed max-w-md font-medium"
             >
               DexKor unifies every customer touchpoint from acquisition and onboarding to support, success, and expansion, to reduce churn, increase retention, and drive growth.
             </motion.p>

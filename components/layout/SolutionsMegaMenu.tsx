@@ -2,11 +2,11 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Users, 
-  Headset, 
-  Rocket, 
-  BarChart3, 
+import {
+  Users,
+  Headset,
+  Rocket,
+  BarChart3,
   Target,
   ArrowRight,
   Building2,
@@ -53,7 +53,7 @@ const useCases = [
     title: "Support Operations",
     description: "Streamline tickets, automate workflows, and improve CSAT.",
     icon: Headset,
-    color: "text-slate-600 dark:text-slate-300",
+    color: "text-slate-700 dark:text-slate-300",
     bgColor: "bg-slate-50 dark:bg-white/5",
   },
   {
@@ -61,7 +61,7 @@ const useCases = [
     title: "Onboarding",
     description: "Accelerate implementation, drive adoption, and reduce time to value.",
     icon: Rocket,
-    color: "text-slate-600 dark:text-slate-300",
+    color: "text-slate-700 dark:text-slate-300",
     bgColor: "bg-slate-50 dark:bg-white/5",
   },
   {
@@ -69,7 +69,7 @@ const useCases = [
     title: "Revenue Operations",
     description: "Unify customer data, forecast accurately, and drive growth.",
     icon: BarChart3,
-    color: "text-slate-600 dark:text-slate-300",
+    color: "text-slate-700 dark:text-slate-300",
     bgColor: "bg-slate-50 dark:bg-white/5",
   },
   {
@@ -77,7 +77,7 @@ const useCases = [
     title: "Executive Leadership",
     description: "Real-time visibility, actionable insights, and outcome reporting.",
     icon: Target,
-    color: "text-slate-600 dark:text-slate-300",
+    color: "text-slate-700 dark:text-slate-300",
     bgColor: "bg-slate-50 dark:bg-white/5",
   },
 ];
@@ -233,8 +233,8 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
   const [selectedIndustry, setSelectedIndustry] = useState("saas");
 
   // Determine which content to show
-  const activeContent = selectedUseCase && selectedUseCase !== "cs" && useCaseContent[selectedUseCase] 
-    ? useCaseContent[selectedUseCase] 
+  const activeContent = selectedUseCase && selectedUseCase !== "cs" && useCaseContent[selectedUseCase]
+    ? useCaseContent[selectedUseCase]
     : industryContent[selectedIndustry];
 
   const industrySelectionEnabled = selectedUseCase === "cs";
@@ -252,44 +252,44 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
         >
           {/* MOBILE BACK BUTTON */}
           <div className="lg:hidden px-6 py-4 border-b border-slate-100 dark:border-white/5 bg-slate-50 dark:bg-white/5 flex items-center justify-between">
-             <button 
-                onClick={onClose}
-                className="flex items-center gap-2 text-blue-600 font-bold"
-             >
-                <ArrowRight className="w-4 h-4 rotate-180" />
-                Back to Menu
-             </button>
-             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Solutions</span>
+            <button
+              onClick={onClose}
+              className="flex items-center gap-2 text-blue-600 font-bold"
+            >
+              <ArrowRight className="w-4 h-4 rotate-180" />
+              Back to Menu
+            </button>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Solutions</span>
           </div>
 
           <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-4">
-            
+
             {/* COLUMN 1: BROWSE BY USE CASE */}
             <div className="col-span-1 md:col-span-3">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-6">BROWSE BY USE CASE</h3>
               <div className="space-y-1">
                 {useCases.map((useCase) => (
-                  <div 
-                    key={useCase.id} 
+                  <div
+                    key={useCase.id}
                     onClick={() => setSelectedUseCase(useCase.id)}
                     className={cn(
-                        "group flex items-start gap-4 p-3 rounded-2xl transition-all cursor-pointer relative",
-                        selectedUseCase === useCase.id ? "bg-white dark:bg-white/10 shadow-sm" : "hover:bg-white/50 dark:hover:bg-white/5"
+                      "group flex items-start gap-4 p-3 rounded-2xl transition-all cursor-pointer relative",
+                      selectedUseCase === useCase.id ? "bg-white dark:bg-white/10 shadow-sm" : "hover:bg-white/50 dark:hover:bg-white/5"
                     )}
                   >
                     {selectedUseCase === useCase.id && (
-                       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-blue-600 rounded-r-full" />
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-blue-600 rounded-r-full" />
                     )}
                     <div className={cn(
-                        "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all",
-                        selectedUseCase === useCase.id ? "bg-blue-50 text-blue-600" : "bg-slate-100 dark:bg-white/5 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 group-hover:bg-blue-50"
+                      "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all",
+                      selectedUseCase === useCase.id ? "bg-blue-50 text-blue-600" : "bg-slate-100 dark:bg-white/5 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 group-hover:bg-blue-50"
                     )}>
                       <useCase.icon className="w-5 h-5" />
                     </div>
                     <div>
                       <div className="flex items-center justify-between">
                         <span className={cn("font-bold text-sm transition-colors", selectedUseCase === useCase.id ? "text-blue-600" : "text-slate-700 dark:text-slate-200 group-hover:text-blue-600")}>
-                            {useCase.title}
+                          {useCase.title}
                         </span>
                         <ChevronRight className={cn("w-4 h-4 text-slate-300 transition-all", selectedUseCase === useCase.id ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0")} />
                       </div>
@@ -308,24 +308,24 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
             {/* COLUMN 2 & 3: EXPLORE BY INDUSTRY & CONTENT */}
             <div className="col-span-1 md:col-span-9 flex flex-col">
               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-4">EXPLORE BY INDUSTRY</h3>
-              
+
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
                 {industries.map((industry) => (
-                  <div 
+                  <div
                     key={industry.id}
                     onClick={() => {
-                        if (industrySelectionEnabled && !industry.disabled) {
-                            setSelectedIndustry(industry.id);
-                        }
+                      if (industrySelectionEnabled && !industry.disabled) {
+                        setSelectedIndustry(industry.id);
+                      }
                     }}
                     className={cn(
-                        "flex flex-col items-center justify-center p-2 rounded-2xl border transition-all gap-2 relative overflow-hidden",
-                        industrySelectionEnabled ? "cursor-pointer" : "cursor-default",
-                        selectedIndustry === industry.id && industrySelectionEnabled
-                          ? "border-blue-200 bg-white dark:bg-white/10 shadow-lg dark:shadow-none" 
-                          : "border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-transparent hover:border-blue-100 hover:bg-white",
-                        (industry.disabled || !industrySelectionEnabled) && "opacity-40 grayscale",
-                        !industrySelectionEnabled && "hover:border-slate-200 hover:bg-slate-50/50"
+                      "flex flex-col items-center justify-center p-2 rounded-2xl border transition-all gap-2 relative overflow-hidden",
+                      industrySelectionEnabled ? "cursor-pointer" : "cursor-default",
+                      selectedIndustry === industry.id && industrySelectionEnabled
+                        ? "border-blue-200 bg-white dark:bg-white/10 shadow-lg dark:shadow-none"
+                        : "border-slate-200 dark:border-white/5 bg-slate-50/50 dark:bg-transparent hover:border-blue-100 hover:bg-white",
+                      (industry.disabled || !industrySelectionEnabled) && "opacity-40 grayscale",
+                      !industrySelectionEnabled && "hover:border-slate-200 hover:bg-slate-50/50"
                     )}
                   >
                     {/* {industry.disabled && industrySelectionEnabled && (
@@ -334,13 +334,13 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                       </div>
                     )} */}
                     <div className={cn(
-                        "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-sm",
-                        selectedIndustry === industry.id && industrySelectionEnabled ? "bg-blue-600 text-white" : "bg-white dark:bg-white/5 text-slate-400"
+                      "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-sm",
+                      selectedIndustry === industry.id && industrySelectionEnabled ? "bg-blue-600 text-white" : "bg-white dark:bg-white/5 text-slate-400"
                     )}>
-                        <industry.icon className="w-5 h-5" />
+                      <industry.icon className="w-5 h-5" />
                     </div>
                     <span className={cn("text-xs font-black text-center uppercase tracking-tighter", selectedIndustry === industry.id && industrySelectionEnabled ? "text-blue-600" : "text-slate-500 dark:text-slate-400")}>
-                        {industry.name}
+                      {industry.name}
                     </span>
                   </div>
                 ))}
@@ -348,7 +348,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
               {/* DYNAMIC FEATURED CONTENT */}
               <AnimatePresence mode="wait">
-                <motion.div 
+                <motion.div
                   key={selectedUseCase || selectedIndustry}
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -358,53 +358,53 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                     <div className="lg:col-span-6 space-y-2">
-                        <span className="text-xs font-black bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">{activeContent.tag}</span>
-                        <h2 className="text-3xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
-                           {activeContent.headline.split('.').map((part: string, i: number) => (
-                             <React.Fragment key={i}>
-                               {part}{i < activeContent.headline.split('.').length - 1 && "."}
-                             </React.Fragment>
-                           ))}
-                        </h2>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                            {activeContent.description}
-                        </p>
+                      <span className="text-xs font-black bg-blue-600 text-white px-3 py-1 rounded-full uppercase tracking-widest">{activeContent.tag}</span>
+                      <h2 className="text-3xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight">
+                        {activeContent.headline.split('.').map((part: string, i: number) => (
+                          <React.Fragment key={i}>
+                            {part}{i < activeContent.headline.split('.').length - 1 && "."}
+                          </React.Fragment>
+                        ))}
+                      </h2>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                        {activeContent.description}
+                      </p>
 
-                        <div className="grid grid-cols-3 gap-6 py-6 border-y border-slate-200/50 dark:border-white/5">
-                            {activeContent.stats.map((stat: any) => (
-                                <div key={stat.label}>
-                                    <div className="flex items-center gap-1.5 mb-1">
-                                        <stat.icon className={cn("w-4 h-4", stat.color)} />
-                                        <span className="text-sm font-black">{stat.val}</span>
-                                    </div>
-                                    <p className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider leading-tight">{stat.label}</p>
-                                </div>
-                            ))}
-                        </div>
+                      <div className="grid grid-cols-3 gap-6 py-6 border-y border-slate-200/50 dark:border-white/5">
+                        {activeContent.stats.map((stat: any) => (
+                          <div key={stat.label}>
+                            <div className="flex items-center gap-1.5 mb-1">
+                              <stat.icon className={cn("w-4 h-4", stat.color)} />
+                              <span className="text-sm font-black">{stat.val}</span>
+                            </div>
+                            <p className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider leading-tight">{stat.label}</p>
+                          </div>
+                        ))}
+                      </div>
 
-                        <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-xs font-black  tracking-widest flex items-center gap-2 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
-                            {activeContent.buttonText} <ArrowRight className="w-4 h-4" />
-                        </button>
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-xs font-black  tracking-widest flex items-center gap-2 transition-all shadow-xl shadow-blue-500/20 active:scale-95">
+                        {activeContent.buttonText} <ArrowRight className="w-4 h-4" />
+                      </button>
                     </div>
 
                     <div className="lg:col-span-6 relative">
-                         <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-white/10 overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 max-h-[320px] flex flex-col">
-                             <div className="p-2 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 shrink-0">
-                                <div className="flex gap-1.5">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                                </div>
-                                <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{activeContent.imageTitle}</span>
-                             </div>
-                             <div className="p-1 flex-1 min-h-0">
-                                <img 
-                                    src={activeContent.image} 
-                                    alt={activeContent.imageTitle} 
-                                    className="rounded-xl shadow-sm w-full h-full object-cover object-top"
-                                />
-                             </div>
-                         </div>
+                      <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-white/10 overflow-hidden group-hover:scale-[1.02] transition-transform duration-700 max-h-[320px] flex flex-col">
+                        <div className="p-2 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 shrink-0">
+                          <div className="flex gap-1.5">
+                            <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+                            <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+                          </div>
+                          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{activeContent.imageTitle}</span>
+                        </div>
+                        <div className="p-1 flex-1 min-h-0">
+                          <img
+                            src={activeContent.image}
+                            alt={activeContent.imageTitle}
+                            className="rounded-xl shadow-sm w-full h-full object-cover object-top"
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -414,37 +414,37 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
           {/* FOOTER BAR */}
           <div className="bg-white dark:bg-white/5 border-t border-slate-200 dark:border-white/10">
-             <div className="max-w-full mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-8">
-                <div className="flex items-center gap-4">
-                   <div className="w-12 h-12 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center shadow-sm border border-blue-100 dark:border-blue-500/20">
-                      <Sparkles className="w-7 h-7 text-blue-600" />
-                   </div>
-                   <div>
-                      <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Not sure where to start?</h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Tell us about your goals and we'll recommend the right solution</p>
-                   </div>
+            <div className="max-w-full mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-blue-50 dark:bg-blue-500/10 rounded-2xl flex items-center justify-center shadow-sm border border-blue-100 dark:border-blue-500/20">
+                  <Sparkles className="w-7 h-7 text-blue-600" />
                 </div>
+                <div>
+                  <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Not sure where to start?</h4>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Tell us about your goals and we'll recommend the right solution</p>
+                </div>
+              </div>
 
-                <div className="flex flex-col sm:flex-row items-center gap-10">
-                   <button className="text-blue-600 text-xs font-black  tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
-                      Talk to our solution experts <ArrowRight className="w-4 h-4" />
-                   </button>
-                   
-                   <div className="flex items-center gap-4 border-l border-slate-200 dark:border-white/10 pl-10">
-                      <div className="flex -space-x-3">
-                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="w-9 h-9 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200 overflow-hidden shadow-sm">
-                                <img src={`https://i.pravatar.cc/100?img=${i+25}`} alt="Avatar" className="w-full h-full object-cover" />
-                            </div>
-                         ))}
+              <div className="flex flex-col sm:flex-row items-center gap-10">
+                <button className="text-blue-600 text-xs font-black  tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                  Talk to our solution experts <ArrowRight className="w-4 h-4" />
+                </button>
+
+                <div className="flex items-center gap-4 border-l border-slate-200 dark:border-white/10 pl-10">
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3].map((i) => (
+                      <div key={i} className="w-9 h-9 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200 overflow-hidden shadow-sm">
+                        <img src={`https://i.pravatar.cc/100?img=${i + 25}`} alt="Avatar" className="w-full h-full object-cover" />
                       </div>
-                      <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest leading-tight">
-                         Trusted by <span className="text-slate-900 dark:text-white">500+</span> teams<br />
-                         across <span className="text-slate-900 dark:text-white">20+</span> countries
-                      </p>
-                   </div>
+                    ))}
+                  </div>
+                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest leading-tight">
+                    Trusted by <span className="text-slate-900 dark:text-white">500+</span> teams<br />
+                    across <span className="text-slate-900 dark:text-white">20+</span> countries
+                  </p>
                 </div>
-             </div>
+              </div>
+            </div>
           </div>
         </motion.div>
       )}

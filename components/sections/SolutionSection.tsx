@@ -47,39 +47,39 @@ const HubCard = ({
 
 /* ─── Foundation bar ─────────────────────────────────────────── */
 const foundations = [
-  { icon: GitMerge,    label: "Unified Timeline",     sub: "360° view across teams" },
-  { icon: Zap,         label: "Workflow Automation",   sub: "End-to-end automation" },
-  { icon: Plug,        label: "APIs & Integrations",   sub: "Connect your stack" },
-  { icon: BarChart2,   label: "Analytics & Reporting", sub: "Real-time insights" },
+  { icon: GitMerge, label: "Unified Timeline", sub: "360° view across teams" },
+  { icon: Zap, label: "Workflow Automation", sub: "End-to-end automation" },
+  { icon: Plug, label: "APIs & Integrations", sub: "Connect your stack" },
+  { icon: BarChart2, label: "Analytics & Reporting", sub: "Real-time insights" },
   { icon: ShieldCheck, label: "Security & Compliance", sub: "Enterprise-grade" },
 ];
 
 /* ─── 8 spoke positions (SVG %) ──────────────────────────────── */
 const spokes = [
   { x1: "12%", y1: "12%", x2: "50%", y2: "50%", delay: 0.0 },  // TL
-  { x1: "50%", y1: "4%",  x2: "50%", y2: "50%", delay: 0.3 },  // TC
+  { x1: "50%", y1: "4%", x2: "50%", y2: "50%", delay: 0.3 },  // TC
   { x1: "88%", y1: "12%", x2: "50%", y2: "50%", delay: 0.6 },  // TR
   { x1: "96%", y1: "50%", x2: "50%", y2: "50%", delay: 0.9 },  // RC
   { x1: "88%", y1: "88%", x2: "50%", y2: "50%", delay: 1.2 },  // BR
   { x1: "50%", y1: "96%", x2: "50%", y2: "50%", delay: 1.5 },  // BC
   { x1: "12%", y1: "88%", x2: "50%", y2: "50%", delay: 1.8 },  // BL
-  { x1: "4%",  y1: "50%", x2: "50%", y2: "50%", delay: 2.1 },  // LC
+  { x1: "4%", y1: "50%", x2: "50%", y2: "50%", delay: 2.1 },  // LC
 ];
 
 /* ─── 8 Hub cards — content from reference image ────────────── */
 const hubCards = [
   // TL — OnboardHub
   {
-    title: "OnboardHub",  desc: "Accelerate implementation.",
-    stat: "↑ 40% faster",  statColor: "text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10",
+    title: "OnboardHub", desc: "Accelerate implementation.",
+    stat: "↑ 40% faster", statColor: "text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10",
     icon: BarChart3, iconBg: "bg-emerald-50 dark:bg-emerald-500/10", iconColor: "text-emerald-600",
     position: "top-0 left-0", delay: 0.4,
   },
   // TC — SalesHub
   {
-    title: "SalesHub",    desc: "Win pipeline. Forecast growth.",
+    title: "SalesHub", desc: "Win pipeline. Forecast growth.",
     stat: "+32% Pipeline", statColor: "text-blue-600 bg-blue-50 dark:bg-blue-500/10",
-    icon: Rocket,  iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600",
+    icon: Rocket, iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600",
     position: "top-0 left-1/2 -translate-x-1/2", delay: 0.5,
   },
   // TR — Pipeline KPI
@@ -105,8 +105,8 @@ const hubCards = [
   },
   // BC — HelpDesk
   {
-    title: "HelpDesk",    desc: "Resolve faster. Scale support.",
-    stat: "+28% CSAT",    statColor: "text-orange-600 bg-orange-50 dark:bg-orange-500/10",
+    title: "HelpDesk", desc: "Resolve faster. Scale support.",
+    stat: "+28% CSAT", statColor: "text-orange-600 bg-orange-50 dark:bg-orange-500/10",
     icon: Headphones, iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600",
     position: "bottom-0 left-1/2 -translate-x-1/2", delay: 0.9,
   },
@@ -145,7 +145,7 @@ const SolutionSection = () => {
               One platform.<br />Every team.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">One customer journey.</span>
             </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
+            <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
               DexKor unifies sales, onboarding, support, and customer success on a single AI-native platform—so every team works from the same data, in the same flow.
             </p>
             <ul className="space-y-2.5 mb-8">
