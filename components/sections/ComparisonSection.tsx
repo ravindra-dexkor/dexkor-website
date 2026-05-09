@@ -6,8 +6,10 @@ import {
   TrendingDown, AlertTriangle, Clock, Database, Users2,
   Users, Target, Zap, TrendingUp, Layers,
   X, Check, ArrowRight, BarChart3, ShieldAlert, DollarSign,
+  Lock,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ExpertFormModal from "../ExpertFormModal";
 
 const leftItems = [
   { icon: TrendingDown, title: "Missed expansion signals", sub: "Growth opportunities go unnoticed." },
@@ -26,10 +28,10 @@ const rightItems = [
 ];
 
 const stats = [
-  { icon: Clock, val: "-28%", label: "Longer time-to-value" },
-  { icon: ShieldAlert, val: "+23%", label: "Higher churn risk" },
-  { icon: TrendingDown, val: "-29%", label: "Lower expansion" },
-  { icon: DollarSign, val: "-18%", label: "Revenue impact" },
+  { icon: Clock, val: "-28%", label: "Longer time-to-value", color: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50 dark:bg-amber-500/10" },
+  { icon: ShieldAlert, val: "+23%", label: "Higher churn risk", color: "text-red-600 dark:text-red-400", bg: "bg-red-50 dark:bg-red-500/10" },
+  { icon: TrendingDown, val: "-29%", label: "Lower expansion", color: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50 dark:bg-orange-500/10" },
+  { icon: DollarSign, val: "-18%", label: "Revenue impact", color: "text-rose-600 dark:text-rose-400", bg: "bg-rose-50 dark:bg-rose-500/10" },
 ];
 
 /* ─── Main ───────────────────────────────────────────────── */
@@ -42,6 +44,7 @@ const ComparisonSection = () => {
   const [rPaths, setRP] = useState<string[]>([]);
   const [svgH, setSH] = useState(0);
   const [svgW, setSW] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const calc = useCallback(() => {
     const con = containerRef.current;
@@ -86,15 +89,12 @@ const ComparisonSection = () => {
 
   return (
     <section className="relative w-full py-12 lg:py-20 bg-slate-50/60 dark:bg-[#02040a] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
-      {/* Grid bg */}
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-[0.4] dark:opacity-[0.07]" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-8">
 
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center max-w-3xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Cost of Waiting</span>
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
@@ -212,19 +212,19 @@ const ComparisonSection = () => {
                 <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
               <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-snug">
-                Disconnected moments don't just slow teams down—<br />
+                Disconnected moments don't just slow teams down<br />
                 <span className="font-extrabold text-slate-900 dark:text-white">they show up in your numbers.</span>
               </p>
             </div>
             {/* Right stats */}
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-slate-100 dark:divide-white/5">
-              {stats.map(({ icon: Icon, val, label }) => (
+              {stats.map(({ icon: Icon, val, label, color, bg }) => (
                 <div key={label} className="flex items-center gap-3 px-5 py-4">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-white/5 flex items-center justify-center shrink-0">
-                    <Icon className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                  <div className={cn("w-8 h-8 rounded-lg flex items-center justify-center shrink-0", bg)}>
+                    <Icon className={cn("w-4 h-4", color)} />
                   </div>
                   <div>
-                    <p className="text-xl font-extrabold leading-none text-slate-900 dark:text-white">{val}</p>
+                    <p className={cn("text-xl font-extrabold leading-none", color)}>{val}</p>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{label}</p>
                   </div>
                 </div>
@@ -233,30 +233,88 @@ const ComparisonSection = () => {
           </div>
         </motion.div>
 
-        {/* CTA banner */}
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: 0.25 }}
-          className="rounded-2xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-5 flex flex-col sm:flex-row items-center justify-between gap-5 elevation-1"
+          className="rounded-[32px] bg-white dark:bg-white/[0.02] p-8 md:p-10 lg:p-12 flex flex-col items-center text-center overflow-hidden relative border border-slate-200 dark:border-white/10 shadow-xl"
         >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 flex items-center justify-center shrink-0">
-              <img src="/images/logo.png" alt="DexKor" className="w-7 h-7 object-contain" onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
+          {/* Background Decorative Elements */}
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.06),transparent_70%)] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(139,92,246,0.04),transparent_50%)] pointer-events-none" />
+          
+          {/* Logo with Glow */}
+          <div className="relative mb-6">
+            <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-150 animate-pulse" />
+            <div className="relative w-16 h-16 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 flex items-center justify-center shadow-lg">
+              <img src="/images/logo.png" alt="DexKor" className="w-9 h-9 object-contain" />
             </div>
-            <p className="text-base font-extrabold text-slate-900 dark:text-white leading-snug">
-              The teams that win tomorrow<br />
-              <span className="text-blue-600 dark:text-blue-400">stop stitching tools today.</span>
-            </p>
           </div>
-          <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
-            <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20">
-              See DexKor Live <ArrowRight className="w-4 h-4" />
-            </button>
-            <button className="inline-flex items-center gap-2 px-5 py-2.5 border border-slate-200 dark:border-white/10 hover:border-blue-400 text-slate-700 dark:text-slate-300 text-sm font-bold rounded-full transition-all">
-              Talk to our team <ArrowRight className="w-4 h-4 opacity-50" />
-            </button>
+
+          <h3 className="text-2xl md:text-[36px] font-extrabold text-slate-900 dark:text-white leading-[1.15] tracking-tight mb-4 max-w-3xl">
+            Your customers experience <span className="text-blue-600 dark:text-blue-400">one journey.</span><br />
+            Your teams <span className="text-blue-600 dark:text-blue-400">should too.</span>
+          </h3>
+          
+          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium max-w-xl leading-relaxed mb-8">
+            Replace fragmented tools with one AI-native platform built for support, onboarding, success, and growth.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 relative z-10">
+             <a href="https://calendly.com/richard-dexkor/dexkor-demo-call-with-founder" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-full transition-all shadow-lg shadow-blue-500/25">
+              See DexKor Live <ArrowRight className="w-5 h-5" />
+            </a>
+             <button 
+               onClick={() => setIsModalOpen(true)}
+               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-400 text-slate-900 dark:text-white text-base font-bold rounded-full transition-all"
+             >
+               Talk to an expert <ArrowRight className="w-5 h-5 opacity-50" />
+             </button>
+          </div>
+
+          {/* Compliance Row */}
+          <div className="w-full pt-8 border-t border-slate-100 dark:border-white/5 relative z-10">
+             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Trusted by modern customer-first companies</p>
+             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-80">
+                <div className="flex items-center gap-3">
+                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                      <ShieldAlert className="w-4 h-4 text-slate-400" />
+                   </div>
+                   <div className="text-left">
+                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">SOC 2</p>
+                      <p className="text-[8px] text-slate-500 font-bold uppercase">Type II</p>
+                   </div>
+                </div>
+                <div className="flex items-center gap-3">
+                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                      <Lock className="w-4 h-4 text-slate-400" />
+                   </div>
+                   <div className="text-left">
+                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">GDPR</p>
+                      <p className="text-[8px] text-slate-500 font-bold uppercase">Compliant</p>
+                   </div>
+                </div>
+                <div className="flex items-center gap-3">
+                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                      <Check className="w-4 h-4 text-slate-400" />
+                   </div>
+                   <div className="text-left">
+                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ISO 27001</p>
+                      <p className="text-[8px] text-slate-500 font-bold uppercase">Compliant</p>
+                   </div>
+                </div>
+                <div className="flex items-center gap-3">
+                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                      <Users2 className="w-4 h-4 text-slate-400" />
+                   </div>
+                   <div className="text-left">
+                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ENTERPRISE</p>
+                      <p className="text-[8px] text-slate-500 font-bold uppercase">Ready</p>
+                   </div>
+                </div>
+             </div>
           </div>
         </motion.div>
 
       </div>
+      <ExpertFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 };

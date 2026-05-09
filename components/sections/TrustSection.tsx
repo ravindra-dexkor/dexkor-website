@@ -77,8 +77,6 @@ const trustCards = [
 const TrustSection = () => (
   <section className="relative w-full py-12 lg:py-20 bg-white dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-100 dark:border-white/5 overflow-hidden">
 
-    {/* Grid-line background — same as Hero */}
-    <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-[0.4] dark:opacity-[0.07]" />
 
     <div className="max-w-7xl mx-auto px-6 relative z-10">
 
@@ -92,10 +90,10 @@ const TrustSection = () => (
           className="lg:col-span-4 lg:sticky lg:top-32"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
+          {/* <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
             <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Enterprise Trust</span>
-          </div>
+          </div> */}
 
           <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
             Enterprise-grade<br />by design.<br />
@@ -103,7 +101,7 @@ const TrustSection = () => (
           </h2>
 
           <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-6 max-w-sm">
-            Security, compliance, reliability, extensibility, and AI governance—built into DexKor from day one.
+            Security, compliance, reliability, extensibility, and AI governance built into DexKor from day one.
           </p>
 
           <button className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20 group">

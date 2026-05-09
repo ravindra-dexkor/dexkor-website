@@ -142,8 +142,7 @@ const OutcomesSection = () => (
           viewport={{ once: true }} transition={{ duration: 0.5 }}
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Real Business Impact</span>
           </div>
 
@@ -196,9 +195,9 @@ const OutcomesSection = () => (
             Every signal becomes an <span className="font-extrabold text-blue-600 dark:text-blue-400">outcome.</span>
           </p>
         </div>
-        <button className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-700 dark:text-slate-300 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all whitespace-nowrap">
+        <a href="#customer-stories" className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-700 dark:text-slate-300 hover:border-blue-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all whitespace-nowrap">
           See Customer Stories <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        </a>
       </motion.div>
 
     </div>

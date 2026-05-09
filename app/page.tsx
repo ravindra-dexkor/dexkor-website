@@ -22,7 +22,7 @@ export default function Home() {
       <CustomerStoriesSection />
       <TrustSection />
       <ComparisonSection />
-      <FutureSection />
+      {/* <FutureSection /> */}
       <Footer />
     </main>
   );

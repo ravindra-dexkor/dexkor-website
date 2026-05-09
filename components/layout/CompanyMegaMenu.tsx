@@ -61,7 +61,7 @@ const founders = [
     role: "Co-founder & COO, DexKor",
     quote: "Operations is the backbone of trust. We deliver consistency at scale.",
     description: "Our focus is on creating a seamless experience for every partner and customer, making growth predictable and sustainable.",
-    image: "/images/neshat.png",
+    image: "/images/neshat_dexkor.png",
     signature: "Neshat"
   }
 ];
@@ -204,7 +204,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <img
                               src={founders[currentFounder].image}
                               alt={founders[currentFounder].name}
-                              className="w-full h-full object-cover object-top"
+                              className="w-full h-full object-cover object-center"
                             />
                           </div>
                           {/* Carousel Indicators */}

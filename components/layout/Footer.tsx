@@ -28,6 +28,16 @@ const GitHub = () => (
     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
   </svg>
 );
+const Facebook = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+);
+const Instagram = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.669-.072-4.948-.197-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+  </svg>
+);
 
 /* ── Nav columns (matching reference image exactly) ───────────── */
 const navCols = [
@@ -79,7 +89,7 @@ const badges = [
 
 /* ── Main Footer ──────────────────────────────────────────────── */
 const Footer = () => (
-  <footer className="relative w-full bg-[#0B1020] dark:bg-[#030712] text-slate-900 dark:text-white border-t border-slate-200 dark:border-white/5 overflow-hidden">
+  <footer className="relative w-full bg-[#0B1020] dark:bg-[#030712] text-white border-t border-white/10 overflow-hidden">
 
     {/* ── TOP: Logo/desc + 4 nav columns ── */}
     <div className="max-w-7xl mx-auto px-6 pt-14 pb-10">
@@ -93,16 +103,16 @@ const Footer = () => (
               <img src="/images/logowhite.png" alt="DexKor" className="w-7 h-7 object-contain"
                 onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
             </div>
-            <span className="text-lg font-black tracking-tight text-slate-900 dark:text-white">DEXKOR</span>
+            <span className="text-lg font-black tracking-tight text-white">DEXKOR</span>
           </div>
 
           {/* Tagline */}
           <div>
-            <h3 className="text-xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white mb-2">
+            <h3 className="text-xl font-extrabold leading-tight tracking-tight text-white mb-2">
               The Operating System<br />
               for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Customer Success.</span>
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xs">
+            <p className="text-xs text-slate-400 font-medium leading-relaxed max-w-xs">
               Unify customer data, AI insights, and execution across onboarding, support, and growth—from one intelligent platform.
             </p>
           </div>
@@ -110,17 +120,24 @@ const Footer = () => (
           {/* Social icons */}
           <div className="flex items-center gap-2.5">
             {[
-              { Icon: LinkedIn, color: "hover:text-[#0077b5]", bg: "hover:bg-[#0077b5]/10 hover:border-[#0077b5]/30" },
-              { Icon: XIcon, color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
-              { Icon: YouTube, color: "hover:text-red-600", bg: "hover:bg-red-50 dark:hover:bg-red-500/10 hover:border-red-300/50 dark:hover:border-red-500/30" },
-              { Icon: GitHub, color: "hover:text-slate-900 dark:hover:text-white", bg: "hover:bg-slate-100 dark:hover:bg-white/10" },
-            ].map(({ Icon, color, bg }, i) => (
-              <button key={i} className={cn(
-                "w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 flex items-center justify-center text-slate-400 dark:text-slate-500 transition-all",
-                color, bg
-              )}>
+              { Icon: LinkedIn, href: "https://www.linkedin.com/company/dexkor/", color: "hover:text-[#0077b5]", bg: "hover:bg-[#0077b5]/10" },
+              { Icon: Facebook, href: "https://www.facebook.com/profile.php?id=61587043870610", color: "hover:text-[#1877f2]", bg: "hover:bg-[#1877f2]/10" },
+              { Icon: Instagram, href: "https://www.instagram.com/dexkor.ai/", color: "hover:text-[#e4405f]", bg: "hover:bg-[#e4405f]/10" },
+              { Icon: XIcon, href: "https://x.com/DexkorTeam", color: "hover:text-white", bg: "hover:bg-white/10" },
+              { Icon: YouTube, href: "https://www.youtube.com/@dexkor_crm", color: "hover:text-red-600", bg: "hover:bg-red-600/10" },
+            ].map(({ Icon, href, color, bg }, i) => (
+              <a 
+                key={i} 
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  "w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 transition-all",
+                  color, bg
+                )}
+              >
                 <Icon />
-              </button>
+              </a>
             ))}
           </div>
         </div>
@@ -132,18 +149,18 @@ const Footer = () => (
               {/* Column header */}
               <div className="flex items-center gap-1.5 mb-3">
                 <col.icon className={cn("w-3.5 h-3.5 shrink-0", col.color)} />
-                <span className="text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white">{col.title}</span>
+                <span className="text-xs font-black uppercase tracking-widest text-white">{col.title}</span>
               </div>
               <ul className="space-y-2.5">
                 {col.links.map((link, li) => (
                   <li key={li}>
-                    <a href="#" className="text-xs text-slate-700 dark:text-slate-400 hover:text-blue-600 dark:hover:text-white font-medium transition-colors">
+                    <a href="#" className="text-xs text-slate-400 hover:text-white font-medium transition-colors">
                       {link}
                     </a>
                   </li>
                 ))}
               </ul>
-              <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:gap-2 transition-all mt-1">
+              <a href="#" className="inline-flex items-center gap-1 text-xs font-bold text-blue-400 hover:gap-2 transition-all mt-1">
                 {col.cta} <ArrowRight className="w-3 h-3" />
               </a>
             </div>
@@ -161,26 +178,26 @@ const Footer = () => (
           <div className="flex flex-wrap items-center gap-6">
             {footerStats.map(({ icon: Icon, val, label, color, bg }) => (
               <div key={label} className="flex items-center gap-3">
-                <div className={cn("w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center shrink-0", bg)}>
+                <div className={cn("w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0", bg)}>
                   <Icon className={cn("w-4 h-4", color)} />
                 </div>
                 <div>
                   <p className={cn("text-xl font-extrabold leading-none", color)}>{val}</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5 max-w-[120px] leading-snug">{label}</p>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5 max-w-[120px] leading-snug">{label}</p>
                 </div>
               </div>
             ))}
           </div>
 
           {/* Integrations */}
-          <div>
-            <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">
+          {/* <div>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">
               Connects with the tools your teams already use
             </p>
             <div className="flex flex-wrap items-center gap-3">
               {integrations.map(({ name, color, text }) => (
                 <div key={name}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.03] shadow-sm text-xs font-bold text-slate-700 dark:text-slate-300"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 shadow-sm text-xs font-bold text-slate-300"
                 >
                   <div className="w-4 h-4 rounded-sm flex items-center justify-center text-white text-[8px] font-black shrink-0"
                     style={{ background: color }}>
@@ -190,34 +207,34 @@ const Footer = () => (
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
 
     {/* ── FOUNDER QUOTE + CTA ── */}
-    <div className="border-t border-slate-100 dark:border-white/5">
+    <div className="border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/10 p-6 elevation-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-white/5 border border-white/10 p-6 elevation-2">
 
           {/* Quote */}
           <div className="flex items-start gap-4">
             {/* Large quotation mark */}
-            <div className="text-5xl font-black text-blue-200 dark:text-blue-500/30 leading-none shrink-0 select-none mt-1">❝❝</div>
+            <div className="text-5xl font-black text-white/10 leading-none shrink-0 select-none mt-1">❝❝</div>
             <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <p className="text-sm font-bold text-slate-700 dark:text-slate-300 leading-relaxed">
+              <p className="text-sm font-bold text-slate-300 leading-relaxed">
                 "We didn't build DexKor to help teams track customers.
                 We built it to help them never lose one."
               </p>
-              <div className="flex items-center gap-3 sm:border-l sm:border-slate-200 sm:dark:border-white/10 sm:pl-4 shrink-0">
+              <div className="flex items-center gap-3 sm:border-l sm:border-white/10 sm:pl-4 shrink-0">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center overflow-hidden shrink-0 shadow-md">
                   <img src="/images/richard.png" alt="Richard Samuel" className="w-full h-full object-cover"
                     onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
                   {/* <span className="text-white font-black text-sm">R</span> */}
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-blue-600 dark:text-blue-400">Richard Samuel</p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Founder & CEO, DexKor</p>
+                  <p className="text-xs font-bold text-blue-400">Richard Samuel</p>
+                  <p className="text-xs text-slate-500 font-medium">Founder & CEO, DexKor</p>
                 </div>
               </div>
             </div>
@@ -228,26 +245,26 @@ const Footer = () => (
             <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20 w-full lg:w-auto justify-center">
               Book a personalized demo <ArrowRight className="w-4 h-4" />
             </button>
-            <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">See DexKor in action</p>
+            <p className="text-xs text-slate-500 font-medium">See DexKor in action</p>
           </div>
         </div>
       </div>
     </div>
 
     {/* ── BOTTOM BAR ── */}
-    <div className="border-t border-slate-100 dark:border-white/5">
+    <div className="border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">
 
           {/* Copyright + location */}
-          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-500 font-medium">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 font-medium">
             <span>© {new Date().getFullYear()} DexKorCRM Pvt. Ltd. All rights reserved.</span>
             <div className="flex items-center gap-1.5">
               <img src="/images/india-flag.svg" alt="India" className="w-5 h-3.5  object-cover" />
               <span>Built in India</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Globe className="w-3.5 h-3.5" />
+              <Globe className="w-3.5 h-3.5 text-slate-500" />
               <span>Designed for Global B2B Teams</span>
             </div>
           </div>
@@ -256,10 +273,10 @@ const Footer = () => (
           <div className="flex items-center gap-5">
             {badges.map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-1.5">
-                <Icon className="w-4 h-4 text-slate-400 dark:text-slate-500" />
+                <Icon className="w-4 h-4 text-slate-500" />
                 <div>
-                  <p className="text-xs font-bold text-slate-700 dark:text-slate-300 leading-none">{label}</p>
-                  <p className="text-[10px] text-slate-400 dark:text-slate-500 leading-none mt-0.5">{sub}</p>
+                  <p className="text-xs font-bold text-slate-300 leading-none">{label}</p>
+                  <p className="text-[10px] text-slate-500 leading-none mt-0.5">{sub}</p>
                 </div>
               </div>
             ))}

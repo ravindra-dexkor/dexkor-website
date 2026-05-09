@@ -36,21 +36,35 @@ export default function RootLayout({
         />
         <Script id="dexkor-widget-init" strategy="afterInteractive">
           {`
-            const initWidget = () => {
-              if (window.initChatWidget) {
-                window.initChatWidget({
-                  hostUrl: window.location.origin,
-                  uniquePartnerId: '6797656ca8375033a8b60ae6',
-                  userEmail: "",
-                  customerCode: "",
-                  userName: "",
-                  userNumber: "",
-                });
-              } else {
-                setTimeout(initWidget, 500);
+            (function() {
+              let attempts = 0;
+              const maxAttempts = 30; // 15 seconds max
+              
+              function initDexkor() {
+                if (window.initChatWidget) {
+                  window.initChatWidget({
+                    hostUrl: window.location.origin,
+                    uniquePartnerId: '6797656ca8375033a8b60ae6',
+                    userEmail: "",
+                    customerCode: "",
+                    userName: "",
+                    userNumber: "",
+                  });
+                  console.log("DexKor Widget: Initialized successfully");
+                } else if (attempts < maxAttempts) {
+                  attempts++;
+                  setTimeout(initDexkor, 500);
+                } else {
+                  console.error("DexKor Widget: Failed to load after 15s");
+                }
               }
-            };
-            initWidget();
+
+              if (document.readyState === 'complete') {
+                initDexkor();
+              } else {
+                window.addEventListener('load', initDexkor);
+              }
+            })();
           `}
         </Script>
         <ThemeProvider>

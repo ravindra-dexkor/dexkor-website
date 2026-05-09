@@ -159,12 +159,11 @@ const CustomerStoriesSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-10 lg:py-16 bg-[#F8FAFF] dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 border-t border-slate-50 dark:border-white/5">
+    <section id="customer-stories" className="relative w-full py-10 lg:py-16 bg-[#F8FAFF] dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300 border-t border-slate-50 dark:border-white/5">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="space-y-6 mb-10 lg:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10">
-            <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+          <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10">
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Customer Stories</span>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
