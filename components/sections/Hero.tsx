@@ -254,7 +254,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ delay: 0.32 }}
-              className="flex flex-wrap items-center gap-8 pt-1"
+              className="flex flex-wrap items-center gap-8 pt-1 mt-4"
             >
               {[
                 { icon: ShieldCheck, label: "SOC 2", sub: "Compliant" },
@@ -276,7 +276,7 @@ const Hero = () => {
             <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="flex items-start  gap-6 pt-1 border-t border-slate-100 dark:border-white/5"
+              className="flex items-start mt-4 gap-6 pt-1 border-t border-slate-100 dark:border-white/5"
             >
               {[
                 { icon: Users, val: "500+", label: "users trust us" },
