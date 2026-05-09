@@ -185,7 +185,7 @@ const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
 
   return (
-    <section className="relative w-full h-full min-h-[650px] flex flex-col overflow-hidden bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300">
+    <section className="relative w-full h-[90dvh] min-h-[650px] flex flex-col overflow-hidden bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300">
 
       {/* Subtle background */}
       <div className="absolute inset-0 pointer-events-none">
