@@ -185,7 +185,7 @@ const Hero = () => {
   const [isVideoModalOpen, setIsVideoModalOpen] = React.useState(false);
 
   return (
-    <section className="relative w-full h-[90dvh] min-h-[650px] flex flex-col overflow-hidden bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300">
+    <section className="relative w-full h-full min-h-[650px] flex flex-col overflow-hidden bg-white dark:bg-[#02040a] text-slate-900 dark:text-white transition-colors duration-300">
 
       {/* Subtle background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -396,19 +396,33 @@ const Hero = () => {
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-0 justify-between">
           <p className="text-xs font-bold text-slate-500 dark:text-slate-400 shrink-0">
-            Replace fragmented tools<br className="hidden sm:block" />
-            with one AI-native operating layer
+            Replace <span className="text-pink-500">6+</span> disconnected tools<br className="hidden sm:block" />
+            with one AI-native operating system.
           </p>
-          <div className="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
-            {["HubSpot", "freshworks", "zendesk", "Gainsight", "Zoho", "Slack", "Jira"].map((name, i) => (
-              <React.Fragment key={name}>
-                <span className="text-xs font-bold text-slate-400 dark:text-slate-600 hover:text-slate-600 dark:hover:text-slate-400 transition-colors cursor-default whitespace-nowrap">
-                  {name}
-                </span>
-                {i < 6 && <Plus className="w-2.5 h-2.5 text-slate-300 dark:text-slate-700 shrink-0" />}
+          <div className="flex items-center gap-1 sm:gap-2 flex-wrap justify-center">
+            {[
+              { name: "Asana", src: "/logos/asana.png" },
+              { name: "Freshdesk", src: "/logos/freshdesk.png" },
+              { name: "Freshworks", src: "/logos/freshworks.png" },
+              { name: "Gainsight", src: "/logos/gainsight.jpg" },
+              { name: "Zendesk", src: "/logos/zendesk.png" },
+              { name: "Zoho", src: "/logos/zoho.png" },
+              { name: "Jira", src: "/logos/jira.png" },
+            ].map((logo, i, arr) => (
+              <React.Fragment key={logo.name}>
+                <div className="flex items-center justify-center w-22 h-8 bg-white dark:bg-white/5 rounded-md border border-slate-200 dark:border-white/10 shadow-sm p-0 px-2 hover:scale-110 transition-transform">
+                  <img src={logo.src} alt={logo.name} className="max-w-full max-h-full object-contain" title={logo.name} />
+                </div>
+                {i < arr.length - 1 && <Plus className="w-2.5 h-2.5 text-slate-500 dark:text-slate-700 shrink-0" />}
               </React.Fragment>
             ))}
-            <ArrowRight className="w-4 h-4 text-blue-500 shrink-0" />
+            <motion.div
+              className="mr-8 ml-8"
+              animate={{ x: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <ArrowRight className="w-4 h-4 text-blue-500 shrink-0" />
+            </motion.div>
             <div className="flex items-center gap-1.5 bg-blue-600 px-3 py-1 rounded-full">
               {/* <span className="text-white font-black text-xs tracking-wider">DEXKOR</span> */}
               <img src="/images/logowhite.png" alt="Dexkor Logo" className=" h-4" />
