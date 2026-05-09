@@ -29,7 +29,7 @@ const Navbar = () => {
     { name: "Platform", hasMenu: true },
     { name: "Solutions", hasMenu: true },
     { name: "Customers", hasMenu: true },
-    { name: "Resources", hasMenu: true },
+    // { name: "Resources", hasMenu: true },
     { name: "Company", hasMenu: true },
   ];
 
@@ -45,8 +45,8 @@ const Navbar = () => {
         className={cn(
           "mx-auto transition-all duration-500 ease-in-out",
           isScrolled
-            ? "max-w-7xl rounded-full bg-white/70 dark:bg-black/70 backdrop-blur-xl border border-slate-200/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
-            : "max-w-full bg-white dark:bg-black border-b border-slate-200 dark:border-white/5"
+            ? "max-w-7xl rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-3xl border border-slate-200/50 dark:border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.12)]"
+            : "max-w-full bg-white/10 dark:bg-black/10  border-b border-transparent"
         )}
       >
         <div className={cn(
@@ -54,11 +54,8 @@ const Navbar = () => {
           isScrolled ? "h-14" : "h-16"
         )}>
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8  rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
-              <img src="/images/logo.png" alt="Logo" className="w-full h-full" />
-            </div>
-            <span className="font-bold text-xl tracking-tight uppercase hidden sm:block">Dexkor</span>
+          <Link href="/" className="flex items-center gap-2.5 group">
+              <img src="/images/DxLogo.svg" alt="DexKor" className="h-6 w-auto object-contain dark:invert dark:brightness-200" />
           </Link>
 
           {/* DESKTOP NAV */}
@@ -93,9 +90,9 @@ const Navbar = () => {
           {/* ACTIONS */}
           <div className="flex items-center gap-3 sm:gap-5">
             <ThemeToggle />
-            <Link href="/login" className="hidden sm:block text-sm font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+            {/* <Link href="/login" className="hidden sm:block text-sm font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Login
-            </Link>
+            </Link> */}
             <button className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all group shadow-lg shadow-blue-500/20">
               <span className="hidden sm:inline">Start for free</span>
               <span className="sm:hidden">Start</span>
@@ -151,9 +148,9 @@ const Navbar = () => {
                   </button>
                 </div>
               ))}
-              <Link href="/login" className="block text-lg font-bold border-b border-slate-100 dark:border-white/5 pb-4">
+              {/* <Link href="/login" className="block text-lg font-bold border-b border-slate-100 dark:border-white/5 pb-4">
                 Login
-              </Link>
+              </Link> */}
             </>
           )}
         </div>

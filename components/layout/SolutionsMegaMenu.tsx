@@ -259,14 +259,14 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <ArrowRight className="w-4 h-4 rotate-180" />
               Back to Menu
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Solutions</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700">Solutions</span>
           </div>
 
           <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-4">
 
             {/* COLUMN 1: BROWSE BY USE CASE */}
             <div className="col-span-1 md:col-span-3">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-6">BROWSE BY USE CASE</h3>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-700 mb-6">BROWSE BY USE CASE</h3>
               <div className="space-y-1">
                 {useCases.map((useCase) => (
                   <div
@@ -282,7 +282,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     )}
                     <div className={cn(
                       "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all",
-                      selectedUseCase === useCase.id ? "bg-blue-50 text-blue-600" : "bg-slate-100 dark:bg-white/5 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 group-hover:bg-blue-50"
+                      selectedUseCase === useCase.id ? "bg-blue-50 text-blue-600" : "bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-700 group-hover:text-blue-600 group-hover:bg-blue-50"
                     )}>
                       <useCase.icon className="w-5 h-5" />
                     </div>
@@ -293,7 +293,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         </span>
                         <ChevronRight className={cn("w-4 h-4 text-slate-300 transition-all", selectedUseCase === useCase.id ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0")} />
                       </div>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-tight font-medium">{useCase.description}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 leading-tight font-medium">{useCase.description}</p>
                     </div>
                   </div>
                 ))}
@@ -307,7 +307,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* COLUMN 2 & 3: EXPLORE BY INDUSTRY & CONTENT */}
             <div className="col-span-1 md:col-span-9 flex flex-col">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 mb-4">EXPLORE BY INDUSTRY</h3>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-700 mb-4">EXPLORE BY INDUSTRY</h3>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2 mb-4">
                 {industries.map((industry) => (
@@ -330,16 +330,16 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                   >
                     {/* {industry.disabled && industrySelectionEnabled && (
                       <div className="absolute top-1 right-0 left-0 text-center">
-                         <span className="text-xs font-black bg-slate-200 dark:bg-white/10 text-slate-500 dark:text-slate-400 px-1.5 py-0.5 rounded uppercase tracking-widest">Coming Soon</span>
+                         <span className="text-xs font-black bg-slate-200 dark:bg-white/10 text-slate-700 dark:text-slate-700 px-1.5 py-0.5 rounded uppercase tracking-widest">Coming Soon</span>
                       </div>
                     )} */}
                     <div className={cn(
                       "w-10 h-10 rounded-xl flex items-center justify-center transition-colors shadow-sm",
-                      selectedIndustry === industry.id && industrySelectionEnabled ? "bg-blue-600 text-white" : "bg-white dark:bg-white/5 text-slate-400"
+                      selectedIndustry === industry.id && industrySelectionEnabled ? "bg-blue-600 text-white" : "bg-white dark:bg-white/5 text-slate-700"
                     )}>
                       <industry.icon className="w-5 h-5" />
                     </div>
-                    <span className={cn("text-xs font-black text-center uppercase tracking-tighter", selectedIndustry === industry.id && industrySelectionEnabled ? "text-blue-600" : "text-slate-500 dark:text-slate-400")}>
+                    <span className={cn("text-xs font-black text-center uppercase tracking-tighter", selectedIndustry === industry.id && industrySelectionEnabled ? "text-blue-600" : "text-slate-700 dark:text-slate-700")}>
                       {industry.name}
                     </span>
                   </div>
@@ -366,7 +366,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                           </React.Fragment>
                         ))}
                       </h2>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                      <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium">
                         {activeContent.description}
                       </p>
 
@@ -377,7 +377,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                               <stat.icon className={cn("w-4 h-4", stat.color)} />
                               <span className="text-sm font-black">{stat.val}</span>
                             </div>
-                            <p className="text-xs text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider leading-tight">{stat.label}</p>
+                            <p className="text-xs text-slate-700 dark:text-slate-700 font-bold uppercase tracking-wider leading-tight">{stat.label}</p>
                           </div>
                         ))}
                       </div>
@@ -395,7 +395,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                             <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                           </div>
-                          <span className="text-xs font-black text-slate-400 uppercase tracking-widest">{activeContent.imageTitle}</span>
+                          <span className="text-xs font-black text-slate-700 uppercase tracking-widest">{activeContent.imageTitle}</span>
                         </div>
                         <div className="p-1 flex-1 min-h-0">
                           <img
@@ -421,7 +421,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </div>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Not sure where to start?</h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">Tell us about your goals and we'll recommend the right solution</p>
+                  <p className="text-xs text-slate-700 dark:text-slate-700 font-bold uppercase tracking-wider mt-1">Tell us about your goals and we'll recommend the right solution</p>
                 </div>
               </div>
 
@@ -438,7 +438,7 @@ const SolutionsMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest leading-tight">
+                  <p className="text-xs font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest leading-tight">
                     Trusted by <span className="text-slate-900 dark:text-white">500+</span> teams<br />
                     across <span className="text-slate-900 dark:text-white">20+</span> countries
                   </p>

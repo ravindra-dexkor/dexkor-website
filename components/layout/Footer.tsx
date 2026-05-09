@@ -99,11 +99,11 @@ const Footer = () => (
         <div className="space-y-5">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center shrink-0 shadow-lg shadow-blue-500/30">
-              <img src="/images/logowhite.png" alt="DexKor" className="w-7 h-7 object-contain"
+            <div className="w-25 h-9 rounded-xl  flex items-center justify-center shrink-0 shadow-lg ">
+              <img src="/images/logowhite.png" alt="DexKor" className="w-25 h-7 object-contain"
                 onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
             </div>
-            <span className="text-lg font-black tracking-tight text-white">DEXKOR</span>
+            {/* <span className="text-lg font-black tracking-tight text-white">DEXKOR</span> */}
           </div>
 
           {/* Tagline */}
@@ -113,7 +113,7 @@ const Footer = () => (
               for <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Customer Success.</span>
             </h3>
             <p className="text-xs text-slate-400 font-medium leading-relaxed max-w-xs">
-              Unify customer data, AI insights, and execution across onboarding, support, and growth—from one intelligent platform.
+              Unify customer data, AI insights, and execution across sales, onboarding, support, and growth from one intelligent platform.
             </p>
           </div>
 
@@ -126,8 +126,8 @@ const Footer = () => (
               { Icon: XIcon, href: "https://x.com/DexkorTeam", color: "hover:text-white", bg: "hover:bg-white/10" },
               { Icon: YouTube, href: "https://www.youtube.com/@dexkor_crm", color: "hover:text-red-600", bg: "hover:bg-red-600/10" },
             ].map(({ Icon, href, color, bg }, i) => (
-              <a 
-                key={i} 
+              <a
+                key={i}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -169,84 +169,56 @@ const Footer = () => (
       </div>
     </div>
 
-    {/* ── STATS + INTEGRATIONS BAR ── */}
-    <div className="border-t border-slate-100 dark:border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+    {/* ── STATS + QUOTE + CTA (combined single row) ── */}
+    <div className="border-t border-white/5">
+      <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="flex flex-wrap items-center gap-6 lg:gap-0 justify-between">
 
           {/* Stats */}
           <div className="flex flex-wrap items-center gap-6">
             {footerStats.map(({ icon: Icon, val, label, color, bg }) => (
-              <div key={label} className="flex items-center gap-3">
-                <div className={cn("w-10 h-10 rounded-full border border-white/10 flex items-center justify-center shrink-0", bg)}>
-                  <Icon className={cn("w-4 h-4", color)} />
+              <div key={label} className="flex items-center gap-2.5">
+                <div className={cn("w-8 h-8 rounded-full border border-white/10 flex items-center justify-center shrink-0", bg)}>
+                  <Icon className={cn("w-3.5 h-3.5", color)} />
                 </div>
                 <div>
-                  <p className={cn("text-xl font-extrabold leading-none", color)}>{val}</p>
-                  <p className="text-xs text-slate-400 font-medium mt-0.5 max-w-[120px] leading-snug">{label}</p>
+                  <p className={cn("text-base font-extrabold leading-none", color)}>{val}</p>
+                  <p className="text-xs text-slate-400 font-medium mt-0.5 max-w-[110px] leading-snug">{label}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Integrations */}
-          {/* <div>
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3">
-              Connects with the tools your teams already use
-            </p>
-            <div className="flex flex-wrap items-center gap-3">
-              {integrations.map(({ name, color, text }) => (
-                <div key={name}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 shadow-sm text-xs font-bold text-slate-300"
-                >
-                  <div className="w-4 h-4 rounded-sm flex items-center justify-center text-white text-[8px] font-black shrink-0"
-                    style={{ background: color }}>
-                    {text[0]}
-                  </div>
-                  {name}
-                </div>
-              ))}
-            </div>
-          </div> */}
-        </div>
-      </div>
-    </div>
-
-    {/* ── FOUNDER QUOTE + CTA ── */}
-    <div className="border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center rounded-2xl bg-white/5 border border-white/10 p-6 elevation-2">
+          {/* Divider — desktop only */}
+          <div className="hidden lg:block h-10 w-px bg-white/10 mx-4 shrink-0" />
 
           {/* Quote */}
-          <div className="flex items-start gap-4">
-            {/* Large quotation mark */}
-            <div className="text-5xl font-black text-white/10 leading-none shrink-0 select-none mt-1">❝❝</div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-              <p className="text-sm font-bold text-slate-300 leading-relaxed">
-                "We didn't build DexKor to help teams track customers.
-                We built it to help them never lose one."
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center overflow-hidden shrink-0 shadow-md">
+              <img src="/images/richard.png" alt="Richard Samuel" className="w-full h-full object-cover"
+                onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
+            </div>
+            <div className="min-w-0">
+              <p className="text-xs font-bold text-slate-300 leading-snug truncate">
+                "We built DexKor to help teams never lose a customer."
               </p>
-              <div className="flex items-center gap-3 sm:border-l sm:border-white/10 sm:pl-4 shrink-0">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center overflow-hidden shrink-0 shadow-md">
-                  <img src="/images/richard.png" alt="Richard Samuel" className="w-full h-full object-cover"
-                    onError={e => { (e.target as HTMLImageElement).style.display = "none"; }} />
-                  {/* <span className="text-white font-black text-sm">R</span> */}
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-blue-400">Richard Samuel</p>
-                  <p className="text-xs text-slate-500 font-medium">Founder & CEO, DexKor</p>
-                </div>
-              </div>
+              <p className="text-xs text-blue-400 font-bold mt-0.5">Richard Samuel — Founder & CEO</p>
             </div>
           </div>
 
+          {/* Divider — desktop only */}
+          <div className="hidden lg:block h-10 w-px bg-white/10 mx-4 shrink-0" />
+
           {/* CTA */}
-          <div className="flex flex-col items-center lg:items-end gap-2">
-            <button className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20 w-full lg:w-auto justify-center">
-              Book a personalized demo <ArrowRight className="w-4 h-4" />
-            </button>
-            <p className="text-xs text-slate-500 font-medium">See DexKor in action</p>
-          </div>
+          <a
+            href="https://calendly.com/richard-dexkor/dexkor-demo-call-with-founder"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-full transition-colors shadow-lg shadow-blue-500/20 shrink-0 whitespace-nowrap"
+          >
+            Book a Demo <ArrowRight className="w-4 h-4" />
+          </a>
+
         </div>
       </div>
     </div>
@@ -257,15 +229,15 @@ const Footer = () => (
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">
 
           {/* Copyright + location */}
-          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 font-medium">
+          <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 font-medium">
             <span>© {new Date().getFullYear()} DexKorCRM Pvt. Ltd. All rights reserved.</span>
             <div className="flex items-center gap-1.5">
               <img src="/images/india-flag.svg" alt="India" className="w-5 h-3.5  object-cover" />
-              <span>Built in India</span>
+              <span>Developed in India</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Globe className="w-3.5 h-3.5 text-slate-500" />
-              <span>Designed for Global B2B Teams</span>
+              <Globe className="w-3.5 h-3.5 text-slate-400" />
+              <span>Shipping to Global B2B Teams</span>
             </div>
           </div>
 
@@ -273,10 +245,10 @@ const Footer = () => (
           <div className="flex items-center gap-5">
             {badges.map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-1.5">
-                <Icon className="w-4 h-4 text-slate-500" />
+                <Icon className="w-4 h-4 text-slate-400" />
                 <div>
                   <p className="text-xs font-bold text-slate-300 leading-none">{label}</p>
-                  <p className="text-[10px] text-slate-500 leading-none mt-0.5">{sub}</p>
+                  <p className="text-xs text-slate-400 leading-none mt-0.5">{sub}</p>
                 </div>
               </div>
             ))}

@@ -97,11 +97,11 @@ const ComparisonSection = () => {
           <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">The Cost of Waiting</span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] mb-4">
             Every disconnected customer moment<br />
             is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">revenue left behind.</span>
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
             While teams switch between tools, customers wait, risks escalate,<br className="hidden md:block" />
             renewals slip, and expansion opportunities disappear.
           </p>
@@ -142,7 +142,7 @@ const ComparisonSection = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{item.title}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">{item.sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-700 font-medium mt-0.5">{item.sub}</p>
                     </div>
                     <div ref={el => { leftRefs.current[i] = el; }}
                       className="w-6 h-6 rounded-full bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 flex items-center justify-center shrink-0 z-30">
@@ -165,9 +165,9 @@ const ComparisonSection = () => {
                 </motion.div>
               </div>
               <div className="text-center leading-snug">
-                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">FROM</p>
+                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest">FROM</p>
                 <p className="text-xs font-black text-red-500 uppercase tracking-wide">REACTIVE</p>
-                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-0.5">TO</p>
+                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest mt-0.5">TO</p>
                 <p className="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-wide">PREDICTIVE</p>
               </div>
             </div>
@@ -192,7 +192,7 @@ const ComparisonSection = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{item.title}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-0.5">{item.sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-700 font-medium mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -211,7 +211,7 @@ const ComparisonSection = () => {
               <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0">
                 <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
-              <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-snug">
+              <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-snug">
                 Disconnected moments don't just slow teams down<br />
                 <span className="font-extrabold text-slate-900 dark:text-white">they show up in your numbers.</span>
               </p>
@@ -225,7 +225,7 @@ const ComparisonSection = () => {
                   </div>
                   <div>
                     <p className={cn("text-xl font-extrabold leading-none", color)}>{val}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">{label}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 font-medium">{label}</p>
                   </div>
                 </div>
               ))}
@@ -239,7 +239,7 @@ const ComparisonSection = () => {
           {/* Background Decorative Elements */}
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.06),transparent_70%)] pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(139,92,246,0.04),transparent_50%)] pointer-events-none" />
-          
+
           {/* Logo with Glow */}
           <div className="relative mb-6">
             <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full scale-150 animate-pulse" />
@@ -248,68 +248,68 @@ const ComparisonSection = () => {
             </div>
           </div>
 
-          <h3 className="text-2xl md:text-[36px] font-extrabold text-slate-900 dark:text-white leading-[1.15] tracking-tight mb-4 max-w-3xl">
+          <h3 className="text-2xl md:text-[36px] font-bold text-slate-900 dark:text-white leading-[0.95] tracking-[-0.04em] mb-4 max-w-3xl">
             Your customers experience <span className="text-blue-600 dark:text-blue-400">one journey.</span><br />
             Your teams <span className="text-blue-600 dark:text-blue-400">should too.</span>
           </h3>
-          
-          <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium max-w-xl leading-relaxed mb-8">
+
+          <p className="text-slate-700 dark:text-slate-700 text-sm md:text-base font-medium max-w-xl leading-[1.65] mb-8">
             Replace fragmented tools with one AI-native platform built for support, onboarding, success, and growth.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 mb-12 relative z-10">
-             <a href="https://calendly.com/richard-dexkor/dexkor-demo-call-with-founder" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-full transition-all shadow-lg shadow-blue-500/25">
+            <a href="https://calendly.com/richard-dexkor/dexkor-demo-call-with-founder" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-full transition-all shadow-lg shadow-blue-500/25">
               See DexKor Live <ArrowRight className="w-5 h-5" />
             </a>
-             <button 
-               onClick={() => setIsModalOpen(true)}
-               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-400 text-slate-900 dark:text-white text-base font-bold rounded-full transition-all"
-             >
-               Talk to an expert <ArrowRight className="w-5 h-5 opacity-50" />
-             </button>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:border-blue-400 text-slate-900 dark:text-white text-base font-bold rounded-full transition-all"
+            >
+              Talk to an expert <ArrowRight className="w-5 h-5 opacity-50" />
+            </button>
           </div>
 
           {/* Compliance Row */}
           <div className="w-full pt-8 border-t border-slate-100 dark:border-white/5 relative z-10">
-             <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-8">Trusted by modern customer-first companies</p>
-             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-80">
-                <div className="flex items-center gap-3">
-                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                      <ShieldAlert className="w-4 h-4 text-slate-400" />
-                   </div>
-                   <div className="text-left">
-                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">SOC 2</p>
-                      <p className="text-[8px] text-slate-500 font-bold uppercase">Type II</p>
-                   </div>
+            <p className="text-xs font-bold text-slate-700 uppercase tracking-[0.2em] mb-8">Trusted by modern customer-first companies</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-80">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                  <ShieldAlert className="w-4 h-4 text-slate-700" />
                 </div>
-                <div className="flex items-center gap-3">
-                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                      <Lock className="w-4 h-4 text-slate-400" />
-                   </div>
-                   <div className="text-left">
-                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">GDPR</p>
-                      <p className="text-[8px] text-slate-500 font-bold uppercase">Compliant</p>
-                   </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">SOC 2</p>
+                  <p className="text-[8px] text-slate-700 font-bold uppercase">Type II</p>
                 </div>
-                <div className="flex items-center gap-3">
-                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                      <Check className="w-4 h-4 text-slate-400" />
-                   </div>
-                   <div className="text-left">
-                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ISO 27001</p>
-                      <p className="text-[8px] text-slate-500 font-bold uppercase">Compliant</p>
-                   </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                  <Lock className="w-4 h-4 text-slate-700" />
                 </div>
-                <div className="flex items-center gap-3">
-                   <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                      <Users2 className="w-4 h-4 text-slate-400" />
-                   </div>
-                   <div className="text-left">
-                      <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ENTERPRISE</p>
-                      <p className="text-[8px] text-slate-500 font-bold uppercase">Ready</p>
-                   </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">GDPR</p>
+                  <p className="text-[8px] text-slate-700 font-bold uppercase">Compliant</p>
                 </div>
-             </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-slate-700" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ISO 27001</p>
+                  <p className="text-[8px] text-slate-700 font-bold uppercase">Compliant</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
+                  <Users2 className="w-4 h-4 text-slate-700" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ENTERPRISE</p>
+                  <p className="text-[8px] text-slate-700 font-bold uppercase">Ready</p>
+                </div>
+              </div>
+            </div>
           </div>
         </motion.div>
 

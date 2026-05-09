@@ -16,16 +16,21 @@ import {
 import "@xyflow/react/dist/style.css";
 
 /* ── Product Node ─────────────────────────────────────────────── */
-const ProductNode = ({ data }: { data: { icon: React.ElementType; color: string; title: string; sub: string } }) => {
+const ProductNode = ({ data }: { data: { icon: React.ElementType; logo?: string; color: string; title: string; sub: string } }) => {
   const Icon = data.icon;
   return (
     <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 elevation-2 w-[230px]">
-      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 text-white" style={{ background: data.color }}>
-        <Icon className="w-4 h-4 text-white" />
+      <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 overflow-hidden" >
+        {data.logo ? (
+          <img src={data.logo} alt={data.title} className="w-full h-full object-contain p-1.5"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+        ) : (
+          <Icon className="w-4 h-4 text-white" />
+        )}
       </div>
       <div>
         <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{data.title}</p>
-        <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{data.sub}</p>
+        <p className="text-xs text-slate-700 dark:text-slate-700 leading-tight mt-0.5">{data.sub}</p>
       </div>
       <Handle type="source" position={Position.Bottom} className="!w-2 !h-2 !bg-blue-400 !border-0 !opacity-70" />
     </div>
@@ -47,14 +52,14 @@ const DexyNode = ({ data }: { data: Record<string, never> }) => (
       </div>
       <div>
         <p className="font-extrabold text-sm text-slate-900 dark:text-white tracking-wide">DEXY AI</p>
-        <p className="text-xs text-slate-400 dark:text-slate-500">Embedded Intelligence Layer</p>
+        <p className="text-xs text-slate-700 dark:text-slate-700">Embedded Intelligence Layer</p>
       </div>
     </div>
     <div className="grid grid-cols-2 gap-x-5 gap-y-1 border-t border-slate-100 dark:border-white/5 pt-2 w-full">
       {["AI Signals & Insights", "Workflow Automation", "Unified Data Model", "Predictive Actions"].map((f) => (
         <div key={f} className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-          <span className="text-xs text-slate-500 dark:text-slate-400">{f}</span>
+          <span className="text-xs text-slate-700 dark:text-slate-700">{f}</span>
         </div>
       ))}
     </div>
@@ -92,10 +97,10 @@ const HUB_Y = 130;
 const HUB_X = 385; // Center of the 4 nodes (total width 1070) - half of DexyNode width (150)
 
 const flowNodes: Node[] = [
-  { id: "sales", type: "product", position: { x: START_X + GAP * 0, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Rocket, color: "#3b82f6", title: "SalesHub", sub: "Win pipeline. Forecast growth." } },
-  { id: "onboard", type: "product", position: { x: START_X + GAP * 1, y: TOP_Y }, draggable: false, selectable: false, data: { icon: BarChart3, color: "#10b981", title: "OnboardHub", sub: "Accelerate implementation." } },
-  { id: "help", type: "product", position: { x: START_X + GAP * 2, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Headphones, color: "#f97316", title: "HelpDesk", sub: "Resolve faster. Scale support." } },
-  { id: "account", type: "product", position: { x: START_X + GAP * 3, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Users, color: "#8b5cf6", title: "AccountCare", sub: "Retain customers. Expand revenue." } },
+  { id: "sales", type: "product", position: { x: START_X + GAP * 0, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Rocket, logo: "/logos/saleshub.svg", color: "#3b82f6", title: "SalesHub", sub: "Win pipeline. Forecast growth." } },
+  { id: "onboard", type: "product", position: { x: START_X + GAP * 1, y: TOP_Y }, draggable: false, selectable: false, data: { icon: BarChart3, logo: "/logos/onbaordhub.svg", color: "#10b981", title: "OnboardHub", sub: "Accelerate implementation." } },
+  { id: "help", type: "product", position: { x: START_X + GAP * 2, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Headphones, logo: "/logos/helpdesk.svg", color: "#f97316", title: "HelpDesk", sub: "Resolve faster. Scale support." } },
+  { id: "account", type: "product", position: { x: START_X + GAP * 3, y: TOP_Y }, draggable: false, selectable: false, data: { icon: Users, logo: "/logos/accountcare.svg", color: "#8b5cf6", title: "AccountCare", sub: "Retain customers. Expand revenue." } },
   { id: "dexy", type: "dexy", position: { x: HUB_X, y: HUB_Y }, draggable: false, selectable: false, data: {} },
 ];
 
@@ -154,11 +159,11 @@ const OperatingLayerSection = () => (
         <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 mb-5">
           <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">One Operating Layer</span>
         </div>
-        <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] mb-4">
           Every team works in one system.<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Every customer lives in one timeline.</span>
         </h2>
-        <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
           From pipeline to onboarding, support to renewal—<br className="hidden md:block" />
           every interaction, every workflow, every signal in one shared operating layer.
         </p>
@@ -189,8 +194,8 @@ const OperatingLayerSection = () => (
                 <Icon className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <p className="text-xs font-bold text-slate-900 dark:text-white">{label}</p>
-                <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">{sub}</p>
+                <p className="text-sm font-bold text-slate-900 dark:text-white">{label}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-snug">{sub}</p>
               </div>
             </div>
           ))}
@@ -209,8 +214,8 @@ const OperatingLayerSection = () => (
                 <Icon className={cn("w-4 h-4", color)} />
               </div>
               <div>
-                <p className={cn("text-2xl font-extrabold leading-none", color)}>{val}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{label}</p>
+                <p className={cn("text-2xl font-bold leading-none", color)}>{val}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5">{label}</p>
                 {delta && <p className={cn("text-xs font-bold mt-0.5", delta.startsWith("↑") ? "text-emerald-500" : "text-orange-500")}>{delta}</p>}
               </div>
             </div>

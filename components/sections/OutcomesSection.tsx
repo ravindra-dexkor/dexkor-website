@@ -48,7 +48,7 @@ const KpiCard = ({
       <div className={cn("w-10 h-10 rounded-full flex items-center justify-center shrink-0 border border-slate-100 dark:border-white/10", iconBg)}>
         <Icon className={cn("w-5 h-5", iconColor)} />
       </div>
-      <span className={cn("text-3xl font-black tracking-tight leading-none", iconColor)}>
+      <span className={cn("text-3xl font-bold tracking-tight leading-none", iconColor)}>
         {value}
       </span>
       {arrow && (
@@ -59,7 +59,7 @@ const KpiCard = ({
     {/* Title + desc */}
     <div>
       <p className="font-bold text-sm text-slate-900 dark:text-white leading-snug mb-1">{title}</p>
-      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
+      <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65] font-medium">{desc}</p>
     </div>
 
     {/* Sparkline */}
@@ -72,7 +72,7 @@ const KpiCard = ({
 /* ── Metrics data ───────────────────────────────────────────────── */
 const metrics = [
   {
-    icon: Eye,        iconBg: "bg-blue-50 dark:bg-blue-500/10",    iconColor: "text-blue-600 dark:text-blue-400",
+    icon: Eye, iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600 dark:text-blue-400",
     value: "32%", arrow: "↑" as const, arrowColor: "text-blue-500",
     title: "Pipeline Visibility",
     desc: "Better visibility into pipeline and customer health.",
@@ -81,7 +81,7 @@ const metrics = [
     delay: 0.1,
   },
   {
-    icon: Clock,      iconBg: "bg-violet-50 dark:bg-violet-500/10", iconColor: "text-violet-600 dark:text-violet-400",
+    icon: Clock, iconBg: "bg-violet-50 dark:bg-violet-500/10", iconColor: "text-violet-600 dark:text-violet-400",
     value: "40%", arrow: "↓" as const, arrowColor: "text-violet-500",
     title: "Time-to-Value",
     desc: "Faster onboarding with automated workflows.",
@@ -99,7 +99,7 @@ const metrics = [
     delay: 0.2,
   },
   {
-    icon: Rocket,     iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600 dark:text-orange-400",
+    icon: Rocket, iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600 dark:text-orange-400",
     value: "25%", arrow: "↑" as const, arrowColor: "text-orange-500",
     title: "Expansion Revenue",
     desc: "Opportunity signals identified early, revenue realized faster.",
@@ -108,7 +108,7 @@ const metrics = [
     delay: 0.25,
   },
   {
-    icon: ShieldCheck, iconBg: "bg-rose-50 dark:bg-rose-500/10",   iconColor: "text-rose-600 dark:text-rose-400",
+    icon: ShieldCheck, iconBg: "bg-rose-50 dark:bg-rose-500/10", iconColor: "text-rose-600 dark:text-rose-400",
     value: "18%", arrow: "↓" as const, arrowColor: "text-rose-500",
     title: "Churn Risk",
     desc: "Early risk detection helps retain more customers.",
@@ -117,7 +117,7 @@ const metrics = [
     delay: 0.3,
   },
   {
-    icon: Zap,        iconBg: "bg-purple-50 dark:bg-purple-500/10", iconColor: "text-purple-600 dark:text-purple-400",
+    icon: Zap, iconBg: "bg-purple-50 dark:bg-purple-500/10", iconColor: "text-purple-600 dark:text-purple-400",
     value: "3x", arrow: "" as const, arrowColor: "",
     title: "Operational Efficiency",
     desc: "One system. Fewer handoffs. More done.",
@@ -146,11 +146,11 @@ const OutcomesSection = () => (
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">Real Business Impact</span>
           </div>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] mb-4">
             Measured in outcomes.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Not activity.</span>
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-md">
+          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65] max-w-md">
             DexKor helps customer-facing teams reduce risk, accelerate time-to-value, improve retention, and unlock expansion—across the entire customer lifecycle.
           </p>
         </motion.div>

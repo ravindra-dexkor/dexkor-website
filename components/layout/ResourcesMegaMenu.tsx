@@ -68,14 +68,14 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                             <ArrowRight className="w-4 h-4 rotate-180" />
                             Back to Menu
                         </button>
-                        <span className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Resources</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700">Resources</span>
                     </div>
 
                     <div className="max-w-full mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-12 gap-x-10 gap-y-6">
                         {/* BROWSE RESOURCES */}
                         <div className="col-span-1 md:col-span-3 space-y-6">
                             <div>
-                                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-4">Browse Resources</h3>
+                                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-4">Browse Resources</h3>
                                 <div className="space-y-4">
                                     {/* Learn */}
                                     <div className="group cursor-pointer">
@@ -86,14 +86,14 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-bold text-sm">Learn</h4>
-                                                    <p className="text-xs text-slate-400 dark:text-slate-500">Guides, playbooks, and insights.</p>
+                                                    <p className="text-xs text-slate-700 dark:text-slate-700">Guides, playbooks, and insights.</p>
                                                 </div>
                                             </div>
                                             <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-indigo-600 transition-colors" />
                                         </div>
                                         <ul className="pl-12 grid grid-cols-1 gap-2">
                                             {learnLinks.map(link => (
-                                                <li key={link} className="text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 cursor-pointer flex items-center gap-2">
+                                                <li key={link} className="text-xs text-slate-700 dark:text-slate-700 hover:text-indigo-600 cursor-pointer flex items-center gap-2">
                                                     <div className="w-1 h-1 bg-slate-200 rounded-full" />
                                                     {link}
                                                 </li>
@@ -110,14 +110,14 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                                 </div>
                                                 <div>
                                                     <h4 className="font-bold text-sm">Technical</h4>
-                                                    <p className="text-xs text-slate-400 dark:text-slate-500">Docs and developer tools.</p>
+                                                    <p className="text-xs text-slate-700 dark:text-slate-700">Docs and developer tools.</p>
                                                 </div>
                                             </div>
                                             <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-emerald-600 transition-colors" />
                                         </div>
                                         <ul className="pl-12 grid grid-cols-1 gap-2">
                                             {techLinks.map(link => (
-                                                <li key={link} className="text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-600 cursor-pointer flex items-center gap-2">
+                                                <li key={link} className="text-xs text-slate-700 dark:text-slate-700 hover:text-emerald-600 cursor-pointer flex items-center gap-2">
                                                     <div className="w-1 h-1 bg-slate-200 rounded-full" />
                                                     {link}
                                                 </li>
@@ -133,7 +133,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
                         {/* FEATURED RESOURCE */}
                         <div className="col-span-1 md:col-span-6 border-x-0 md:border-x border-slate-100 dark:border-white/5 px-0 md:px-10">
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Featured Resource</h3>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">Featured Resource</h3>
 
                             <div className="bg-gradient-to-br from-[#f8f9ff] to-[#f0f2ff] dark:from-slate-900 dark:to-slate-900/80 rounded-3xl p-8 border border-white dark:border-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none relative overflow-hidden group cursor-pointer mb-6">
                                 {/* Decorative background pulse */}
@@ -185,7 +185,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                                         </h3>
                                                     </div>
                                                 </div>
-                                                <div className="space-y-1 text-xs text-slate-400 dark:text-slate-500 font-medium">
+                                                <div className="space-y-1 text-xs text-slate-700 dark:text-slate-700 font-medium">
                                                     <p>500+ companies</p>
                                                     <p>20+ industries</p>
                                                     <p>Global insights</p>
@@ -208,7 +208,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                             <stat.icon className="w-3 h-3 text-indigo-400" />
                                             <span className="text-sm font-bold text-slate-800 dark:text-slate-100">{stat.val}</span>
                                         </div>
-                                        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tight">{stat.label}</p>
+                                        <p className="text-xs font-bold text-slate-700 dark:text-slate-700 uppercase tracking-tight">{stat.label}</p>
                                     </div>
                                 ))}
                             </div>
@@ -221,7 +221,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                     </div>
                                     <div>
                                         <h4 className="font-bold text-sm">Learning Paths</h4>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400">Curated paths to build your expertise.</p>
+                                        <p className="text-xs text-slate-700 dark:text-slate-700">Curated paths to build your expertise.</p>
                                     </div>
                                 </div>
                                 <div className="flex flex-wrap gap-2 mb-4">
@@ -239,7 +239,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
                         {/* TRENDING NOW */}
                         <div className="col-span-1 md:col-span-3">
-                            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-6">Trending Now</h3>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">Trending Now</h3>
                             <div className="space-y-3">
                                 {trendingNow.map((item) => (
                                     <div key={item.title} className="group flex items-start gap-3 p-2 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer">
@@ -249,7 +249,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                         <div className="flex-1">
                                             <span className={cn("text-xs font-bold tracking-widest", item.color)}>{item.type}</span>
                                             <h5 className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight group-hover:text-indigo-600 transition-colors">{item.title}</h5>
-                                            <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{item.time}</p>
+                                            <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5">{item.time}</p>
                                         </div>
                                         <ArrowRight className="w-3.5 h-3.5 text-slate-200 group-hover:text-indigo-400 transition-colors" />
                                     </div>
@@ -266,7 +266,7 @@ const ResourcesMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <div className="max-w-full mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-6">
                             <div className="flex-1 max-w-2xl w-full">
                                 <div className="relative group">
-                                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 dark:text-slate-500 group-focus-within:text-indigo-600 transition-colors" />
+                                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-700 dark:text-slate-700 group-focus-within:text-indigo-600 transition-colors" />
                                     <input
                                         type="text"
                                         placeholder="Can't find what you're looking for? Search our resources..."

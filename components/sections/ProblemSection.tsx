@@ -10,13 +10,13 @@ import { cn } from "@/lib/utils";
 
 /* ─── Tool Data ─────────────────────────────────────────────── */
 const TOOLS = [
-  { id: "hubspot",    label: "HubSpot",    logo: "/logos/hubspot.png",    color: "#ff7a59" },
-  { id: "rocket",     label: "Rocketlane", logo: "/logos/rocketlene.png", color: "#6366f1" },
-  { id: "zendesk",   label: "Zendesk",    logo: "/logos/zendesk.png",    color: "#03363d" },
+  { id: "hubspot", label: "HubSpot", logo: "/logos/hubspot.png", color: "#ff7a59" },
+  { id: "rocket", label: "Rocketlane", logo: "/logos/rocketlene.png", color: "#6366f1" },
+  { id: "zendesk", label: "Zendesk", logo: "/logos/zendesk.png", color: "#03363d" },
   { id: "freshworks", label: "Freshworks", logo: "/logos/freshworks.png", color: "#22c55e" },
-  { id: "gainsight", label: "Gainsight",  logo: "/logos/gainsight.jpg",  color: "#00b4e6" },
-  { id: "zoho",      label: "Zoho",       logo: "/logos/zoho.png",       color: "#e42527" },
-  { id: "jira",      label: "Jira",       logo: "/logos/jira.png",       color: "#0052cc" },
+  { id: "gainsight", label: "Gainsight", logo: "/logos/gainsight.jpg", color: "#00b4e6" },
+  { id: "zoho", label: "Zoho", logo: "/logos/zoho.png", color: "#e42527" },
+  { id: "jira", label: "Jira", logo: "/logos/jira.png", color: "#0052cc" },
 ];
 
 const LINE_COLORS = [
@@ -87,8 +87,8 @@ const ConnectorDiagram = () => {
     const { x1, y1, x4, y4, cx1, cy1, cx2, cy2 } = cp;
     const mt = 1 - t;
     return {
-      x: mt**3*x1 + 3*mt**2*t*cx1 + 3*mt*t**2*cx2 + t**3*x4,
-      y: mt**3*y1 + 3*mt**2*t*cy1 + 3*mt*t**2*cy2 + t**3*y4,
+      x: mt ** 3 * x1 + 3 * mt ** 2 * t * cx1 + 3 * mt * t ** 2 * cx2 + t ** 3 * x4,
+      y: mt ** 3 * y1 + 3 * mt ** 2 * t * cy1 + 3 * mt * t ** 2 * cy2 + t ** 3 * y4,
     };
   };
 
@@ -97,12 +97,12 @@ const ConnectorDiagram = () => {
     const cp = getControlPoints(i, from);
     const { x1, y1, x4, y4, cx1, cy1, cx2, cy2 } = cp;
     // De Casteljau subdivision at t=0.5
-    const p01 = { x: (x1+cx1)/2, y: (y1+cy1)/2 };
-    const p12 = { x: (cx1+cx2)/2, y: (cy1+cy2)/2 };
-    const p23 = { x: (cx2+x4)/2, y: (cy2+y4)/2 };
-    const p012 = { x: (p01.x+p12.x)/2, y: (p01.y+p12.y)/2 };
-    const p123 = { x: (p12.x+p23.x)/2, y: (p12.y+p23.y)/2 };
-    const mid = { x: (p012.x+p123.x)/2, y: (p012.y+p123.y)/2 };
+    const p01 = { x: (x1 + cx1) / 2, y: (y1 + cy1) / 2 };
+    const p12 = { x: (cx1 + cx2) / 2, y: (cy1 + cy2) / 2 };
+    const p23 = { x: (cx2 + x4) / 2, y: (cy2 + y4) / 2 };
+    const p012 = { x: (p01.x + p12.x) / 2, y: (p01.y + p12.y) / 2 };
+    const p123 = { x: (p12.x + p23.x) / 2, y: (p12.y + p23.y) / 2 };
+    const mid = { x: (p012.x + p123.x) / 2, y: (p012.y + p123.y) / 2 };
     const firstHalf = `M ${x1} ${y1} C ${p01.x} ${p01.y}, ${p012.x} ${p012.y}, ${mid.x} ${mid.y}`;
     const secondHalf = `M ${mid.x} ${mid.y} C ${p123.x} ${p123.y}, ${p23.x} ${p23.y}, ${x4} ${y4}`;
     return { firstHalf, secondHalf, mid };
@@ -289,7 +289,7 @@ const ConnectorDiagram = () => {
         </motion.div>
         <div>
           <p className="font-bold text-sm text-slate-900 dark:text-white">Every handoff creates risk.</p>
-          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
+          <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 font-medium">
             Lost context. Delayed responses. Missed renewals. Frustrated customers.
           </p>
         </div>
@@ -311,7 +311,7 @@ const ProblemCard = ({
     </div>
     <div>
       <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{title}</h4>
-      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
+      <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium">{desc}</p>
     </div>
   </div>
 );
@@ -325,11 +325,11 @@ const ProblemSection = () => {
         {/* ── ROW 1: Header + Stat Card ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
           <div>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-slate-900 dark:text-white mb-4">
               Your tools manage stages.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Your customers experience <br/> one journey.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Your customers experience <br /> one journey.</span>
             </h2>
-            <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed max-w-lg font-medium">
+            <p className="text-sm text-slate-700 dark:text-slate-700 leading-[1.65] max-w-lg font-medium">
               Sales. Onboarding. Support. Success.<br />
               Different tools. Different data. Different handoffs.<br />
               One customer caught in the middle.
@@ -349,7 +349,14 @@ const ProblemSection = () => {
               <p className="text-sm text-slate-700 dark:text-slate-300 font-medium leading-snug">
                 <span className="text-blue-600 dark:text-blue-400 font-extrabold">80%+</span> of enterprise data remains unstructured and scattered across disconnected systems.
               </p>
-              <p className="text-xs font-bold text-blue-600 dark:text-blue-400 mt-2">— IDC</p>
+              <a 
+                href="https://www.idc.com/resource-center/blog/ai-cant-run-on-stale-data-why-enterprises-are-rethinking-their-architecture/?utm_source=dexkor.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block mt-3"
+              >
+                <img src="/logos/IDC-Logo-BeaconBlue.svg" alt="IDC" className="h-4 w-auto opacity-90 hover:opacity-100 transition-opacity dark:invert dark:brightness-200" />
+              </a>
             </div>
           </motion.div>
         </div>
@@ -357,10 +364,10 @@ const ProblemSection = () => {
         {/* ── ROW 2: Custom Connector Visualization ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] items-stretch gap-0">
           <div className="pr-8 py-4 border-r border-slate-100 dark:border-white/5 flex flex-col justify-center">
-            <h3 className="text-base font-extrabold text-slate-900 dark:text-white leading-tight mb-4">What your<br />teams use today</h3>
+            <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4">What your<br />teams use today</h3>
             <ul className="space-y-2">
               {["Multiple tools.", "Disconnected data.", "Fragmented context."].map(text => (
-                <li key={text} className="text-xs text-slate-500 dark:text-slate-500 font-medium">{text}</li>
+                <li key={text} className="text-xs text-slate-700 dark:text-slate-700 font-medium">{text}</li>
               ))}
             </ul>
           </div>
@@ -373,13 +380,13 @@ const ProblemSection = () => {
 
         {/* ── Title + Subtitle ── */}
         <div>
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-slate-900 dark:text-white">
             Disconnected tools don't just slow teams.
           </h2>
-          <h2 className="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight text-blue-600 dark:text-blue-400 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-blue-600 dark:text-blue-400 mb-3">
             They hurt revenue.
           </h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400 font-medium max-w-md leading-relaxed">
+          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium max-w-md leading-[1.65]">
             Fragmented systems create gaps across your customer lifecycle—<br />
             and the cost shows up everywhere.
           </p>
@@ -428,7 +435,7 @@ const ProblemSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{title}</h4>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
+                  <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium">{desc}</p>
                 </div>
               </div>
               {/* Bottom: stat badge */}
@@ -444,7 +451,7 @@ const ProblemSection = () => {
         <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm overflow-hidden">
           {/* Header */}
           <div className="px-6 pt-5 pb-1">
-            <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">The cost of disconnected systems</p>
+            <h3 className="text-3xl font-semibold text-slate-600 dark:text-slate-700">The cost of disconnected systems</h3>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-0">
@@ -488,11 +495,11 @@ const ProblemSection = () => {
                       <Icon className={cn("w-4 h-4", iconColor)} strokeWidth={2} />
                     </div>
                     {/* Big number */}
-                    <p className={cn("text-3xl font-extrabold leading-none", valColor)}>{val}</p>
+                    <p className={cn("text-3xl font-bold leading-none", valColor)}>{val}</p>
                     {/* Label + description */}
                     <div>
                       <p className="text-sm font-bold text-slate-900 dark:text-white mb-1">{label}</p>
-                      <p className="text-xs text-slate-400 dark:text-slate-500 leading-relaxed">{sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65]">{sub}</p>
                     </div>
                   </div>
 
@@ -517,7 +524,7 @@ const ProblemSection = () => {
                 <img
                   src="/images/logowhite.png"
                   alt="DexKor"
-                  className="h-8 bg-blue-600 p-1 rounded-sm w-auto object-contain block dark:hidden"
+                  className="h-8 bg-[#1E4D92] p-2 rounded-sm w-auto object-contain block dark:hidden"
                 />
                 <img
                   src="/images/logowhite.png"
@@ -529,7 +536,7 @@ const ProblemSection = () => {
 
               {/* Copy */}
               <div>
-                <p className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-snug mb-2">
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-700 leading-snug mb-2">
                   This is what disconnected systems cost.
                 </p>
                 <p className="text-base font-extrabold text-blue-600 dark:text-blue-400 leading-snug">

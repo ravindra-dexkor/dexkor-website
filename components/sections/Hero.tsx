@@ -35,7 +35,7 @@ const HubCard = ({
         </div>
         <div className="min-w-0">
           <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{title}</p>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{desc}</p>
+          <p className="text-[10px] text-slate-700 dark:text-slate-700 leading-tight mt-0.5">{desc}</p>
         </div>
       </div>
       <div className={cn("mt-1.5 inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full", statColor)}>
@@ -63,8 +63,8 @@ const MiniDashboard = () => (
       <img src="/images/logowhite.png" alt="Dexkor Logo" className="bg-blue-600 rounded-md px-2 py-1 h-5" />
 
       <div className="ml-auto flex items-center gap-2">
-        <Search className="w-3.5 h-3.5 text-slate-400" />
-        <Bell className="w-3.5 h-3.5 text-slate-400" />
+        <Search className="w-3.5 h-3.5 text-slate-700" />
+        <Bell className="w-3.5 h-3.5 text-slate-700" />
         <div className="w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center">
           <span className="text-white text-[9px] font-black">AR</span>
         </div>
@@ -76,7 +76,7 @@ const MiniDashboard = () => (
       <div className="w-28 border-r border-slate-100 dark:border-white/5 py-2 shrink-0 bg-white dark:bg-[#0a0e1a]">
         {["Dashboards", "Customers", "Convo", "Tickets", "Reports", "Insights"].map((item, i) => (
           <div key={item} className={cn("flex items-center gap-2 px-3 py-1.5 cursor-pointer",
-            i === 0 ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600" : "text-slate-500 dark:text-slate-500 hover:bg-slate-50"
+            i === 0 ? "bg-blue-50 dark:bg-blue-500/10 text-blue-600" : "text-slate-700 dark:text-slate-700 hover:bg-slate-50"
           )}>
             <div className={cn("w-1.5 h-1.5 rounded-full shrink-0", i === 0 ? "bg-blue-600" : "bg-slate-300 dark:bg-slate-600")} />
             <span className="text-[9px] font-bold">{item}</span>
@@ -88,7 +88,7 @@ const MiniDashboard = () => (
       <div className="flex-1 p-3 overflow-hidden">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-bold text-slate-900 dark:text-white">Executive Overview</span>
-          <div className="flex items-center gap-1 text-[9px] text-slate-500 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">
+          <div className="flex items-center gap-1 text-[9px] text-slate-700 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">
             Last 30 days <ChevronDown className="w-2.5 h-2.5" />
           </div>
         </div>
@@ -103,7 +103,7 @@ const MiniDashboard = () => (
             { label: "CSAT", val: "4.6/5", trend: "+0.4", up: true },
           ].map((k) => (
             <div key={k.label} className="bg-slate-50 dark:bg-white/5 rounded-lg p-1.5">
-              <p className="text-[8px] text-slate-500 dark:text-slate-400 leading-none mb-0.5">{k.label}</p>
+              <p className="text-[8px] text-slate-700 dark:text-slate-700 leading-none mb-0.5">{k.label}</p>
               <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none">{k.val}</p>
               <p className="text-[8px] text-emerald-500 font-bold mt-0.5">{k.trend}</p>
             </div>
@@ -114,7 +114,7 @@ const MiniDashboard = () => (
         <div className="grid grid-cols-3 gap-2">
           {/* Sales Trend */}
           <div className="bg-slate-50 dark:bg-white/5 rounded-lg p-1.5">
-            <p className="text-[8px] font-bold text-slate-500 mb-1">Sales Trend</p>
+            <p className="text-[8px] font-bold text-slate-700 mb-1">Sales Trend</p>
             <svg viewBox="0 0 80 30" className="w-full h-8">
               <polyline points="0,25 15,20 30,22 45,10 60,12 75,5" fill="none" stroke="#3b82f6" strokeWidth="1.5" />
               <polyline points="0,25 15,20 30,22 45,10 60,12 75,5 75,30 0,30" fill="url(#blueGrad)" opacity="0.2" />
@@ -128,7 +128,7 @@ const MiniDashboard = () => (
           </div>
           {/* Tickets by Channel */}
           <div className="bg-slate-50 dark:bg-white/5 rounded-lg p-1.5">
-            <p className="text-[8px] font-bold text-slate-500 mb-1">Tickets by Channel</p>
+            <p className="text-[8px] font-bold text-slate-700 mb-1">Tickets by Channel</p>
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 30 30" className="w-8 h-8 shrink-0">
                 <circle cx="15" cy="15" r="12" fill="transparent" stroke="#e2e8f0" strokeWidth="6" />
@@ -143,7 +143,7 @@ const MiniDashboard = () => (
                 {[["Email", "36%", "#6366f1"], ["Chat", "26%", "#3b82f6"], ["Phone", "20%", "#a855f7"]].map(([l, v, c]) => (
                   <div key={l} className="flex items-center gap-1">
                     <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: c }} />
-                    <span className="text-[7px] text-slate-500">{l}</span>
+                    <span className="text-[7px] text-slate-700">{l}</span>
                     <span className="text-[7px] font-bold text-slate-700 dark:text-slate-300 ml-auto">{v}</span>
                   </div>
                 ))}
@@ -152,7 +152,7 @@ const MiniDashboard = () => (
           </div>
           {/* Customer Health */}
           <div className="bg-slate-50 dark:bg-white/5 rounded-lg p-1.5">
-            <p className="text-[8px] font-bold text-slate-500 mb-1">Customer Health</p>
+            <p className="text-[8px] font-bold text-slate-700 mb-1">Customer Health</p>
             <div className="flex items-center gap-1.5">
               <svg viewBox="0 0 30 30" className="w-8 h-8 shrink-0">
                 <circle cx="15" cy="15" r="12" fill="transparent" stroke="#e2e8f0" strokeWidth="6" />
@@ -167,7 +167,7 @@ const MiniDashboard = () => (
                 {[["Healthy", "58%", "#22c55e"], ["At Risk", "27%", "#f59e0b"], ["Churn", "15%", "#ef4444"]].map(([l, v, c]) => (
                   <div key={l} className="flex items-center gap-1">
                     <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: c }} />
-                    <span className="text-[7px] text-slate-500">{l}</span>
+                    <span className="text-[7px] text-slate-700">{l}</span>
                     <span className="text-[7px] font-bold text-slate-700 dark:text-slate-300 ml-auto">{v}</span>
                   </div>
                 ))}
@@ -213,7 +213,7 @@ const Hero = () => {
             <motion.h1
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.08 }}
-              className="text-3xl lg:text-[2.4rem] font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-white"
+              className="text-3xl lg:text-[2.6rem] font-bold leading-[0.95] tracking-[-0.04em] text-slate-900 dark:text-white"
             >
 
               AI-native{" "}
@@ -225,7 +225,7 @@ const Hero = () => {
             <motion.p
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.16 }}
-              className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed max-w-md font-medium"
+              className="text-sm text-slate-700 dark:text-slate-700 leading-[1.65] max-w-md font-medium"
             >
               DexKor unifies every customer touchpoint from acquisition and onboarding to support, success, and expansion, to reduce churn, increase retention, and drive growth.
             </motion.p>
@@ -263,10 +263,10 @@ const Hero = () => {
                 { icon: Globe, label: "Built for", sub: "Global Teams" },
               ].map(({ icon: Icon, label, sub }) => (
                 <div key={label} className="flex items-center gap-1.5">
-                  <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-slate-500 shrink-0" />
+                  <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-slate-700 shrink-0" />
                   <div>
                     <span className="text-xs font-bold text-slate-700 dark:text-slate-300">{label}</span>
-                    <span className="text-xs text-slate-400 dark:text-slate-500 ml-1">{sub}</span>
+                    <span className="text-xs text-slate-700 dark:text-slate-700 ml-1">{sub}</span>
                   </div>
                 </div>
               ))}
@@ -285,11 +285,11 @@ const Hero = () => {
               ].map(({ icon: Icon, val, label }) => (
                 <div key={val} className="flex items-start  gap-2">
                   <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-white/5 flex items-center justify-center shrink-0 mt-0.5">
-                    <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-slate-400" />
+                    <Icon className="w-3.5 h-3.5 text-blue-600 dark:text-slate-700" />
                   </div>
                   <div>
-                    <p className="text-base font-extrabold text-slate-900 dark:text-white leading-none">{val}</p>
-                    <p className="text-xs text-slate-500 leading-tight mt-0.5 min-w-[150px] max-w-[150px]">{label}</p>
+                    <p className="text-base font-bold text-slate-900 dark:text-white leading-none">{val}</p>
+                    <p className="text-xs text-slate-700 leading-tight mt-0.5 min-w-[150px] max-w-[150px]">{label}</p>
                   </div>
                 </div>
               ))}
@@ -366,7 +366,7 @@ const Hero = () => {
                     <img src="/images/Dexy_AI_LOGO.svg" alt="Dexkor Logo" className="w-25 h-25 rounded-full" />
                   </div>
                   {/* <span className="text-xs font-black text-slate-900 dark:text-white tracking-wider">DEXY AI</span> */}
-                  {/* <span className="text-[9px] text-slate-500 dark:text-slate-400 text-center leading-none px-2">Embedded Intelligence<br/>Across the Journey</span> */}
+                  {/* <span className="text-[9px] text-slate-700 dark:text-slate-700 text-center leading-none px-2">Embedded Intelligence<br/>Across the Journey</span> */}
                 </div>
               </motion.div>
 
@@ -395,7 +395,7 @@ const Hero = () => {
         className="w-full border-t border-slate-200 dark:border-white/5 bg-slate-50/80 dark:bg-white/[0.02] backdrop-blur-sm py-3 px-6 relative z-10"
       >
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4 sm:gap-0 justify-between">
-          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 shrink-0">
+          <p className="text-xs font-bold text-slate-700 dark:text-slate-700 shrink-0">
             Replace <span className="text-pink-500">6+</span> disconnected tools<br className="hidden sm:block" />
             with one AI-native operating system.
           </p>
@@ -413,7 +413,7 @@ const Hero = () => {
                 <div className="flex items-center justify-center w-22 h-8 bg-white dark:bg-white/5 rounded-md border border-slate-200 dark:border-white/10 shadow-sm p-0 px-2 hover:scale-110 transition-transform">
                   <img src={logo.src} alt={logo.name} className="max-w-full max-h-full object-contain" title={logo.name} />
                 </div>
-                {i < arr.length - 1 && <Plus className="w-2.5 h-2.5 text-slate-500 dark:text-slate-700 shrink-0" />}
+                {i < arr.length - 1 && <Plus className="w-2.5 h-2.5 text-slate-700 dark:text-slate-700 shrink-0" />}
               </React.Fragment>
             ))}
             <motion.div
@@ -423,7 +423,7 @@ const Hero = () => {
             >
               <ArrowRight className="w-4 h-4 text-blue-500 shrink-0" />
             </motion.div>
-            <div className="flex items-center gap-1.5 bg-blue-600 px-3 py-1 rounded-full">
+            <div className="flex items-center gap-1.5 bg-[#1E4D92] px-3 py-3 rounded-full">
               {/* <span className="text-white font-black text-xs tracking-wider">DEXKOR</span> */}
               <img src="/images/logowhite.png" alt="Dexkor Logo" className=" h-4" />
             </div>

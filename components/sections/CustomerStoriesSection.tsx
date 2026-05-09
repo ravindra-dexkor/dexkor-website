@@ -72,10 +72,10 @@ const StoryCard = ({
       {/* Challenge */}
       <div className="space-y-2">
         <div className="flex items-center gap-2">
-          <AlertCircle className="w-3.5 h-3.5 text-slate-400" />
-          <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">CHALLENGE</span>
+          <AlertCircle className="w-3.5 h-3.5 text-slate-700" />
+          <span className="text-xs font-bold text-slate-700 uppercase tracking-wider">CHALLENGE</span>
         </div>
-        <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-xs text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
           {challenge}
         </p>
       </div>
@@ -86,7 +86,7 @@ const StoryCard = ({
           <CheckCircle2 className="w-3.5 h-3.5 text-blue-500" />
           <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">WITH DEXKOR</span>
         </div>
-        <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">
+        <p className="text-xs text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
           {solution}
         </p>
       </div>
@@ -98,8 +98,8 @@ const StoryCard = ({
           <span className={cn("text-xs font-bold uppercase tracking-wider", colorClass)}>OUTCOME</span>
         </div>
         <div className="flex items-baseline gap-2">
-          <span className={cn("text-3xl font-black tracking-tighter", colorClass)}>{outcomeValue}</span>
-          <span className="text-xs text-slate-500 dark:text-slate-400 font-bold leading-tight max-w-[100px]">
+          <span className={cn("text-3xl font-bold tracking-tighter", colorClass)}>{outcomeValue}</span>
+          <span className="text-xs text-slate-700 dark:text-slate-700 font-bold leading-tight max-w-[100px]">
             {outcomeDesc}
           </span>
         </div>
@@ -168,11 +168,11 @@ const CustomerStoriesSection = () => {
           </div>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-4 max-w-2xl">
-              <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em]">
                 Built with teams<br />
                 that refuse <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">reactive growth.</span>
               </h2>
-              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed">
+              <p className="text-slate-700 dark:text-slate-700 text-sm font-medium leading-[1.65]">
                 See how modern B2B teams use DexKor to unify operations, reduce churn risk, accelerate onboarding, and unlock expansion.
               </p>
             </div>

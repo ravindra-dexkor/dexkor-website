@@ -12,10 +12,10 @@ import { cn } from "@/lib/utils";
 
 /* ─── HubCard — exact same as Hero ──────────────────────────── */
 const HubCard = ({
-  title, desc, stat, statColor, icon: Icon, iconBg, iconColor, delay, position
+  title, desc, stat, statColor, icon: Icon, logo, iconBg, iconColor, delay, position
 }: {
   title: string; desc: string; stat: string; statColor: string;
-  icon: React.ElementType; iconBg: string; iconColor: string;
+  icon: React.ElementType; logo?: string; iconBg: string; iconColor: string;
   delay: number; position: string;
 }) => (
   <motion.div
@@ -30,12 +30,17 @@ const HubCard = ({
   >
     <div className="flex flex-col items-start gap-1">
       <div className="flex items-center gap-2">
-        <div className={cn("w-8 h-8 rounded-xl flex items-center justify-center shrink-0", iconBg)}>
-          <Icon className={cn("w-4 h-4", iconColor)} />
+        <div className={cn("w-8 h-8 rounded-xl flex items-center justify-center shrink-0 overflow-hidden", iconBg)}>
+          {logo ? (
+            <img src={logo} alt={title} className="w-6 h-6 object-contain p-1"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
+          ) : (
+            <Icon className={cn("w-4 h-4", iconColor)} />
+          )}
         </div>
         <div className="min-w-0">
           <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{title}</p>
-          <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{desc}</p>
+          <p className="text-[10px] text-slate-700 dark:text-slate-700 leading-tight mt-0.5">{desc}</p>
         </div>
       </div>
       <div className={cn("mt-1 inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full", statColor)}>
@@ -102,14 +107,14 @@ const hubCards = [
   {
     title: "OnboardHub", desc: "Accelerate implementation.",
     stat: "↑ 40% faster", statColor: "text-emerald-600 bg-emerald-50 dark:bg-emerald-500/10",
-    icon: BarChart3, iconBg: "bg-emerald-50 dark:bg-emerald-500/10", iconColor: "text-emerald-600",
+    icon: BarChart3, logo: "/logos/onbaordhub.svg", iconBg: "bg-emerald-50 dark:bg-emerald-500/10", iconColor: "text-emerald-600",
     position: "top-0 left-0", delay: 0.4,
   },
   // TC — SalesHub
   {
     title: "SalesHub", desc: "Win pipeline. Forecast growth.",
     stat: "+32% Pipeline", statColor: "text-blue-600 bg-blue-50 dark:bg-blue-500/10",
-    icon: Rocket, iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600",
+    icon: Rocket, logo: "/logos/saleshub.svg", iconBg: "bg-blue-50 dark:bg-blue-500/10", iconColor: "text-blue-600",
     position: "top-0 left-1/2 -translate-x-1/2", delay: 0.5,
   },
   // TR — Pipeline KPI
@@ -123,7 +128,7 @@ const hubCards = [
   {
     title: "AccountCare", desc: "Retain customers. Expand revenue.",
     stat: "+25% Expansion", statColor: "text-purple-600 bg-purple-50 dark:bg-purple-500/10",
-    icon: Users, iconBg: "bg-purple-50 dark:bg-purple-500/10", iconColor: "text-purple-600",
+    icon: Users, logo: "/logos/accountcare.svg", iconBg: "bg-purple-50 dark:bg-purple-500/10", iconColor: "text-purple-600",
     position: "top-1/2 right-0 -translate-y-1/2", delay: 0.7,
   },
   // BR — Expansion Revenue KPI
@@ -137,7 +142,7 @@ const hubCards = [
   {
     title: "HelpDesk", desc: "Resolve faster. Scale support.",
     stat: "+28% CSAT", statColor: "text-orange-600 bg-orange-50 dark:bg-orange-500/10",
-    icon: Headphones, iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600",
+    icon: Headphones, logo: "/logos/helpdesk.svg", iconBg: "bg-orange-50 dark:bg-orange-500/10", iconColor: "text-orange-600",
     position: "bottom-0 left-1/2 -translate-x-1/2", delay: 0.9,
   },
   // BL — Resolution Time KPI
@@ -167,21 +172,21 @@ const SolutionSection = () => {
 
           {/* LEFT */}
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-            
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-[1.05] tracking-tight mb-5">
+
+            <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] mb-5">
               One platform.<br />Every team.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">One customer journey.</span>
             </h2>
-            <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed font-medium max-w-md mb-6">
-              From first touch to renewal, every team works from the same customer context—powered by AI, automation, and real-time intelligence.            </p>
+            <p className="text-sm text-slate-700 dark:text-slate-700 leading-[1.65] font-medium max-w-md mb-6">
+              From first touch to renewal, every team works from the same customer context, powered by AI, automation, and real-time intelligence.            </p>
             <ul className="space-y-2.5 mb-8">
-              {[" Real-time signals across onboarding, support, and growth", " AI automates workflows before issues escalate", "Real-time signals across onboarding, support, and growth"].map(item => (
+              {["One customer timeline across every team, support, and growth", " AI automates workflows before issues escalate", " Real-time signals across onboarding, support, and growth"].map(item => (
                 <li key={item} className="flex items-center gap-2.5 text-sm font-medium text-slate-700 dark:text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-blue-500 shrink-0" />{item}
                 </li>
               ))}
             </ul>
-          
+
           </motion.div>
 
           {/* RIGHT — Hub diagram (Hero pattern, 8 cards) */}
@@ -229,7 +234,7 @@ const SolutionSection = () => {
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
                   {/* <span className="text-white font-black text-xl absolute">D</span> */}
                 </div>
-                <span className="text-[9px] text-slate-500 dark:text-slate-400 text-center leading-none px-2">
+                <span className="text-[9px] text-slate-700 dark:text-slate-700 text-center leading-none px-2">
                   Embedded Intelligence<br />Across the Journey
                 </span>
               </div>
@@ -247,7 +252,7 @@ const SolutionSection = () => {
           <div className="grid grid-cols-1 lg:grid-cols-[220px_1fr] divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
             {/* Header */}
             <div className="px-8 py-6 flex flex-col justify-center">
-              <p className="text-base font-bold text-slate-900 dark:text-white leading-[1.2]">
+              <p className="text-xl font-bold text-slate-900 dark:text-white leading-[1.2]">
                 Built for scale.<br />
                 Powered by <span className="text-blue-600">one<br />operating layer.</span>
               </p>
@@ -260,8 +265,8 @@ const SolutionSection = () => {
                     <Icon className={cn("w-5 h-5", color)} strokeWidth={2} />
                   </div>
                   <div>
-                    <h4 className="text-[13px] font-extrabold text-slate-900 dark:text-white mb-2 leading-tight">{label}</h4>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 leading-normal font-medium">{sub}</p>
+                    <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2 leading-tight">{label}</h4>
+                    <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65] font-medium">{sub}</p>
                   </div>
                 </div>
               ))}
