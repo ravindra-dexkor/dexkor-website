@@ -89,10 +89,7 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "wpb1pgay60");
           `}
         </Script>
-        <Script
-          src="https://t.contentsquare.net/uxa/56d857030cb64.js"
-          strategy="afterInteractive"
-        />
+       
         <ThemeProvider>
           <Navbar />
           <div className="pt-16">
