@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   Building2,
   Target,
@@ -33,10 +34,10 @@ const aboutLinks = [
 ];
 
 const trustLinks = [
-  { title: "Security Center", description: "Enterprise-grade security built for trust.", icon: ShieldCheck, color: "text-indigo-600", bgColor: "bg-indigo-50 dark:bg-indigo-500/10" },
-  { title: "Compliance", description: "SOC 2, ISO 27001, GDPR and more.", icon: FileText, color: "text-slate-700 dark:text-slate-300", bgColor: "bg-slate-50 dark:bg-white/5" },
-  { title: "Privacy", description: "Your data is yours. Always private, always protected.", icon: Lock, color: "text-emerald-600", bgColor: "bg-emerald-50 dark:bg-emerald-500/10" },
-  { title: "Terms of Service", description: "Read our terms and responsible use policies.", icon: FileText, color: "text-slate-700 dark:text-slate-300", bgColor: "bg-slate-50 dark:bg-white/5" },
+  { title: "Security Center", href: "/dpa", description: "Enterprise-grade security built for trust.", icon: ShieldCheck, color: "text-indigo-600", bgColor: "bg-indigo-50 dark:bg-indigo-500/10" },
+  { title: "Compliance", href: "/dpa", description: "SOC 2, ISO 27001, GDPR and more.", icon: FileText, color: "text-slate-700 dark:text-slate-300", bgColor: "bg-slate-50 dark:bg-white/5" },
+  { title: "Privacy", href: "/privacy-policy", description: "Your data is yours. Always private, always protected.", icon: Lock, color: "text-emerald-600", bgColor: "bg-emerald-50 dark:bg-emerald-500/10" },
+  { title: "Terms of Service", href: "/terms-of-service", description: "Read our terms and responsible use policies.", icon: FileText, color: "text-slate-700 dark:text-slate-300", bgColor: "bg-slate-50 dark:bg-white/5" },
 ];
 
 const founders = [
@@ -130,7 +131,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">Trust & Compliance</h3>
               <div className="space-y-2">
                 {trustLinks.map((item) => (
-                  <div key={item.title} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer">
+                  <Link key={item.title} href={item.href} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer" onClick={onClose}>
                     <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm transition-colors", item.bgColor, item.color)}>
                       <item.icon className="w-5 h-5" />
                     </div>
@@ -141,7 +142,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                       </div>
                       <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-tight">{item.description}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
               {/* <button className="mt-6 text-indigo-600 text-xs font-bold flex items-center gap-1 hover:gap-2 transition-all pl-2">
@@ -238,69 +239,69 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
           <div className="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl border-t border-slate-100 dark:border-white/5 p-6">
             <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
               <div className="lg:col-span-3 flex items-center gap-2">
-                <a 
-                  href="https://startupmahakumbh.co.in/images/winner26/DEXKORCRM.jpg" 
-                  target="_blank" 
+                <a
+                  href="https://startupmahakumbh.co.in/images/winner26/DEXKORCRM.jpg"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-20 h-14 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm hover:scale-105 transition-transform shrink-0"
                 >
-                  <img 
-                    src="/logos/startupkamahakumbh.jpg" 
-                    alt="Startup Mahakumbh Winner" 
+                  <img
+                    src="/logos/startupkamahakumbh.jpg"
+                    alt="Startup Mahakumbh Winner"
                     className="w-full h-full object-contain p-1.5"
                   />
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Best Tech Startup 2026</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a 
-                  href="https://startupmahakumbh.co.in/images/winner26/DEXKORCRM.jpg" 
-                  target="_blank" 
-                  className="text-blue-600"
-                  rel="noopener noreferrer">Winner</a> @ Startup ka Mahakumbh 5.0</p>
+                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a
+                    href="https://startupmahakumbh.co.in/images/winner26/DEXKORCRM.jpg"
+                    target="_blank"
+                    className="text-blue-600"
+                    rel="noopener noreferrer">Winner</a> @ Startup ka Mahakumbh 5.0</p>
                 </div>
               </div>
 
-                 <div className="lg:col-span-3 flex items-center gap-4">
-                <a 
-                  href="https://www.google.com/search?q=dexkor+top+100+startup+to+watch+in+2025+by+idfc&rlz=1C5MACD_enIN1161IN1161&oq=dexkor+top+100+startup+to+watch+in+2025+by+idfc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDk1OTBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" 
-                  target="_blank" 
+              <div className="lg:col-span-3 flex items-center gap-4">
+                <a
+                  href="https://www.google.com/search?q=dexkor+top+100+startup+to+watch+in+2025+by+idfc&rlz=1C5MACD_enIN1161IN1161&oq=dexkor+top+100+startup+to+watch+in+2025+by+idfc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDk1OTBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-20 h-14 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm hover:scale-105 transition-transform shrink-0"
                 >
-                  <img 
-                    src="/logos/leaptounicorn.png" 
-                    alt="LeapToUnicorn Dexkor " 
+                  <img
+                    src="/logos/leaptounicorn.png"
+                    alt="LeapToUnicorn Dexkor "
                     className="w-full h-full object-contain p-1.5"
                   />
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Top 100 startups India - 2025</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a 
-                  href="https://www.google.com/search?q=dexkor+top+100+startup+to+watch+in+2025+by+idfc&rlz=1C5MACD_enIN1161IN1161&oq=dexkor+top+100+startup+to+watch+in+2025+by+idfc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDk1OTBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8" 
-                  target="_blank" 
-                  className="text-blue-600"
-                  rel="noopener noreferrer">Selected</a>  by IDFC FIRST Bank in association with Moneycontrol and CNBC-TV18</p>
+                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a
+                    href="https://www.google.com/search?q=dexkor+top+100+startup+to+watch+in+2025+by+idfc&rlz=1C5MACD_enIN1161IN1161&oq=dexkor+top+100+startup+to+watch+in+2025+by+idfc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDk1OTBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
+                    target="_blank"
+                    className="text-blue-600"
+                    rel="noopener noreferrer">Selected</a>  by IDFC FIRST Bank in association with Moneycontrol and CNBC-TV18</p>
                 </div>
               </div>
               <div className="lg:col-span-3 flex items-center gap-4">
-                <a 
-                  href="https://images.moneycontrol.com/mcnews/images/top100.pdf" 
-                  target="_blank" 
+                <a
+                  href="https://images.moneycontrol.com/mcnews/images/top100.pdf"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="w-20 h-14 bg-white rounded-xl flex items-center justify-center overflow-hidden border border-slate-200 shadow-sm hover:scale-105 transition-transform shrink-0"
                 >
-                  <img 
-                    src="/logos/forbesindia.png" 
-                    alt="Forbes India" 
+                  <img
+                    src="/logos/forbesindia.png"
+                    alt="Forbes India"
                     className="w-full h-full object-contain p-2"
                   />
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Forbes India Recognition</h4>
                   <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium">
-                    <a 
-                      href="https://images.moneycontrol.com/mcnews/images/top100.pdf" 
-                      target="_blank" 
+                    <a
+                      href="https://images.moneycontrol.com/mcnews/images/top100.pdf"
+                      target="_blank"
                       className="text-blue-600 font-bold"
                       rel="noopener noreferrer"
                     >
@@ -310,7 +311,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     Featured in Top 100 List
                   </p>
                 </div>
-              
+
               </div>
 
               {/* <div className="lg:col-span-5 flex items-center justify-between border-x-0 lg:border-x border-slate-100 dark:border-white/5 px-0 lg:px-8">
