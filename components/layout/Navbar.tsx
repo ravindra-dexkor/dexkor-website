@@ -11,11 +11,13 @@ import ResourcesMegaMenu from "./ResourcesMegaMenu";
 import CompanyMegaMenu from "./CompanyMegaMenu";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
+import ExpertFormModal from "../ExpertFormModal";
 
 const Navbar = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isExpertModalOpen, setIsExpertModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -93,15 +95,14 @@ const Navbar = () => {
             {/* <Link href="/login" className="hidden sm:block text-sm font-bold hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Login
             </Link> */}
-            <Link 
-              href="https://calendly.com/richard-dexkor/dexkor-demo-call-with-founder"
-              target="_blank"
+            <button 
+              onClick={() => setIsExpertModalOpen(true)}
               className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-4 py-2 sm:px-5 sm:py-2 rounded-full text-sm font-bold flex items-center gap-2 transition-all group shadow-lg shadow-blue-500/20"
             >
-              <span className="hidden sm:inline">Book a demo</span>
-              <span className="sm:hidden">Book a demo</span>
+              <span className="hidden sm:inline">Talk to Expert</span>
+              <span className="sm:hidden">Talk to Expert</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </button>
 
             {/* MOBILE TOGGLE */}
             <button
@@ -159,6 +160,10 @@ const Navbar = () => {
           )}
         </div>
       )}
+      <ExpertFormModal 
+        isOpen={isExpertModalOpen}
+        onClose={() => setIsExpertModalOpen(false)}
+      />
     </nav>
   );
 };

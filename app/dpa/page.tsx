@@ -1,6 +1,7 @@
 import React from "react";
 import LegalLayout from "@/components/layout/LegalLayout";
 import { Download, Mail, MapPin, Phone } from "lucide-react";
+import GatedDownloadSection from "@/components/legal/GatedDownloadSection";
 
 export const metadata = {
   title: "Data Processing Addendum - DexKor",
@@ -18,7 +19,7 @@ export default function DPAPage() {
         Our Terms of Service incorporate the DPA by reference, effective from 20 December, 2024, eliminating the need for a separate signed document in most cases.
       </p>
       
-      <div className="my-12 p-8 bg-blue-50 dark:bg-blue-500/5 rounded-3xl border border-blue-100 dark:border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* <div className="my-12 p-8 bg-blue-50 dark:bg-blue-500/5 rounded-3xl border border-blue-100 dark:border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 mt-0">Download DPA</h3>
           <p className="mb-0 text-slate-700 dark:text-slate-700 text-sm">Download the PDF version for your records and compliance requirements.</p>
@@ -27,12 +28,25 @@ export default function DPAPage() {
           href="https://dexkor.com/richard/wp-content/uploads/2025/07/Data-Processing-Addendum-DPA.pdf" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full transition-all shadow-lg shadow-blue-500/20 active:scale-95 shrink-0"
+          className="inline-flex items-center gap-2 px-8 py-4 bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold rounded-full transition-all active:scale-95 shrink-0"
         >
           <Download className="w-4 h-4" />
           Download PDF
         </a>
-      </div>
+      </div> */}
+
+      <GatedDownloadSection 
+        title="Data Processing Addendum"
+        description="Download our comprehensive Data Processing Addendum (Version 1.0)."
+        downloadUrl="/doc/Data Processing Addendum (DPA).pdf"
+        buttonText="Download Data Processing Addendum"
+      />
+      {/* <GatedDownloadSection 
+        title="InfoSec Policy"
+        description="Download our comprehensive Information Security Policy (Version 1.0)."
+        downloadUrl="/doc/DexKor_InfoSec_Policy_1.0.pdf"
+        buttonText="Download InfoSec Policy"
+      /> */}
 
       <p>
         If your organization requires a signed copy of the DPA for compliance or internal governance purposes, please email us at <a href="mailto:privacy@dexkor.com">privacy@dexkor.com</a>. We’ll be happy to review and return a countersigned copy of our standard DPA.
