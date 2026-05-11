@@ -30,7 +30,7 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, satoshi.variable, "font-sans")}
     >
       <body className="bg-background text-foreground transition-colors duration-300">
-        <Script
+        {/* <Script
           src="https://chat-widget-snowy.vercel.app/static/js/v1/widget.js"
           strategy="afterInteractive"
         />
@@ -66,7 +66,7 @@ export default function RootLayout({
               }
             })();
           `}
-        </Script>
+        </Script> */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-XB56M0QBPG"
           strategy="afterInteractive"
