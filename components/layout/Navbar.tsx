@@ -55,7 +55,7 @@ const Navbar = () => {
         )}>
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-2.5 group">
-              <img src="/images/DxLogo.svg" alt="DexKor" className="h-6 w-auto object-contain dark:invert dark:brightness-200" />
+              <img src="/images/DxLogo.svg" alt="DexKor" className="h-6 w-auto object-contain dark:brightness-0 dark:invert" />
           </Link>
 
           {/* DESKTOP NAV */}
