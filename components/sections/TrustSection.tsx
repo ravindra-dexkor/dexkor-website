@@ -34,7 +34,7 @@ const TrustCard = ({
       {features.map((f, i) => (
         <li key={i} className="flex items-center gap-2.5">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-          <span className="text-xs text-slate-700 dark:text-slate-700 font-medium">{f}</span>
+          <span className="text-xs text-slate-700 dark:text-slate-400 font-medium">{f}</span>
         </li>
       ))}
     </ul>
@@ -100,7 +100,7 @@ const TrustSection = () => (
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Not added later.</span>
           </h2>
 
-          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65] mb-6 max-w-sm">
+          <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-[1.65] mb-6 max-w-sm">
             Security, compliance, reliability, extensibility, and AI governance built into DexKor from day one.
           </p>
 

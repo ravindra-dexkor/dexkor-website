@@ -26,7 +26,7 @@ export default function TermsOfServicePage() {
           </div>
           <div>
             <h4 className="font-black text-slate-900 dark:text-white text-sm mb-1">Legal Eligibility</h4>
-            <p className="text-xs text-slate-700 dark:text-slate-700 font-medium leading-relaxed">You must be 18+ and have authority to bind your organization.</p>
+            <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">You must be 18+ and have authority to bind your organization.</p>
           </div>
         </div>
         <div className="p-6 rounded-2xl bg-slate-50/50 dark:bg-white/[0.02] border border-slate-100 dark:border-white/10 flex items-start gap-4">
@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
           </div>
           <div>
             <h4 className="font-black text-slate-900 dark:text-white text-sm mb-1">Service License</h4>
-            <p className="text-xs text-slate-700 dark:text-slate-700 font-medium leading-relaxed">A limited, non-exclusive license for internal business use.</p>
+            <p className="text-xs text-slate-700 dark:text-slate-400 font-medium leading-relaxed">A limited, non-exclusive license for internal business use.</p>
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function TermsOfServicePage() {
           "Attempt to gain unauthorized access to our systems",
           "Resell, sublicense, or commercially exploit the Service"
         ].map(item => (
-          <div key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-700 font-medium">
+          <div key={item} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-400 font-medium">
             <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
             {item}
           </div>
@@ -83,7 +83,7 @@ export default function TermsOfServicePage() {
             <div className="w-1.5 h-1.5 rounded-full bg-blue-500 mt-2 shrink-0" />
             <div>
               <span className="font-extrabold text-slate-900 dark:text-white mr-2">{point.title}:</span>
-              <span className="text-slate-700 dark:text-slate-700 font-medium">{point.desc}</span>
+              <span className="text-slate-700 dark:text-slate-400 font-medium">{point.desc}</span>
             </div>
           </li>
         ))}
@@ -94,7 +94,7 @@ export default function TermsOfServicePage() {
         4. Refund Policy
       </h2>
       <p className="leading-relaxed mb-8">Refunds are issued at our sole discretion and will be considered only in the event of:</p>
-      <ul className="space-y-2 my-6 pl-6 list-disc text-slate-700 dark:text-slate-700">
+      <ul className="space-y-2 my-6 pl-6 list-disc text-slate-700 dark:text-slate-400">
         <li>Technical issues that prevent meaningful use of the Service</li>
         <li>Duplicate charges</li>
         <li>Errors in billing or accidental overcharges</li>
@@ -126,7 +126,7 @@ export default function TermsOfServicePage() {
         8. Prohibited Activities
       </h2>
       <p className="leading-relaxed mb-8">The following use cases are not permitted:</p>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 my-6 pl-6 list-disc text-slate-700 dark:text-slate-700">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 my-6 pl-6 list-disc text-slate-700 dark:text-slate-400">
         <li>Spam, phishing, or illegal advertising</li>
         <li>Pornographic or adult content</li>
         <li>Gambling or betting services</li>
@@ -153,7 +153,7 @@ export default function TermsOfServicePage() {
         11. Limitation of Liability
       </h2>
       <p className="leading-relaxed mb-8">To the fullest extent permitted by law:</p>
-      <ul className="space-y-4 my-6 pl-6 list-disc text-slate-700 dark:text-slate-700">
+      <ul className="space-y-4 my-6 pl-6 list-disc text-slate-700 dark:text-slate-400">
         <li>The Service is provided <strong>“as is”</strong> without warranties of any kind.</li>
         <li>We shall not be liable for any indirect, incidental, or consequential damages including lost profits, data loss, or reputational damage.</li>
         <li>Our total liability shall not exceed the amount paid by you in the previous 6 months.</li>
@@ -176,7 +176,7 @@ export default function TermsOfServicePage() {
       <div className="mt-16 pt-8 border-t border-slate-100 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
         <div>
           <h4 className="font-bold text-slate-900 dark:text-white mb-2">Still have questions?</h4>
-          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium">Contact our legal team for clarification on any of these terms.</p>
+          <p className="text-sm text-slate-700 dark:text-slate-400 font-medium">Contact our legal team for clarification on any of these terms.</p>
         </div>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <a 

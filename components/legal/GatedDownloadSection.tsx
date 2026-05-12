@@ -27,7 +27,7 @@ export default function GatedDownloadSection({
             <ShieldCheck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-0 mt-0">{title}</h3>
           </div>
-          <p className="mb-0 text-slate-700 dark:text-slate-700 text-sm">{description}</p>
+          <p className="mb-0 text-slate-700 dark:text-slate-400 text-sm">{description}</p>
         </div>
         <button 
           onClick={() => setIsModalOpen(true)}

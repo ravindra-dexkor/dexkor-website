@@ -45,7 +45,7 @@ const LegalLayout: React.FC<LegalLayoutProps> = ({ title, lastUpdated, children 
           >
             <Link 
               href="/" 
-              className="inline-flex items-center gap-2.5 text-[10px] font-black text-slate-700 hover:text-blue-600 dark:text-slate-700 dark:hover:text-blue-400 transition-all uppercase tracking-[0.2em] group"
+              className="inline-flex items-center gap-2.5 text-[10px] font-black text-slate-700 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-all uppercase tracking-[0.2em] group"
             >
               <div className="w-6 h-6 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center group-hover:border-blue-500/50 transition-colors">
                 <ArrowLeft className="w-3 h-3 group-hover:-translate-x-0.5 transition-transform" />
@@ -76,7 +76,7 @@ const LegalLayout: React.FC<LegalLayoutProps> = ({ title, lastUpdated, children 
               </h1>
               
               {lastUpdated && (
-                <p className="text-xs font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest flex items-center gap-2">
+                <p className="text-xs font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                   Last Updated: {lastUpdated}
                 </p>
@@ -95,8 +95,8 @@ const LegalLayout: React.FC<LegalLayoutProps> = ({ title, lastUpdated, children 
               prose-headings:text-slate-900 dark:prose-headings:text-white prose-headings:font-bold prose-headings:tracking-tight
               prose-h2:text-xl md:prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-6
               prose-h3:text-lg md:prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:text-slate-700 dark:prose-p:text-slate-700 prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:font-medium
-              prose-li:text-slate-700 dark:prose-li:text-slate-700 prose-li:text-base prose-li:font-medium
+              prose-p:text-slate-700 dark:prose-p:text-slate-400 prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:font-medium
+              prose-li:text-slate-700 dark:prose-li:text-slate-400 prose-li:text-base prose-li:font-medium
               prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:font-bold hover:prose-a:text-blue-500 transition-all border-b border-blue-600/20 hover:border-blue-600
               prose-strong:text-slate-900 dark:prose-strong:text-white prose-strong:font-bold"
             >

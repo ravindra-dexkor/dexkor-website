@@ -127,14 +127,14 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <ArrowRight className="w-4 h-4 rotate-180" />
               Back to Menu
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700">Platform</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">Platform</span>
           </div>
 
           <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
 
             {/* COLUMN 1: CUSTOMER JOURNEY */}
             <div className="col-span-1 md:col-span-3">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-700 mb-6">CUSTOMER JOURNEY</h3>
+              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-400 mb-6">CUSTOMER JOURNEY</h3>
               <div className="space-y-5">
                 {customerJourney.map((module) => (
                   <div key={module.title} className="group flex items-start gap-4 p-1 rounded-xl hover:bg-white dark:hover:bg-white/5 transition-all cursor-pointer">
@@ -153,7 +153,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                           {module.badge}
                         </span>
                       </div>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 leading-relaxed font-medium">{module.description}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 mt-1 leading-relaxed font-medium">{module.description}</p>
                     </div>
                   </div>
                 ))}
@@ -167,15 +167,15 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* COLUMN 2: INTELLIGENCE & CAPABILITIES */}
             <div className="col-span-1 md:col-span-4 border-l border-slate-100 dark:border-white/5 pl-8">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-700 mb-6">INTELLIGENCE LAYER</h3>
+               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-400 mb-6">INTELLIGENCE LAYER</h3>
 
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-15 h-15 bg-blue-600 dark:bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 overflow-hidden shrink-0">
                   <img src="/images/Dexy_AI_LOGO.svg" alt="Dexy AI" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <span className="font-black text-lg text-slate-900 dark:text-white">Dexy AI</span>
-                  <p className="text-xs text-slate-700 font-bold leading-none mt-1 uppercase">AI that understands your customers</p>
+                   <span className="font-black text-lg text-slate-900 dark:text-white">Dexy AI</span>
+                  <p className="text-xs text-slate-700 dark:text-slate-300 font-bold leading-none mt-1 uppercase">AI that understands your customers</p>
                 </div>
               </div>
 
@@ -187,7 +187,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-1.5 group-hover:scale-150 transition-transform shrink-0" />
                         <div>
                           <span className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-purple-600 transition-colors leading-none block">{item.title}</span>
-                          <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-tight font-medium">{item.desc}</p>
+                           <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 leading-tight font-medium">{item.desc}</p>
                         </div>
                       </div>
                     ))}
@@ -199,14 +199,14 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* COLUMN 3: PLATFORM SPOTLIGHT */}
             <div className="col-span-1 md:col-span-5 border-l border-slate-100 dark:border-white/5 pl-8 flex flex-col">
-              <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-700 mb-6">PLATFORM SPOTLIGHT</h3>
+               <h3 className="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-400 mb-6">PLATFORM SPOTLIGHT</h3>
 
               <div className="flex-1 flex flex-col">
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tight mb-3">
                   Everything connected.<br />
                   <span className="text-blue-600">One unified timeline.</span>
                 </h2>
-                <p className="text-xs text-slate-700 dark:text-slate-700 max-w-sm font-medium leading-relaxed mb-6">
+                 <p className="text-xs text-slate-700 dark:text-slate-400 max-w-sm font-medium leading-relaxed mb-6">
                   See every customer interaction, across every channel and team, in a single AI-powered workspace.
                 </p>
 
@@ -222,7 +222,7 @@ const PlatformMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                       <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
                       <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                     </div>
-                    <span className="text-xs font-black text-slate-700 uppercase tracking-widest">Unified Timeline</span>
+                     <span className="text-xs font-black text-slate-700 dark:text-slate-400 uppercase tracking-widest">Unified Timeline</span>
                   </div>
                   <div className="p-2 h-full">
                     <img

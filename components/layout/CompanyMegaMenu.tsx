@@ -98,13 +98,13 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <ArrowRight className="w-4 h-4 rotate-180" />
               Back to Menu
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700">Company</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">Company</span>
           </div>
 
           <div className="max-w-full mx-auto px-6 py-8 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
             {/* ABOUT DEXKOR */}
             <div className="col-span-1 md:col-span-3">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">About DexKor</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-6">About DexKor</h3>
               <div className="space-y-2">
                 {aboutLinks.map((item) => (
                   <div key={item.title} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer">
@@ -116,7 +116,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                         <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </div>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-tight">{item.description}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -128,7 +128,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* TRUST & COMPLIANCE */}
             <div className="col-span-1 md:col-span-3 border-l-0 md:border-l border-slate-100 dark:border-white/5 pl-0 md:pl-12">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">Trust & Compliance</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-6">Trust & Compliance</h3>
               <div className="space-y-2">
                 {trustLinks.map((item) => (
                   <Link key={item.title} href={item.href} className="group flex items-start gap-4 p-2 rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 transition-all cursor-pointer" onClick={onClose}>
@@ -140,7 +140,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                         <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </div>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-tight">{item.description}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </Link>
                 ))}
@@ -186,17 +186,17 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                                 </React.Fragment>
                               ))}
                             </h2>
-                            <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium max-w-xs">
+                            <p className="text-xs text-slate-700 dark:text-slate-400 leading-relaxed font-medium max-w-xs">
                               {founders[currentFounder].description}
                             </p>
                           </div>
 
                           <div>
-                            <div className="font-serif text-2xl text-slate-700 dark:text-slate-700 mb-0.5 italic opacity-60">
+                            <div className="font-serif text-2xl text-slate-700 dark:text-slate-400 mb-0.5 italic opacity-60">
                               {founders[currentFounder].signature}
                             </div>
                             <p className="text-xs font-bold text-slate-900 dark:text-white">{founders[currentFounder].name}</p>
-                            <p className="text-xs text-slate-700 dark:text-slate-700 font-medium">{founders[currentFounder].role}</p>
+                            <p className="text-xs text-slate-700 dark:text-slate-400 font-medium">{founders[currentFounder].role}</p>
                           </div>
                         </div>
 
@@ -253,7 +253,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Best Tech Startup 2026</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a
+                  <p className="text-xs text-slate-700 dark:text-slate-400 mt-1 font-medium"> <a
                     href="https://startupmahakumbh.co.in/images/winner26/DEXKORCRM.jpg"
                     target="_blank"
                     className="text-blue-600"
@@ -276,7 +276,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Top 100 startups India - 2025</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium"> <a
+                  <p className="text-xs text-slate-700 dark:text-slate-400 mt-1 font-medium"> <a
                     href="https://www.google.com/search?q=dexkor+top+100+startup+to+watch+in+2025+by+idfc&rlz=1C5MACD_enIN1161IN1161&oq=dexkor+top+100+startup+to+watch+in+2025+by+idfc&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQABjvBTIHCAIQABjvBTIHCAMQABjvBTIHCAQQABjvBTIKCAUQABiABBiiBNIBCDk1OTBqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8"
                     target="_blank"
                     className="text-blue-600"
@@ -298,7 +298,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                 </a>
                 <div>
                   <h4 className="font-black text-sm text-slate-900 dark:text-white leading-tight">Forbes India Recognition</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 mt-1 font-medium">
+                  <p className="text-xs text-slate-700 dark:text-slate-400 mt-1 font-medium">
                     <a
                       href="https://images.moneycontrol.com/mcnews/images/top100.pdf"
                       target="_blank"
@@ -326,13 +326,13 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                       <stat.icon className="w-3.5 h-3.5 text-indigo-500" />
                       <span className="text-sm font-black text-slate-800 dark:text-slate-100">{stat.val}</span>
                     </div>
-                    <p className="text-xs font-bold text-slate-700 dark:text-slate-700 uppercase tracking-wider">{stat.label}</p>
+                    <p className="text-xs font-bold text-slate-700 dark:text-slate-400 uppercase tracking-wider">{stat.label}</p>
                   </div>
                 ))}
               </div> */}
 
               <div className="lg:col-span-3 flex flex-col items-center gap-3">
-                <p className="text-xs font-black text-slate-700 dark:text-slate-700 tracking-[0.15em]  text-center w-full">Backed & Incubated by</p>
+                <p className="text-xs font-black text-slate-700 dark:text-slate-400 tracking-[0.15em]  text-center w-full">Backed & Incubated by</p>
                 <div className="flex items-center gap-6 opacity-100 transition-all duration-500">
                   <img src="/logos/startupindia.png" alt="Startup India" className="h-12 w-auto object-contain" />
                   <img src="/logos/aicrntu.png" alt="AIC RNTU" className="h-8 w-auto object-contain" />
@@ -341,7 +341,7 @@ const CompanyMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-50 flex justify-center items-center gap-2 text-xs text-slate-700 dark:text-slate-700 font-medium">
+            <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-50 flex justify-center items-center gap-2 text-xs text-slate-700 dark:text-slate-400 font-medium">
               <Lock className="w-3 h-3" />
               DexKor is committed to building a secure, inclusive, and transparent company.
             </div>

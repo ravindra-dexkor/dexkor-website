@@ -22,7 +22,7 @@ export default function DPAPage() {
       {/* <div className="my-12 p-8 bg-blue-50 dark:bg-blue-500/5 rounded-3xl border border-blue-100 dark:border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 mt-0">Download DPA</h3>
-          <p className="mb-0 text-slate-700 dark:text-slate-700 text-sm">Download the PDF version for your records and compliance requirements.</p>
+          <p className="mb-0 text-slate-700 dark:text-slate-400 text-sm">Download the PDF version for your records and compliance requirements.</p>
         </div>
         <a 
           href="https://dexkor.com/richard/wp-content/uploads/2025/07/Data-Processing-Addendum-DPA.pdf" 

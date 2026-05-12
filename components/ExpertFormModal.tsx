@@ -147,7 +147,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
             <div className="px-8 py-6 border-b border-slate-100 dark:border-white/5 flex items-center justify-between bg-slate-50/50 dark:bg-white/[0.02]">
               <div>
                 <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">{title}</h3>
-                <p className="text-xs text-slate-700 font-medium mt-1">{subtitle}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-400 font-medium mt-1">{subtitle}</p>
               </div>
               <button
                 onClick={onClose}
@@ -165,7 +165,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                     <CheckCircle2 className="w-10 h-10 text-emerald-500" />
                   </div>
                   <h4 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{mode === "download" ? "Download Started!" : "Request Sent!"}</h4>
-                  <p className="text-slate-700 dark:text-slate-700">
+                  <p className="text-slate-700 dark:text-slate-400">
                     {mode === "download" 
                       ? "Thank you for your interest. Your download should begin shortly." 
                       : "Our experts will reach out to you shortly."}
@@ -175,7 +175,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Full Name</label>
+                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Full Name</label>
                       <input
                         required
                         name="name"
@@ -186,7 +186,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Work Email</label>
+                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Work Email</label>
                       <input
                         required
                         type="email"
@@ -201,7 +201,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Phone Number</label>
+                      <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Phone Number</label>
                       <input
                         required
                         name="phone"
@@ -213,7 +213,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                     </div>
                     {mode === "demo" && (
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Designation</label>
+                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Designation</label>
                         <input
                           required
                           name="designation"
@@ -229,7 +229,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                   {mode === "demo" && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Country</label>
+                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Country</label>
                         <input
                           required
                           name="country"
@@ -240,7 +240,7 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                         />
                       </div>
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest pl-1">Product Interest</label>
+                        <label className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest pl-1">Product Interest</label>
                         <div className="relative">
                           <select
                             required
@@ -249,14 +249,14 @@ const ExpertFormModal: React.FC<ExpertFormModalProps> = ({
                             onChange={handleInputChange}
                             className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition-all text-sm font-medium appearance-none cursor-pointer"
                           >
-                            <option value="" disabled className="text-slate-700">Select a product</option>
+                            <option value="" disabled className="text-slate-700 dark:text-slate-400">Select a product</option>
                             {products.map((p) => (
                               <option key={p} value={p} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
                                 {p}
                               </option>
                             ))}
                           </select>
-                          <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-700 pointer-events-none" />
+                          <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-700 dark:text-slate-400 pointer-events-none" />
                         </div>
                       </div>
                     </div>

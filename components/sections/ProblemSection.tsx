@@ -289,7 +289,7 @@ const ConnectorDiagram = () => {
         </motion.div>
         <div>
           <p className="font-bold text-sm text-slate-900 dark:text-white">Every handoff creates risk.</p>
-          <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 font-medium">
+          <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 font-medium">
             Lost context. Delayed responses. Missed renewals. Frustrated customers.
           </p>
         </div>
@@ -311,7 +311,7 @@ const ProblemCard = ({
     </div>
     <div>
       <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{title}</h4>
-      <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium">{desc}</p>
+      <p className="text-xs text-slate-700 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
     </div>
   </div>
 );
@@ -329,7 +329,7 @@ const ProblemSection = () => {
               Your tools manage stages.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Your customers experience <br /> one journey.</span>
             </h2>
-            <p className="text-sm text-slate-700 dark:text-slate-700 leading-[1.65] max-w-lg font-medium">
+            <p className="text-sm text-slate-700 dark:text-slate-400 leading-[1.65] max-w-lg font-medium">
               Sales. Onboarding. Support. Success.<br />
               Different tools. Different data. Different handoffs.<br />
               One customer caught in the middle.
@@ -367,7 +367,7 @@ const ProblemSection = () => {
             <h3 className="text-xl font-extrabold text-slate-900 dark:text-white leading-tight mb-4">What your<br />teams use today</h3>
             <ul className="space-y-2">
               {["Multiple tools.", "Disconnected data.", "Fragmented context."].map(text => (
-                <li key={text} className="text-xs text-slate-700 dark:text-slate-700 font-medium">{text}</li>
+                <li key={text} className="text-xs text-slate-700 dark:text-slate-400 font-medium">{text}</li>
               ))}
             </ul>
           </div>
@@ -386,7 +386,7 @@ const ProblemSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold leading-[0.95] tracking-[-0.04em] text-blue-600 dark:text-blue-400 mb-3">
             They hurt revenue.
           </h2>
-          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium max-w-md leading-[1.65]">
+          <p className="text-sm text-slate-700 dark:text-slate-400 font-medium max-w-md leading-[1.65]">
             Fragmented systems create gaps across your customer lifecycle—<br />
             and the cost shows up everywhere.
           </p>
@@ -435,7 +435,7 @@ const ProblemSection = () => {
                 </div>
                 <div>
                   <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-1">{title}</h4>
-                  <p className="text-xs text-slate-700 dark:text-slate-700 leading-relaxed font-medium">{desc}</p>
+                  <p className="text-xs text-slate-700 dark:text-slate-400 leading-relaxed font-medium">{desc}</p>
                 </div>
               </div>
               {/* Bottom: stat badge */}
@@ -451,7 +451,7 @@ const ProblemSection = () => {
         <div className="rounded-2xl border border-slate-200 dark:border-white/10 bg-white dark:bg-white/5 shadow-sm overflow-hidden">
           {/* Header */}
           <div className="px-6 pt-5 pb-1">
-            <h3 className="text-3xl font-semibold text-slate-600 dark:text-slate-700">The cost of disconnected systems</h3>
+            <h3 className="text-3xl font-semibold text-slate-600 dark:text-slate-400">The cost of disconnected systems</h3>
           </div>
 
           <div className="flex flex-col lg:flex-row gap-0">
@@ -499,7 +499,7 @@ const ProblemSection = () => {
                     {/* Label + description */}
                     <div>
                       <p className="text-sm font-bold text-slate-900 dark:text-white mb-1">{label}</p>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65]">{sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 leading-[1.65]">{sub}</p>
                     </div>
                   </div>
 
@@ -536,7 +536,7 @@ const ProblemSection = () => {
 
               {/* Copy */}
               <div>
-                <p className="text-sm font-semibold text-slate-600 dark:text-slate-700 leading-snug mb-2">
+                <p className="text-sm font-semibold text-slate-600 dark:text-slate-400 leading-snug mb-2">
                   This is what disconnected systems cost.
                 </p>
                 <p className="text-base font-extrabold text-blue-600 dark:text-blue-400 leading-snug">

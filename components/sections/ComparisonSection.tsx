@@ -101,7 +101,7 @@ const ComparisonSection = () => {
             Every disconnected customer moment<br />
             is <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">revenue left behind.</span>
           </h2>
-          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
+          <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-[1.65]">
             While teams switch between tools, customers wait, risks escalate,<br className="hidden md:block" />
             renewals slip, and expansion opportunities disappear.
           </p>
@@ -142,7 +142,7 @@ const ComparisonSection = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{item.title}</p>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 font-medium mt-0.5">{item.sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 font-medium mt-0.5">{item.sub}</p>
                     </div>
                     <div ref={el => { leftRefs.current[i] = el; }}
                       className="w-6 h-6 rounded-full bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 flex items-center justify-center shrink-0 z-30">
@@ -165,9 +165,9 @@ const ComparisonSection = () => {
                 </motion.div>
               </div>
               <div className="text-center leading-snug">
-                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest">FROM</p>
+                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest">FROM</p>
                 <p className="text-xs font-black text-red-500 uppercase tracking-wide">REACTIVE</p>
-                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-700 uppercase tracking-widest mt-0.5">TO</p>
+                <p className="text-[10px] font-bold text-slate-700 dark:text-slate-400 uppercase tracking-widest mt-0.5">TO</p>
                 <p className="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-wide">PREDICTIVE</p>
               </div>
             </div>
@@ -192,7 +192,7 @@ const ComparisonSection = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{item.title}</p>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 font-medium mt-0.5">{item.sub}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 font-medium mt-0.5">{item.sub}</p>
                     </div>
                   </div>
                 ))}
@@ -211,7 +211,7 @@ const ComparisonSection = () => {
               <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0">
                 <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
               </div>
-              <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-snug">
+              <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-snug">
                 Disconnected moments don't just slow teams down<br />
                 <span className="font-extrabold text-slate-900 dark:text-white">they show up in your numbers.</span>
               </p>
@@ -225,7 +225,7 @@ const ComparisonSection = () => {
                   </div>
                   <div>
                     <p className={cn("text-xl font-extrabold leading-none", color)}>{val}</p>
-                    <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 font-medium">{label}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 font-medium">{label}</p>
                   </div>
                 </div>
               ))}
@@ -253,7 +253,7 @@ const ComparisonSection = () => {
             Your teams <span className="text-blue-600 dark:text-blue-400">should too.</span>
           </h3>
 
-          <p className="text-slate-700 dark:text-slate-700 text-sm md:text-base font-medium max-w-xl leading-[1.65] mb-8">
+          <p className="text-slate-700 dark:text-slate-400 text-sm md:text-base font-medium max-w-xl leading-[1.65] mb-8">
             Replace fragmented tools with one AI-native platform built for support, onboarding, success, and growth.
           </p>
 
@@ -271,42 +271,42 @@ const ComparisonSection = () => {
 
           {/* Compliance Row */}
           <div className="w-full pt-8 border-t border-slate-100 dark:border-white/5 relative z-10">
-            <p className="text-xs font-bold text-slate-700 uppercase tracking-[0.2em] mb-8">Trusted by modern customer-first companies</p>
+            <p className="text-xs font-bold text-slate-700 dark:text-slate-400 uppercase tracking-[0.2em] mb-8">Trusted by modern customer-first companies</p>
             <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-80">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                  <ShieldAlert className="w-4 h-4 text-slate-700" />
+                  <ShieldAlert className="w-4 h-4 text-slate-700 dark:text-slate-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">SOC 2</p>
-                  <p className="text-[8px] text-slate-700 font-bold uppercase">Type II</p>
+                  <p className="text-[8px] text-slate-700 dark:text-slate-400 font-bold uppercase">Type II</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                  <Lock className="w-4 h-4 text-slate-700" />
+                  <Lock className="w-4 h-4 text-slate-700 dark:text-slate-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">GDPR</p>
-                  <p className="text-[8px] text-slate-700 font-bold uppercase">Compliant</p>
+                  <p className="text-[8px] text-slate-700 dark:text-slate-400 font-bold uppercase">Compliant</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-slate-700" />
+                  <Check className="w-4 h-4 text-slate-700 dark:text-slate-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ISO 27001</p>
-                  <p className="text-[8px] text-slate-700 font-bold uppercase">Compliant</p>
+                  <p className="text-[8px] text-slate-700 dark:text-slate-400 font-bold uppercase">Compliant</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-slate-50 dark:bg-white/5 flex items-center justify-center">
-                  <Users2 className="w-4 h-4 text-slate-700" />
+                  <Users2 className="w-4 h-4 text-slate-700 dark:text-slate-400" />
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] font-black text-slate-900 dark:text-white leading-none mb-1">ENTERPRISE</p>
-                  <p className="text-[8px] text-slate-700 font-bold uppercase">Ready</p>
+                  <p className="text-[8px] text-slate-700 dark:text-slate-400 font-bold uppercase">Ready</p>
                 </div>
               </div>
             </div>

@@ -30,7 +30,7 @@ const ProductNode = ({ data }: { data: { icon: React.ElementType; logo?: string;
       </div>
       <div>
         <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{data.title}</p>
-        <p className="text-xs text-slate-700 dark:text-slate-700 leading-tight mt-0.5">{data.sub}</p>
+        <p className="text-xs text-slate-700 dark:text-slate-400 leading-tight mt-0.5">{data.sub}</p>
       </div>
       <Handle type="source" position={Position.Bottom} className="!w-2 !h-2 !bg-blue-400 !border-0 !opacity-70" />
     </div>
@@ -52,14 +52,14 @@ const DexyNode = ({ data }: { data: Record<string, never> }) => (
       </div>
       <div>
         <p className="font-extrabold text-sm text-slate-900 dark:text-white tracking-wide">DEXY AI</p>
-        <p className="text-xs text-slate-700 dark:text-slate-700">Embedded Intelligence Layer</p>
+        <p className="text-xs text-slate-700 dark:text-slate-400">Embedded Intelligence Layer</p>
       </div>
     </div>
     <div className="grid grid-cols-2 gap-x-5 gap-y-1 border-t border-slate-100 dark:border-white/5 pt-2 w-full">
       {["AI Signals & Insights", "Workflow Automation", "Unified Data Model", "Predictive Actions"].map((f) => (
         <div key={f} className="flex items-center gap-1">
           <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
-          <span className="text-xs text-slate-700 dark:text-slate-700">{f}</span>
+          <span className="text-xs text-slate-700 dark:text-slate-400">{f}</span>
         </div>
       ))}
     </div>
@@ -163,7 +163,7 @@ const OperatingLayerSection = () => (
           Every team works in one system.<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Every customer lives in one timeline.</span>
         </h2>
-        <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65]">
+        <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-[1.65]">
           From pipeline to onboarding, support to renewal—<br className="hidden md:block" />
           every interaction, every workflow, every signal in one shared operating layer.
         </p>
@@ -195,7 +195,7 @@ const OperatingLayerSection = () => (
               </div>
               <div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">{label}</p>
-                <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-snug">{sub}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 leading-snug">{sub}</p>
               </div>
             </div>
           ))}
@@ -215,7 +215,7 @@ const OperatingLayerSection = () => (
               </div>
               <div>
                 <p className={cn("text-2xl font-bold leading-none", color)}>{val}</p>
-                <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5">{label}</p>
+                <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5">{label}</p>
                 {delta && <p className={cn("text-xs font-bold mt-0.5", delta.startsWith("↑") ? "text-emerald-500" : "text-orange-500")}>{delta}</p>}
               </div>
             </div>

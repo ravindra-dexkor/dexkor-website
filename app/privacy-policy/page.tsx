@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
         <div className="p-8 rounded-[32px] bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20">
           <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400 mb-4" />
           <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2 mt-0">Contact Details</h3>
-          <p className="text-sm text-slate-700 dark:text-slate-700 mb-4">Questions about this policy? Reach out to our Data Protection Officer.</p>
+          <p className="text-sm text-slate-700 dark:text-slate-400 mb-4">Questions about this policy? Reach out to our Data Protection Officer.</p>
           <ul className="list-none pl-0 space-y-2 text-sm font-bold">
             <li className="flex items-center gap-2">
               <Mail className="w-3.5 h-3.5" />
@@ -39,7 +39,7 @@ export default function PrivacyPolicyPage() {
         <div className="p-8 rounded-[32px] bg-emerald-50 dark:bg-emerald-500/5 border border-emerald-100 dark:border-emerald-500/20">
           <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mb-4" />
           <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2 mt-0">Your Protection</h3>
-          <p className="text-sm text-slate-700 dark:text-slate-700 mb-4">We implement enterprise-grade safeguards to secure your personal data.</p>
+          <p className="text-sm text-slate-700 dark:text-slate-400 mb-4">We implement enterprise-grade safeguards to secure your personal data.</p>
           <div className="flex flex-wrap gap-2">
             {["SOC 2 Ready", "GDPR Compliant", "ISO 27001"].map(badge => (
               <span key={badge} className="px-2.5 py-1 rounded-full bg-emerald-100/50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 text-[10px] font-black uppercase tracking-wider">{badge}</span>
@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
             <h4 className="font-bold text-slate-900 dark:text-white mb-3 mt-0 uppercase text-[11px] tracking-widest">{group.title}</h4>
             <div className="flex flex-wrap gap-x-6 gap-y-2">
               {group.items.map(item => (
-                <div key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-700">
+                <div key={item} className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-400">
                   <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
                   {item}
                 </div>
@@ -131,7 +131,7 @@ export default function PrivacyPolicyPage() {
         ].map(cookie => (
           <div key={cookie.label} className="p-4 rounded-xl border border-slate-100 dark:border-white/10">
             <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">{cookie.label} Cookies</h4>
-            <p className="text-xs text-slate-700 dark:text-slate-700">{cookie.desc}</p>
+            <p className="text-xs text-slate-700 dark:text-slate-400">{cookie.desc}</p>
           </div>
         ))}
       </div>

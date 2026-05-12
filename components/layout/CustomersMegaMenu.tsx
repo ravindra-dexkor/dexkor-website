@@ -88,7 +88,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               <ArrowRight className="w-4 h-4 rotate-180" />
               Back to Menu
             </button>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700">Customers</span>
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400">Customers</span>
           </div>
 
           <div className="max-w-full mx-auto px-6 py-6 grid grid-cols-1 md:grid-cols-12 gap-x-12 gap-y-8">
@@ -98,7 +98,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-700">
+                  <div className="flex items-center gap-2 text-slate-700 dark:text-slate-400">
                     <Truck className="w-4 h-4" />
                     <span className="text-xs font-bold uppercase tracking-widest">Logistics SaaS</span>
                   </div>
@@ -108,7 +108,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                     resolution.
                   </h2>
 
-                  <p className="text-sm text-slate-700 dark:text-slate-700 leading-relaxed max-w-md">
+                  <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed max-w-md">
                     How a leading logistics SaaS unified support, onboarding, and success to deliver exceptional customer experiences at scale.
                   </p>
 
@@ -124,7 +124,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                           <span className="text-lg font-bold">{stat.val}</span>
                         </div>
                         <p className="text-xs font-bold text-slate-800 dark:text-slate-100">{stat.label}</p>
-                        <p className="text-xs text-slate-700 dark:text-slate-700">{stat.desc}</p>
+                        <p className="text-xs text-slate-700 dark:text-slate-400">{stat.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -172,7 +172,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
 
             {/* EXPLORE CUSTOMERS */}
             <div className="col-span-1 md:col-span-4 border-l-0 md:border-l border-slate-100 dark:border-white/5 pl-0 md:pl-10">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-6">Explore Customers</h3>
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-6">Explore Customers</h3>
 
               <div className="space-y-1">
                 {exploreCustomers.map((item) => (
@@ -185,7 +185,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
                         <span className="font-bold text-sm text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 transition-colors">{item.title}</span>
                         <ArrowRight className="w-3.5 h-3.5 text-slate-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                       </div>
-                      <p className="text-xs text-slate-700 dark:text-slate-700 mt-0.5 leading-tight">{item.description}</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-400 mt-0.5 leading-tight">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -213,7 +213,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
             <div className="max-w-7xl mx-auto px-6 py-2 flex flex-col md:flex-row items-stretch justify-between gap-8">
               {/* EXPLORE BY INDUSTRY */}
               <div className="flex-1">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-2">Explore by Industry</h3>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Explore by Industry</h3>
                 <div className="flex flex-wrap items-center gap-x-10 gap-y-2">
                   {[
                     { name: "SaaS", icon: Cloud, active: false },
@@ -244,7 +244,7 @@ const CustomersMegaMenu: React.FC<MegaMenuProps> = ({ isOpen, onClose }) => {
               {/* TRUSTED BY */}
               <div className="flex-[0.8] flex flex-col justify-between">
                 <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-700 mb-2">Trusted by Innovative Companies</h3>
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-400 mb-2">Trusted by Innovative Companies</h3>
                   <div className="flex items-center gap-4 opacity-100  hover:grayscale-0 hover:opacity-100 transition-all duration-500 mt-4">
                     <img src="/logos/ZOPPING.png" alt="Zopping" className="h-6 w-auto object-contain" />
                     <img src="/logos/RAPISHIP.png" alt="Rapiship" className="h-6 w-auto object-contain" />

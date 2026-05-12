@@ -59,7 +59,7 @@ const KpiCard = ({
     {/* Title + desc */}
     <div>
       <p className="font-bold text-sm text-slate-900 dark:text-white leading-snug mb-1">{title}</p>
-      <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65] font-medium">{desc}</p>
+      <p className="text-xs text-slate-700 dark:text-slate-400 leading-[1.65] font-medium">{desc}</p>
     </div>
 
     {/* Sparkline */}
@@ -150,7 +150,7 @@ const OutcomesSection = () => (
             Measured in outcomes.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">Not activity.</span>
           </h2>
-          <p className="text-sm text-slate-700 dark:text-slate-700 font-medium leading-[1.65] max-w-md">
+          <p className="text-sm text-slate-700 dark:text-slate-400 font-medium leading-[1.65] max-w-md">
             DexKor helps customer-facing teams reduce risk, accelerate time-to-value, improve retention, and unlock expansion—across the entire customer lifecycle.
           </p>
         </motion.div>

@@ -40,7 +40,7 @@ const HubCard = ({
         </div>
         <div className="min-w-0">
           <p className="font-bold text-xs text-slate-900 dark:text-white leading-tight">{title}</p>
-          <p className="text-[10px] text-slate-700 dark:text-slate-700 leading-tight mt-0.5">{desc}</p>
+          <p className="text-[10px] text-slate-700 dark:text-slate-400 leading-tight mt-0.5">{desc}</p>
         </div>
       </div>
       <div className={cn("mt-1 inline-flex text-[10px] font-bold px-1.5 py-0.5 rounded-full", statColor)}>
@@ -177,7 +177,7 @@ const SolutionSection = () => {
               One platform.<br />Every team.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-blue-400 dark:to-blue-300">One customer journey.</span>
             </h2>
-            <p className="text-sm text-slate-700 dark:text-slate-700 leading-[1.65] font-medium max-w-md mb-6">
+            <p className="text-sm text-slate-700 dark:text-slate-400 leading-[1.65] font-medium max-w-md mb-6">
               From first touch to renewal, every team works from the same customer context, powered by AI, automation, and real-time intelligence.            </p>
             <ul className="space-y-2.5 mb-8">
               {["One customer timeline across every team, support, and growth", " AI automates workflows before issues escalate", " Real-time signals across onboarding, support, and growth"].map(item => (
@@ -234,7 +234,7 @@ const SolutionSection = () => {
                     onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
                   {/* <span className="text-white font-black text-xl absolute">D</span> */}
                 </div>
-                <span className="text-[9px] text-slate-700 dark:text-slate-700 text-center leading-none px-2">
+                <span className="text-[9px] text-slate-700 dark:text-slate-400 text-center leading-none px-2">
                   Embedded Intelligence<br />Across the Journey
                 </span>
               </div>
@@ -266,7 +266,7 @@ const SolutionSection = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2 leading-tight">{label}</h4>
-                    <p className="text-xs text-slate-700 dark:text-slate-700 leading-[1.65] font-medium">{sub}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-400 leading-[1.65] font-medium">{sub}</p>
                   </div>
                 </div>
               ))}
