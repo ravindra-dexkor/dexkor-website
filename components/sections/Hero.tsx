@@ -410,7 +410,7 @@ const Hero = () => {
               { name: "Jira", src: "/logos/jira.png" },
             ].map((logo, i, arr) => (
               <React.Fragment key={logo.name}>
-                <div className="flex items-center justify-center w-22 h-8 bg-white dark:bg-white/5 rounded-md border border-slate-200 dark:border-white/10 shadow-sm p-0 px-2 hover:scale-110 transition-transform">
+                <div className="flex items-center justify-center w-22 h-8 bg-white dark:bg-white rounded-md border border-slate-200 dark:border-white/10 shadow-sm p-0 px-2 hover:scale-110 transition-transform">
                   <img src={logo.src} alt={logo.name} className="max-w-full max-h-full object-contain" title={logo.name} />
                 </div>
                 {i < arr.length - 1 && <Plus className="w-2.5 h-2.5 text-slate-700 dark:text-slate-400 shrink-0" />}

@@ -142,7 +142,7 @@ const industryContent: Record<string, any> = {
       { label: "Faster Resolution of Issues", val: "35%", icon: Clock, color: "text-orange-500" },
     ],
     buttonText: "Explore solutions for Services",
-    image: "/images/services_preview.png",
+    image: "/images/DexKor Customer overview dashboard interface.png",
     imageTitle: "Client Success Overview"
   },
   logistics: {

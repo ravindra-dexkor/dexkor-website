@@ -124,7 +124,7 @@ const ConnectorDiagram = () => {
             onMouseLeave={() => setHoveredTool(null)}
             title={tool.label}
             className={cn(
-              "flex items-center justify-center h-11 rounded-xl bg-white dark:bg-slate-900",
+              "flex items-center justify-center h-11 rounded-xl bg-white dark:bg-white",
               "border shadow-sm cursor-default transition-all duration-200 shrink-0 px-3 py-1",
               hoveredTool === i
                 ? "border-slate-400 shadow-md scale-105"
