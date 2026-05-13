@@ -14,7 +14,7 @@ const TOOLS = [
   { id: "rocket", label: "Rocketlane", logo: "/logos/rocketlene.png", color: "#6366f1" },
   { id: "zendesk", label: "Zendesk", logo: "/logos/zendesk.png", color: "#03363d" },
   { id: "freshworks", label: "Freshworks", logo: "/logos/freshworks.png", color: "#22c55e" },
-  { id: "gainsight", label: "Gainsight", logo: "/logos/gainsight.jpg", color: "#00b4e6" },
+  { id: "gainsight", label: "Gainsight", logo: "/logos/gainsight.png", color: "#00b4e6" },
   { id: "zoho", label: "Zoho", logo: "/logos/zoho.png", color: "#e42527" },
   { id: "jira", label: "Jira", logo: "/logos/jira.png", color: "#0052cc" },
 ];

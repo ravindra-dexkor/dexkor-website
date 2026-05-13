@@ -404,7 +404,7 @@ const Hero = () => {
               { name: "Asana", src: "/logos/asana.png" },
               { name: "Freshdesk", src: "/logos/freshdesk.png" },
               { name: "Freshworks", src: "/logos/freshworks.png" },
-              { name: "Gainsight", src: "/logos/gainsight.jpg" },
+              { name: "Gainsight", src: "/logos/gainsight.png" },
               { name: "Zendesk", src: "/logos/zendesk.png" },
               { name: "Zoho", src: "/logos/zoho.png" },
               { name: "Jira", src: "/logos/jira.png" },
