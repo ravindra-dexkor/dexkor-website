@@ -7,6 +7,36 @@ import "@xyflow/react/dist/style.css"
 import { ThemeProvider } from "@/components/layout/theme-provider"
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://dexkor.com"),
+  title: {
+    default: "DexKor | Enterprise CRM & Automation Platform",
+    template: "%s | DexKor",
+  },
+  description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+  keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
+  authors: [{ name: "DexKor Team" }],
+  creator: "DexKor",
+  publisher: "DexKor",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 const satoshi = localFont({
   src: "../public/font/Fonts/WEB/fonts/Satoshi-Variable.woff2",

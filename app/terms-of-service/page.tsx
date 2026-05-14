@@ -4,7 +4,11 @@ import { Scale, FileText, CreditCard, ShieldAlert, Gavel, Mail, RefreshCw, BarCh
 
 export const metadata = {
   title: "Terms of Service - DexKor",
-  description: "Read our terms and conditions for using the DexKor platform and services.",
+  description: "Read our terms and conditions for using the DexKor platform and services, including eligibility, payment terms, and legal jurisdiction.",
+  keywords: ["Terms of Service", "Terms and Conditions", "User Agreement", "Legal Terms", "DexKor"],
+  alternates: {
+    canonical: "/terms-of-service",
+  },
 };
 
 export default function TermsOfServicePage() {

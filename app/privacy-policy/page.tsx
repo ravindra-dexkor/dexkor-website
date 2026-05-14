@@ -4,7 +4,11 @@ import { Mail, MapPin, ShieldCheck, UserCheck, Eye, Lock, Globe, Database, Setti
 
 export const metadata = {
   title: "Privacy Policy - DexKor",
-  description: "Learn how DexKor collects, uses, and protects your personal data.",
+  description: "Learn how DexKor collects, uses, and protects your personal data in accordance with India's IT Act and GDPR.",
+  keywords: ["Privacy Policy", "Data Protection", "Privacy", "GDPR", "IT Act India", "DexKor"],
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

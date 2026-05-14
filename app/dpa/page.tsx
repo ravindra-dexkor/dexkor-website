@@ -5,7 +5,11 @@ import GatedDownloadSection from "@/components/legal/GatedDownloadSection";
 
 export const metadata = {
   title: "Data Processing Addendum - DexKor",
-  description: "Enterprise-grade security and compliance. Read our Data Processing Addendum.",
+  description: "Enterprise-grade security and compliance. Read our Data Processing Addendum to understand how we process your personal data.",
+  keywords: ["DPA", "Data Processing Addendum", "GDPR", "Compliance", "Data Protection", "DexKor"],
+  alternates: {
+    canonical: "/dpa",
+  },
 };
 
 export default function DPAPage() {

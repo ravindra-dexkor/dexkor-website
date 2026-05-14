@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import ProblemSection from "@/components/sections/ProblemSection";
@@ -9,6 +10,15 @@ import ComparisonSection from "@/components/sections/ComparisonSection";
 import FutureSection from "@/components/sections/FutureSection";
 import Footer from "@/components/layout/Footer";
 import OperatingLayerSection from "@/components/sections/OperatingLayerSection";
+
+export const metadata: Metadata = {
+  title: "DexKor | Enterprise CRM & Automation Platform",
+  description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+  keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default function Home() {
   return (
