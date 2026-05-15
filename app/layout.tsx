@@ -16,7 +16,16 @@ export const metadata: Metadata = {
     template: "%s | DexKor",
   },
   description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
-  keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
+  keywords: [
+    "CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor",
+    "ai native support platform", "customer lifecycle platform", "post sale operations platform",
+    "customer lifecycle management software", "ai helpdesk software", "omnichannel support platform",
+    "zendesk alternative", "freshdesk alternative", "customer success software",
+    "churn prediction software", "customer health scoring software", "churnzero alternative",
+    "customer onboarding software", "rocketlane alternative", "sales pipeline software",
+    "zoho crm alternative", "pipedrive alternative", "agentic ai customer support",
+    "ai support copilot", "ai customer success platform"
+  ],
   authors: [{ name: "DexKor Team" }],
   creator: "DexKor",
   publisher: "DexKor",

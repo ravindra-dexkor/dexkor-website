@@ -12,15 +12,24 @@ import Footer from "@/components/layout/Footer";
 import OperatingLayerSection from "@/components/sections/OperatingLayerSection";
 
 export const metadata: Metadata = {
-  title: "DexKor | Enterprise CRM & Automation Platform",
-  description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
-  keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
+  title: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
+  description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
+  keywords: [
+    "CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor",
+    "ai native support platform", "customer lifecycle platform", "post sale operations platform",
+    "customer lifecycle management software", "ai helpdesk software", "omnichannel support platform",
+    "zendesk alternative", "freshdesk alternative", "customer success software",
+    "churn prediction software", "customer health scoring software", "churnzero alternative",
+    "customer onboarding software", "rocketlane alternative", "sales pipeline software",
+    "zoho crm alternative", "pipedrive alternative", "agentic ai customer support",
+    "ai support copilot", "ai customer success platform"
+  ],
   alternates: {
     canonical: "https://dexkor.com",
   },
   openGraph: {
-    title: "DexKor | Enterprise CRM & Automation Platform",
-    description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+    title: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
+    description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
     url: "https://dexkor.com",
     siteName: "DexKor",
     locale: "en_US",
@@ -28,8 +37,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DexKor | Enterprise CRM & Automation Platform",
-    description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+    title: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
+    description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
   },
 };
 
