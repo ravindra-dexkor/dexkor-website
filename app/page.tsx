@@ -16,14 +16,26 @@ export const metadata: Metadata = {
   description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
   keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
   alternates: {
-    canonical: "/",
+    canonical: "https://dexkor.com",
+  },
+  openGraph: {
+    title: "DexKor | Enterprise CRM & Automation Platform",
+    description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+    url: "https://dexkor.com",
+    siteName: "DexKor",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DexKor | Enterprise CRM & Automation Platform",
+    description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
   },
 };
 
 export default function Home() {
   return (
     <main className="min-h-screen overflow-hidden">
-      <Navbar />
       <Hero />
       <ProblemSection />
       <SolutionSection />

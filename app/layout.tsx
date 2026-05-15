@@ -12,10 +12,10 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   metadataBase: new URL("https://dexkor.com"),
   title: {
-    default: "DexKor | Enterprise CRM & Automation Platform",
+    default: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
     template: "%s | DexKor",
   },
-  description: "DexKor is a next-generation enterprise CRM and automation platform designed to streamline your business operations and accelerate growth.",
+  description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
   keywords: ["CRM", "Automation", "Enterprise Software", "Business Growth", "Workflow Automation", "DexKor"],
   authors: [{ name: "DexKor Team" }],
   creator: "DexKor",
@@ -35,6 +35,20 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://dexkor.com",
+    siteName: "DexKor",
+    title: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
+    description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI-Native Support Platform for the Entire Customer Lifecycle | DexKor",
+    description: "DexKor is an AI-native support platform that unifies acquisition, onboarding, support, customer success, and expansion to reduce churn, increase retention, and drive growth.",
+    creator: "@dexkor",
   },
 };
 
